@@ -22,6 +22,8 @@ namespace BrewsMuse.Models
         public int VendorPhone { get; set; }
         //public DateTime Hours { get; set; } //need start and end instead of hours. maybe timespan
         public TimeSpan Hours { get; set; }
+
+
         public List<Beer> Beers { get; set; }
         public List<Band> Bands { get; set; }
         public Vendor()

@@ -8,7 +8,7 @@
     "go": "npm-run-all --parallel dev-server dev-frontend",
     "dev-server" : "dotnet run",
     "dev-frontend" : "webpack --config webpack.config.dev.js --watch",
-    "build-dist": "npm-run-all --parallel compile-js compile-static-assets",
+    "build-dist": "npm-run-all --parallel compile-static-assets compile-static-assets",
     "compile-static-assets" : "webpack",
     "compile-project": "dotnet restore"
 

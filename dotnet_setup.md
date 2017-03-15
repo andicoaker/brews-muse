@@ -17,10 +17,11 @@
   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
   ``` 
-3. In terminal, navigate to `Application/src/Application.web`. 
+3. Clone your team's repository
+4. Inside the project-repoIn terminal, navigate to `Application/src/Application.web`. 
   Execute: `$ dotnet restore`
    + fetches project dependencies
-4. In terminal: `$ dotnet run`
+5. In terminal: `$ dotnet run`
    + Will run the database and a webserver on http://localhost:5000
 
 ### Step 3 - Configure react + backbone build

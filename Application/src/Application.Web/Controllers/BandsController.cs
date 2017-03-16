@@ -22,15 +22,15 @@ namespace Application.Web.Controllers
             _context = context;
         }
 
-        [Route("~/bands")]
-        public IActionResult Band(int id)
+        [Route("~/api/vendors/{vendorsId}/bands")]
+        public IActionResult Band(int vendorsId)
         {
-
-            var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == id);
+        
+            var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == vendorsId);
             return View();
         }
         [HttpGet]
-        [Route("~/bands")]
+        [Route("~/api/vendors/{vendorsId}/bands")]
         public IEnumerable<Band> GetBands()
         {
             var userId = _userManager.GetUserId(User);
@@ -38,7 +38,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> GetBand(int vendorId)
         {
             var userId = _userManager.GetUserId(User);
@@ -53,7 +53,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> PostBand(int vendorId, [FromBody]Band band)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
@@ -82,7 +82,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> PutBand(int id, [FromBody] Band band)
         {
             if (!ModelState.IsValid)
@@ -118,7 +118,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> DeleteBand(int id)
         {
             if (!ModelState.IsValid)

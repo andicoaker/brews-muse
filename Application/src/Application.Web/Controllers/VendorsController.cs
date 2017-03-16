@@ -44,14 +44,13 @@ namespace BrewsMuse.Controllers
         public async Task<IActionResult> GetVendor(int id)
         {
             var userId = _userManager.GetUserId(User);
-            Vendor bar = await _context.Vendors.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
+            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
 
-            if (bar == null)
+            if (vendor == null)
             {
                 return NotFound();
             }
-
-            return Ok(bar);
+            return Ok(vendor);
         }
 
         [HttpPost]

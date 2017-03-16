@@ -7,15 +7,15 @@ import React from 'react'
  		Backbone.history.start()
  	},
 
- 	***** ASK if routes below are set-up correctly *****
+// 	***** ASK if routes below are set-up correctly *****
 
  	routes: {
- 		'api/???' : 'showAllVendorsView',
- 		'api/???' : 'showVendorAccountView',
- 		'/api/???' : 'showVendorProfileView',
- 		'/api/accounts/login' : 'showLoginView',
- 		'/api/accounts/register' : 'showRegisterView',
- 		'???' : 'showHomeView'
+ 		'allvendors' : 'showAllVendorsView',
+ 		'vendoraccount' : 'showVendorAccountView',
+ 		'vendorprofile' : 'showVendorProfileView',
+ 		'login' : 'showLoginView',
+ 		'register' : 'showRegisterView',
+ 		'' : 'showHomeView'
  	},
 
  	showAllVendorsView: function(){

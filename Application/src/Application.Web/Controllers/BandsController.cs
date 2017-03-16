@@ -69,7 +69,7 @@ namespace Application.Web.Controllers
             }
             catch
             {
-                if (GroupExists(band.Id))
+                if (BandExists(band.Id))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -105,7 +105,7 @@ namespace Application.Web.Controllers
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!GroupExists(id))
+                if (!BandExists(id))
                 {
                     return NotFound();
                 }
@@ -137,15 +137,10 @@ namespace Application.Web.Controllers
             return Ok(band);
         }
 
-        private bool GroupExists(int id)
+        private bool BandExists(int id)
         {
             var userId = _userManager.GetUserId(User);
             return _context.Bands.Any(e => e.OwnerId == userId && e.Id == id);
         }
-
-
-
-
-
     }
 }

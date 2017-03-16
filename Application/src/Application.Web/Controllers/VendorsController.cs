@@ -24,17 +24,15 @@ namespace BrewsMuse.Controllers
             _context = context;
         }
 
-
-
         // GET: /<controller>/
-        [Route("~/bars")]
+        [Route("~/vendors")]
         public IActionResult Vendor()
         {
             return View();
         }
 
         [HttpGet]
-        [Route("~/api/bars")]
+        [Route("~/api/vendors")]
         public IEnumerable<Vendor> GetVendors()
         {
             var userId = _userManager.GetUserId(User);
@@ -42,8 +40,8 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/bars/{id}")]
-        public async Task<IActionResult> GetBar(int id)
+        [Route("~/api/vendors/{id}")]
+        public async Task<IActionResult> GetVendor(int id)
         {
             var userId = _userManager.GetUserId(User);
             Vendor bar = await _context.Vendors.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
@@ -57,37 +55,37 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpPost]
-        [Route("~/api/bars")]
-        public async Task<IActionResult> PostBar([FromBody]Vendor bar)
+        [Route("~/api/vendors")]
+        public async Task<IActionResult> PostVendor([FromBody]Vendor vendor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            bar.OwnerId = _userManager.GetUserId(User);
-            _context.Vendors.Add(bar);
+            vendor.OwnerId = _userManager.GetUserId(User);
+            _context.Vendors.Add(vendor);
             await _context.SaveChangesAsync();
 
             return View();
         }
 
         // PUT api/bars/5
-        [HttpPut("~/api/bars/{id}")]
-        public async Task<IActionResult> PutBar(int id, [FromBody] Vendor bar)
+        [HttpPut("~/api/vendors/{id}")]
+        public async Task<IActionResult> PutVendor(int id, [FromBody] Vendor vendor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != bar.Id)
+            if (id != vendor.Id)
             {
                 return BadRequest(Response);
             }
 
-            bar.OwnerId = _userManager.GetUserId(User);
-            _context.Entry(bar).State = EntityState.Modified;
+            vendor.OwnerId = _userManager.GetUserId(User);
+            _context.Entry(vendor).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -95,8 +93,8 @@ namespace BrewsMuse.Controllers
 
 
         // DELETE api/bars/5
-        [HttpDelete("~/api/bars/{id}")]
-        public async Task<IActionResult> DeleteBar(int id)
+        [HttpDelete("~/api/vendors/{id}")]
+        public async Task<IActionResult> DeleteVendor(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -105,22 +103,22 @@ namespace BrewsMuse.Controllers
 
             var userId = _userManager.GetUserId(User);
 
-            Vendor bar = await _context.Vendors
+            Vendor vendor = await _context.Vendors
                 .Where(q => q.OwnerId == userId)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
-            if (bar == null)
+            if (vendor == null)
             {
                 return NotFound();
             }
 
-            _context.Vendors.Remove(bar);
+            _context.Vendors.Remove(vendor);
             await _context.SaveChangesAsync();
 
-            return Ok(bar);
+            return Ok(vendor);
         }
 
-        private bool ConservationExists(int id)
+        private bool VendorExists(int id)
         {
             var userId = _userManager.GetUserId(User);
             return _context.Vendors.Any(e => e.OwnerId == userId && e.Id == id);

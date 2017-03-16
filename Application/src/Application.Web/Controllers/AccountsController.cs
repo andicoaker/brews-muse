@@ -31,29 +31,11 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/username")]
-        public IActionResult Name()
-        {
-            return Ok(User.Identity.Name);
-        }
-
-        [HttpGet]
         [AllowAnonymous]
-        [Route("~/api/accounts/{signature}")]
-        public IActionResult GetInfo(string signature)
+        [Route("~/api/accounts/")]
+        public IActionResult GetInfo()
         {
-            Guid userSignature = Guid.Empty;
-            if (!Guid.TryParse(signature, out userSignature))
-            {
-                var state = new ModelStateDictionary();
-                state.AddModelError("signature", "Invalid user signature format. ");
-                return BadRequest(state);
-            }
-            else
-            {
-                var state = new ModelStateDictionary();
-                return Ok(state);
-            }
+            return Ok(new { IsAuthenticated = User.Identity.IsAuthenticated, Name = User.Identity.Name });
 
         }
 

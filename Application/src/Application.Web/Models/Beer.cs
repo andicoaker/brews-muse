@@ -17,6 +17,5 @@ namespace BrewsMuse.Models
         public int Rating { get; set; }
 
         public Vendor Vendor { get; set; }
-
     }
 }

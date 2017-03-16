@@ -25,28 +25,28 @@ namespace Application.Web.Controllers
         }
         // GET: /<controller>/
 
-        [Route("~/beers")]
-        public IActionResult Beer(int id)
+        [Route("~/api/vendors/{vendorsId}/beers")]
+        public IActionResult Beer(int beerId)
         {
 
-            var vendors = _context.Vendors.Include(q => q.Beers).FirstOrDefault(m => m.Id == id);
+            var vendors = _context.Vendors.Include(q => q.Beers).FirstOrDefault(m => m.Id == beerId);
             return View();
         }
         [HttpGet]
-        [Route("~/beers")]
-        public IEnumerable<Beer> GetBeers()
+        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
+        public IEnumerable<Beer> GetBeers(int id)
         {
             var userId = _userManager.GetUserId(User);
             return _context.Beers.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetBeer(int vendorId) 
+        public async Task<IActionResult> GetBeer(int beerId) 
         {
             var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorId);
-            var beer = vendor.Beers.FirstOrDefault(q => q.Id == vendorId); 
+            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == beerId);
+            var beer = vendor.Beers.FirstOrDefault(q => q.Id == beerId); 
             if (beer == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> PostBeer(int vendorId, [FromBody]Beer beer)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
@@ -84,7 +84,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> PutBeer(int id, [FromBody] Beer beer)
         {
             if (!ModelState.IsValid)
@@ -120,7 +120,7 @@ namespace Application.Web.Controllers
         }
         
         [HttpDelete]
-        [Route("")]
+        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> DeleteBeer(int id)
         {
             if (!ModelState.IsValid)

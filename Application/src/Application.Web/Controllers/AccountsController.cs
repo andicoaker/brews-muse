@@ -119,8 +119,8 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpPost]
-        [Route("~/api/accounts/logoff")]
-        public async Task<IActionResult> Logoff()
+        [Route("~/api/accounts/logout")]
+        public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
 

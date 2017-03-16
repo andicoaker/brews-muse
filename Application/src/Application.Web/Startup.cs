@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using BrewsMuse.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Web
 {
@@ -17,9 +19,15 @@ namespace Application.Web
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            var context = new ApplicationContext();
+            context.Database.Migrate();
+
+            builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            
         }
 
         public IConfigurationRoot Configuration { get; }

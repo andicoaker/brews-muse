@@ -4,74 +4,72 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BrewsMuse.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
-
-
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Application.Web.Controllers
 {
-    public class BeersController : Controller
+    public class BandsController : Controller
     {
         private readonly ApplicationContext _context;
         private UserManager<ApplicationUser> _userManager { get; set; }
-        public BeersController(UserManager<ApplicationUser> userManager, ApplicationContext context)
+        public BandsController(UserManager<ApplicationUser> userManager, ApplicationContext context)
         {
             _userManager = userManager;
             _context = context;
         }
-        // GET: /<controller>/
 
-        [Route("~/beers")]
-        public IActionResult Beer(int id)
+        [Route("~/bands")]
+        public IActionResult Band(int id)
         {
 
-            var vendors = _context.Vendors.Include(q => q.Beers).FirstOrDefault(m => m.Id == id);
+            var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == id);
             return View();
         }
         [HttpGet]
-        [Route("~/beers")]
-        public IEnumerable<Beer> GetBeers()
+        [Route("~/bands")]
+        public IEnumerable<Band> GetBands()
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Beers.Where(q => q.Vendor.OwnerId == userId).ToList();
+            return _context.Bands.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
+
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetBeer(int vendorId) 
+        public async Task<IActionResult> GetBand(int vendorId)
         {
             var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorId);
-            var beer = vendor.Beers.FirstOrDefault(q => q.Id == vendorId); 
-            if (beer == null)
+            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
+            var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
+            if (band == null)
             {
                 return NotFound();
             }
-            return Ok(beer);
+            return Ok(band);
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> PostBeer(int vendorId, [FromBody]Beer beer)
+        public async Task<IActionResult> PostBand(int vendorId, [FromBody]Band band)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            beer.OwnerId = _userManager.GetUserId(User);
-            vendor.Beers.Add(beer);
+            band.OwnerId = _userManager.GetUserId(User);
+            vendor.Bands.Add(band);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch
             {
-                if (GroupExists(beer.Id))
+                if (GroupExists(band.Id))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -80,25 +78,25 @@ namespace Application.Web.Controllers
                     throw;
                 }
             }
-            return CreatedAtAction("GetBeer", new { id = beer.Id }, beer);
+            return CreatedAtAction("GetBand", new { id = band.Id }, band);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IActionResult> PutBeer(int id, [FromBody] Beer beer)
+        public async Task<IActionResult> PutBand(int id, [FromBody] Band band)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != beer.Id)
+            if (id != band.Id)
             {
                 return BadRequest();
             }
 
-            beer.OwnerId = _userManager.GetUserId(User);
-            _context.Entry(beer).State = EntityState.Modified;
+            band.OwnerId = _userManager.GetUserId(User);
+            _context.Entry(band).State = EntityState.Modified;
 
             try
             {
@@ -118,32 +116,36 @@ namespace Application.Web.Controllers
             }
             return NoContent();
         }
-        
+
         [HttpDelete]
         [Route("")]
-        public async Task<IActionResult> DeleteBeer(int id)
+        public async Task<IActionResult> DeleteBand(int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var userId = _userManager.GetUserId(User);
-            Beer beer = await _context.Beers.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
-            if (beer == null)
+            Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            if (band == null)
             {
                 return NotFound();
             }
-            _context.Beers.Remove(beer);
+            _context.Bands.Remove(band);
             await _context.SaveChangesAsync();
 
-            return Ok(beer);
+            return Ok(band);
         }
 
         private bool GroupExists(int id)
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Beers.Any(e => e.OwnerId == userId && e.Id == id);
+            return _context.Bands.Any(e => e.OwnerId == userId && e.Id == id);
         }
+
+
+
+
+
     }
 }
-

@@ -9,10 +9,10 @@ namespace BrewsMuse.Models
 {
     public class ApplicationContext : IdentityDbContext
     {
-        public DbSet<Vendor> Bars { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Band> Bands { get; set; }
-
+        public object Bars { get; internal set; }
 
         public ApplicationContext() : base()
         {
@@ -23,9 +23,9 @@ namespace BrewsMuse.Models
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=BrewsMuse;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=BrewsMuse;Integrated Security=True");
 
-            //optionsBuilder.UseSqlite(@"Data Source=./BrewsMuse.db");
+            optionsBuilder.UseSqlite(@"Data Source=./BrewsMuse.db");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

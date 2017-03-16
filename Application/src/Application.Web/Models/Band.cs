@@ -14,5 +14,6 @@ namespace BrewsMuse.Models
         public string Description { get; set; }
         public decimal CoverCharge { get; set; }
         public int Rating { get; set; }
+        public Vendor Vendor { get; set; }
     }
 }

@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BrewsMuse.Controllers
 {
-    public class BarsController : Controller
+    public class VendorsController : Controller
     {
 
         private readonly ApplicationContext _context;
 
         private UserManager<ApplicationUser> _userManager { get; set; }
 
-        public BarsController(UserManager<ApplicationUser> userManager, ApplicationContext context)
+        public VendorsController(UserManager<ApplicationUser> userManager, ApplicationContext context)
         {
             _userManager = userManager;
             _context = context;
@@ -28,17 +28,17 @@ namespace BrewsMuse.Controllers
 
         // GET: /<controller>/
         [Route("~/bars")]
-        public IActionResult Bar()
+        public IActionResult Vendor()
         {
             return View();
         }
 
         [HttpGet]
         [Route("~/api/bars")]
-        public IEnumerable<Vendor> GetBars()
+        public IEnumerable<Vendor> GetVendors()
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Bars.Where(q => q.OwnerId == userId).ToList();
+            return _context.Vendors.Where(q => q.OwnerId == userId).ToList();
         }
 
         [HttpGet]
@@ -46,7 +46,7 @@ namespace BrewsMuse.Controllers
         public async Task<IActionResult> GetBar(int id)
         {
             var userId = _userManager.GetUserId(User);
-            Vendor bar = await _context.Bars.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
+            Vendor bar = await _context.Vendors.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
 
             if (bar == null)
             {
@@ -66,7 +66,7 @@ namespace BrewsMuse.Controllers
             }
 
             bar.OwnerId = _userManager.GetUserId(User);
-            _context.Bars.Add(bar);
+            _context.Vendors.Add(bar);
             await _context.SaveChangesAsync();
 
             return View();
@@ -105,7 +105,7 @@ namespace BrewsMuse.Controllers
 
             var userId = _userManager.GetUserId(User);
 
-            Vendor bar = await _context.Bars
+            Vendor bar = await _context.Vendors
                 .Where(q => q.OwnerId == userId)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
@@ -114,7 +114,7 @@ namespace BrewsMuse.Controllers
                 return NotFound();
             }
 
-            _context.Bars.Remove(bar);
+            _context.Vendors.Remove(bar);
             await _context.SaveChangesAsync();
 
             return Ok(bar);
@@ -123,7 +123,7 @@ namespace BrewsMuse.Controllers
         private bool ConservationExists(int id)
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Bars.Any(e => e.OwnerId == userId && e.Id == id);
+            return _context.Vendors.Any(e => e.OwnerId == userId && e.Id == id);
         }
 
     }

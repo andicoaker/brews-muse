@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BrewsMuse.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Application.Web
 {
@@ -21,10 +22,7 @@ namespace Application.Web
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
-            var context = new ApplicationContext();
-
-
-            context.Database.Migrate();
+            
            
 
             builder.AddEnvironmentVariables();
@@ -40,6 +38,20 @@ namespace Application.Web
         {
             // Add framework services.
             //services.AddMvc();
+
+            var context = new ApplicationContext();
+
+            context.Database.Migrate();
+            services.AddDbContext<ApplicationContext>();
+
+            services.AddIdentity<ApplicationContext, IdentityRole>(options =>
+           {
+               options.Password.RequireUppercase = false;
+           })
+
+                .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc();
         }
 
@@ -60,6 +72,9 @@ namespace Application.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseIdentity();
+
+
             app.UseDefaultFiles();
 
             app.UseStaticFiles();
@@ -72,9 +87,15 @@ namespace Application.Web
             });
 
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
+            var user = new ApplicationUser() { Email = "pony@pony.com" };
+            context.Users.Add(user);
+            
             var vendor = new Vendor() { Name = "The Prancing Pony", Latitude = 32.123, Longitude = 33.333, OwnerId = "123", OwnerName = "Barliman Butterbur", Address1 = "1123 Buttermilk Lane", Address2 = "101", City = "Charleston", State = "SC", ZipCode = 35223, Rating = 5, VendorURL = "www.BestKorea.nk", VendorPhone = 2055555555    };
-            context.Add(vendor);
 
+            vendor.OwnerId = user.Id;
+            context.Vendors.Add(vendor);
+
+            context.SaveChanges();
 
         }
     }

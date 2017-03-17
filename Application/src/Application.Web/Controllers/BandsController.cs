@@ -137,6 +137,21 @@ namespace Application.Web.Controllers
             return Ok(band);
         }
 
+        [HttpPost]
+        public IActionResult Post(Vendor ImageURL)
+        {
+            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
+
+            if (ModelState.IsValid)
+            {
+                _context.Vendors.Add(ImageURL);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(ImageURL);
+        }
+
         private bool BandExists(int id)
         {
             var userId = _userManager.GetUserId(User);

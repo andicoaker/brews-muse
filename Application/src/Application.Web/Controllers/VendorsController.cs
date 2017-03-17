@@ -26,7 +26,7 @@ namespace BrewsMuse.Controllers
 
         // GET: /<controller>/
         [Route("~/vendors")]
-        public IActionResult Vendor()
+        public IActionResult Vendor() 
         {
             return View();
         }

@@ -14,7 +14,7 @@ const AppRouter = Backbone.Router.extend({
 		'vendorprofile' : 'showVendorProfileView',
 		'login' : 'showLoginView',
 		'register' : 'showRegisterView',
-		'???' : 'showHomeView'
+		'' : 'showHomeView'
 	},
 
 	showAllVendorsView: function(){

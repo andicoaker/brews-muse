@@ -30,6 +30,8 @@ namespace BrewsMuse.Controllers
             return Ok(User.Identity.IsAuthenticated);
         }
 
+        
+
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/accounts/")]

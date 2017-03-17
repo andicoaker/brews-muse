@@ -14,7 +14,7 @@ namespace Application.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationBuilder app)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -22,7 +22,10 @@ namespace Application.Web
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             var context = new ApplicationContext();
+
+
             context.Database.Migrate();
+           
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -41,6 +44,8 @@ namespace Application.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -65,6 +70,11 @@ namespace Application.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
+            var vendor = new Vendor() { Name = "The Prancing Pony", Latitude = 32.123, Longitude = 33.333, OwnerId = "123", OwnerName = "Barliman Butterbur", Address1 = "1123 Buttermilk Lane", Address2 = "101", City = "Charleston", State = "SC", ZipCode = 35223, Rating = 5, VendorURL = "www.BestKorea.nk", VendorPhone = 2055555555    };
+            context.Add(vendor);
+
 
         }
     }

@@ -20,6 +20,7 @@ namespace BrewsMuse.Models
         public string VendorURL { get; set; }
         public string ImageURL { get; set; }
         public int VendorPhone { get; set; }
+        public int Vote { get; set; }
         //public DateTime Hours { get; set; } //need start and end instead of hours. maybe timespan
         public TimeSpan Hours { get; set; }
 

@@ -1,3 +1,5 @@
+// ****** styles-all ******
+
 * {
 	box-sizing: border-box;
 }
@@ -7,14 +9,51 @@ img {
 	display: block;
 }
 
-h1 {
-	color: #D91E18;
-	font-size: 13vw;
-	text-align: center;
-	font-family: 'Helvetica';
+// ****** styles-component-home ******
+
+body{
+	/*background: url('http://www.tapintoyourbeer.com/images/bg_body.jpg');*/
+
+	// background: url('https://img01.rl0.ru/9f6746f47dbd3f1cd10a74bd3728cb1d/c1500x1894/www.beer-faq.com/wp-content/uploads/2015/03/Beer-faq-bg-1500.jpg');
+
+	background: url('http://www.holycitybrewing.com/sites/all/themes/hcb/images/093B1736.jpg?width=1024&height=667');
 }
 
-p {
-	text-align: center;
-	color: #aaa;
+.logo{
+	width: 25%;
+}
+
+.main-features{
+	margin-top: 400px;
+}
+
+.media{
+	background-color: white;
+	font-size: 35px;
+
+}
+
+
+.browse_brews{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.media-left{
+	padding: 20px;
+	width: 130px;
+}
+
+.media-body{
+	padding: 20px;
+	width: 810px;
+}
+
+.media-heading{
+	margin-bottom: 10px;
+}
+
+.nav-btn{
+	height: 100px;
+	font-size: 30px;
 }

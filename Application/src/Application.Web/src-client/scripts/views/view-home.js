@@ -10,7 +10,9 @@ export const WelcomeView = React.createClass({
 
 		return (
 			<div className="container">
-					<HomeComponent/>
+          <HeaderComponent/>
+          <HomeComponent/>
+          <NavbarComponent/>
 			</div>
 		)
 	}

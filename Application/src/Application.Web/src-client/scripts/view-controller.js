@@ -12,23 +12,23 @@ import {VendorProfileView} from './views/view-vendor_profile.js'
 
 export const ViewController = React.createClass({
 
-  getInitialState: function(){
-    ACTIONS.changeCurrentNav(this.props.fromRoute, window.location.hash)
-    let storeObject = STORE.getStoreData()
-    return storeObject
-  },
+   getInitialState: function(){
+     ACTIONS.changeCurrentNav(this.props.fromRoute, window.location.hash)
+     let storeObject = STORE.getStoreData()
+     return storeObject
+   },
 
-  componentDidMount: function(){
-		let component = this;
+   componentDidMount: function(){
+	 	let component = this;
 
-	   STORE.onStoreChange(function(){
-			console.log("YAY CHANGED STATE!")
+	    STORE.onStoreChange(function(){
+	 		console.log("YAY CHANGED STATE!")
 
-			let newStoreObj = STORE.getStoreData()
-			component.setState(newStoreObj)
-		})
-		ACTIONS.fetchCurrentUser()
-	},
+	 		let newStoreObj = STORE.getStoreData()
+	 		component.setState(newStoreObj)
+	 	})
+	 	ACTIONS.fetchCurrentUser()
+	 },
 
   render: function(){
 

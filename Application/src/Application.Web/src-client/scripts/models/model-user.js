@@ -1,11 +1,13 @@
 import Backbone from 'backbone'
 import $ from 'jquery'
 
+
 export const UserModel = Backbone.Model.extend({
-	initialize: function(){
+	initialize: function(userRole = 'vendor'){
+		this.urlRoot = `/api/${userRole}`
 
 	},
-	urlRoot: '/api/users',
+	urlRoot: '/api/vendors',
 	idAttribute: '_id'
 })
 
@@ -42,7 +44,7 @@ UserModel.getCurrentUser =  function(){
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		url: '/api/vendors/{id}'
+		url: '/api/accounts'
 	})
 }
 

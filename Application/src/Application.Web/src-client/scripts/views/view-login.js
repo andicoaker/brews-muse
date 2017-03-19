@@ -1,5 +1,5 @@
 import React from 'react'
-import {LoginComponent} from '../components/component-form_register.js'
+import {LoginComponent} from '../components/component-form_login.js'
 
 
 export const RegisterView = React.createClass({

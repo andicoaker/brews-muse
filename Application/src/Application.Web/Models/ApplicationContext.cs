@@ -12,7 +12,7 @@ namespace BrewsMuse.Models
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Band> Bands { get; set; }
-        public object Bars { get; internal set; }
+        public object Vendor { get; internal set; }
 
         public ApplicationContext() : base()
         {

@@ -24,6 +24,21 @@ namespace BrewsMuse.Controllers
             _context = context;
         }
 
+        [HttpPost]
+        public IActionResult Post(Vendor ImageURL)
+        {
+            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
+
+            if (ModelState.IsValid)
+            {
+                _context.Vendors.Add(ImageURL);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(ImageURL);
+        }
+
         // GET: /<controller>/
         [Route("~/vendors")]
         public IActionResult Vendor() 
@@ -37,6 +52,21 @@ namespace BrewsMuse.Controllers
         {
             var userId = _userManager.GetUserId(User);
             return _context.Vendors.Where(q => q.OwnerId == userId).ToList();
+        }
+
+        [HttpPost]
+        public IActionResult Post(Vendor ImageURL)
+        {
+            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
+
+            if (ModelState.IsValid)
+            {
+                _context.Vendors.Add(ImageURL);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(ImageURL);
         }
 
         [HttpGet]

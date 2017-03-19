@@ -1,4 +1,4 @@
-import Backbone from 'backbone';
+import Backbone from 'backbone'
 import ReactDOM from 'react-dom'
 import React from 'react'
 
@@ -9,6 +9,8 @@ if(window.location.hostname === 'localhost'){
     let linkEl = document.querySelector('link[href="./css/styles.css"]')
     headEl.removeChild(linkEl)
 }
+
+
 
 const AppRouter = Backbone.Router.extend({
 	initialize: function(){

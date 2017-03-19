@@ -144,6 +144,21 @@ namespace Application.Web.Controllers
             var userId = _userManager.GetUserId(User);
             return _context.Beers.Any(e => e.OwnerId == userId && e.Id == id);
         }
+
+        [HttpPost]
+        public IActionResult Post(Vendor ImageURL)
+        {
+            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
+
+            if (ModelState.IsValid)
+            {
+                _context.Vendors.Add(ImageURL);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(ImageURL);
+        }
     }
 }
 

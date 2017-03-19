@@ -6,16 +6,6 @@ export const HomeComponent = React.createClass({
 
     return (
 
-      <div id="container-fluid">
-        <div className="row">
-          <div className="col-xs-6">
-            <img src="https://files.slack.com/files-pri/T090FQ5AP-F4HPHLVQR/8ccf8be9-d5bd-462b-b0a3-00a3ad73e340.png" className="img-responsive logo"/>
-          </div>
-          <div className="col-xs-6">
-            <h1 className="">Your Source for Great Beer & Live Music</h1>
-          </div>
-        </div>
-
         <div className="container-fluid main-features">
           <div className="row browse_locations">
             <div className="media">
@@ -57,21 +47,6 @@ export const HomeComponent = React.createClass({
             </div>
           </div>
         </div>
-
-        <nav className="navbar navbar-default navbar-fixed-bottom">
-          <div className="btn-group btn-group-justified" role="group" aria-label="...">
-            <div className="btn-group" role="group">
-              <button type="button" className="btn btn-default nav-btn">Browse</button>
-            </div>
-            <div className="btn-group" role="group">
-              <button type="button" className="btn btn-default nav-btn">Sign-up</button>
-            </div>
-            <div className="btn-group" role="group">
-              <button type="button" className="btn btn-default nav-btn">Login</button>
-            </div>
-          </div>
-        </nav>
-      </div>
 
     )
   }

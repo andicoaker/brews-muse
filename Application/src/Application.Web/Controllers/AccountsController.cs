@@ -22,6 +22,7 @@ namespace BrewsMuse.Controllers
             _signInManager = signInManager;
         }
 
+
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/authenticated")]
@@ -29,6 +30,8 @@ namespace BrewsMuse.Controllers
         {
             return Ok(User.Identity.IsAuthenticated);
         }
+
+        
 
         [HttpGet]
         [AllowAnonymous]

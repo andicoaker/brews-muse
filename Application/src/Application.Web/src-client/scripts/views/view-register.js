@@ -3,7 +3,7 @@ import {RegisterComponent} from '../components/component-form_register.js'
 
 
 export const RegisterView = React.createClass({
-  console.log(RegisterView)
+  // console.log(RegisterView);
   render: function(){
     return (
       <div className="register-container">

@@ -18,12 +18,10 @@ export const VendorProfileView = React.createClass({
 
 		return (
 			<div className="container">
-          <HeaderComponent/>
           <VendorDetailsComponent/>
           <MapComponent/>
           <BeersListComponent/>
           <BandsListComponent/>
-          <NavbarComponent/>
 			</div>
 		)
 	}

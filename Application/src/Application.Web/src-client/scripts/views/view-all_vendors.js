@@ -14,10 +14,8 @@ export const AllVendorsView = React.createClass({
 
 		return (
 			<div className="container">
-          <HeaderComponent/>
           <MapComponent/>
           <AllVendorsListComponent/>
-          <NavbarComponent/>
 			</div>
 		)
 	}

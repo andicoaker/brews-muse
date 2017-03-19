@@ -1,6 +1,6 @@
 import React from 'react'
 
-// **** Need to verify list component is set-up correctly ****
+// **** Need to verify list component below is set-up correctly ****
 
 export const AllVendorsListComponent = React.createClass({
 

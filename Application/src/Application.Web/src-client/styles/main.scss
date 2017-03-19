@@ -9,7 +9,6 @@ img {
 	display: block;
 }
 
-// ****** styles-component-home ******
 
 body{
 	/*background: url('http://www.tapintoyourbeer.com/images/bg_body.jpg');*/
@@ -22,9 +21,13 @@ body{
 
 }
 
+// ******styles-component-header ******
+
 .logo{
 	width: 25%;
 }
+
+// ****** styles-component-home ******
 
 .main-features{
 	margin-top: 400px;
@@ -35,7 +38,6 @@ body{
 	font-size: 35px;
 
 }
-
 
 .browse_brews{
 	margin-top: 100px;
@@ -55,6 +57,38 @@ body{
 .media-heading{
 	margin-bottom: 10px;
 }
+
+// ****** styles-component-list_all_vendors ******
+
+.filter-menu{
+	height: 100px;
+	font-size: 35px;
+	border: solid black 3px;
+}
+
+.listing-item{
+	border-top: solid, black, 2px;
+	border-bottom: solid, black, 2px;
+
+}
+
+.media-body_vendor-listing{
+	font-size: 30px;
+
+}
+
+.media-object{
+	width: 150px;
+
+}
+
+// ****** styles-component-map ******
+
+.map-container{
+	height: 400px;
+}
+
+// ****** styles-component-navbar ******
 
 .nav-btn{
 	height: 100px;

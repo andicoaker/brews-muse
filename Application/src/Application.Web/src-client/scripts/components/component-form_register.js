@@ -2,6 +2,7 @@ import React from 'react'
 
 export const RegisterComponent = React.createClass({
 
+
   render: function(){
     return (
     <form>

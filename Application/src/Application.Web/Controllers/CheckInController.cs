@@ -32,7 +32,14 @@ namespace Application.Web.Controllers
             //CheckIn.OwnerId = _userManager.GetUserId(User);
             vendor.CheckIn++;
 
-            await _context.SaveChangesAsync();
+            if(vendor.CheckIn >= 1)
+            {
+                return null;
+            }
+            else
+            {
+                await _context.SaveChangesAsync();
+            }
 
             return CreatedAtAction("PostCheckIn", new { id = CheckIn.Id }, CheckIn);
         }

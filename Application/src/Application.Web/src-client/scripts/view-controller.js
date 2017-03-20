@@ -3,20 +3,20 @@ import {AppRouter} from './router.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 
-import {HeaderComponent} from '../components/component-header.js'
-import {NavbarComponent} from '../components/component-navbar.js'
+import {HeaderComponent} from './components/component-header.js'
+import {NavbarComponent} from './components/component-navbar.js'
 
-import {HomeView} from '../views/view-home.js'
-import {AllVendorsView} from '../views/view-all_vendors.js'
-import {RegisterView} from '../views/view-register.js'
-import {LoginView} from '../views/view-login.js'
-import {VendorAccountView} from '../views/view-vendor_account.js'
-import {VendorProfileView} from '../views/view-vendor_profile.js'
+import {HomeView} from './views/view-home.js'
+import {AllVendorsView} from './views/view-all_vendors.js'
+import {RegisterView} from './views/view-register.js'
+import {LoginView} from './views/view-login.js'
+import {VendorAccountView} from './views/view-vendor_account.js'
+import {VendorProfileView} from './views/view-vendor_profile.js'
 
 export const ViewController = React.createClass({
 
    getInitialState: function(){
-    //  ACTIONS.changeCurrentNav(this.props.fromRoute, window.location.hash)
+
      let storeObject = STORE.getStoreData()
      return storeObject
 
@@ -30,31 +30,34 @@ export const ViewController = React.createClass({
         viewContComponent.setState(newStoreState)
       })
 
-      let app = new AppRouter()
+      let router = new AppRouter()
+      // ACTIONS.fetchloggedInUser()
+      // *** add above line in later once user login action is created ***
 	 },
 
   render: function(){
 
+    let currentView = this.state.currentView
     let componentToRender
 
-    switch(this.state.currentNavRoute){
+    switch(currentView){
   			case "LOGIN":
-  				componentToRender = <LoginView {...this.state}/>
+  				componentToRender = <LoginView/>
   				break;
   			case "REGISTER":
-  				componentToRender = <RegisterView {...this.state}/>
+  				componentToRender = <RegisterView/>
   				break;
    			case "ALL_VENDORS":
-  				componentToRender = <AllVendorsView {...this.state}/>
+  				componentToRender = <AllVendorsView/>
   				break;
         case "VENDOR_ACCOUNT":
-  				componentToRender = <VendorAccountView {...this.state}/>
+  				componentToRender = <VendorAccountView/>
   				break;
         case "VENDOR_PROFILE":
-  				componentToRender = <VendorProfileView {...this.state}/>
+  				componentToRender = <VendorProfileView/>
   				break;
         case "HOME":
-  				componentToRender = <HomeView {...this.state}/>
+  				componentToRender = <HomeView/>
   				break;
    			default:
           componentToRender = <h1 className="">Nothing found!</h1>

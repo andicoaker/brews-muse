@@ -1,6 +1,8 @@
 export const STORE = {
   _data: {
-  currentView: 'HOME'
+    currentView: 'HOME',
+    currentUser: {}
+
   },
 
   getStoreData: function(){

@@ -8,7 +8,8 @@ export const ACTIONS = {
 
   setView: function(viewName){
     STORE.setStore('currentView', viewName)
-
   }
+
+  
 
 }

@@ -36,14 +36,18 @@ namespace Application.Web
             // Add framework services.
             //services.AddMvc();
 
-            var context = new ApplicationContext();
-
-            context.Database.Migrate();
+            
             services.AddDbContext<ApplicationContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+
+
             })
             .AddEntityFrameworkStores<ApplicationContext>()
             .AddDefaultTokenProviders();
@@ -54,7 +58,7 @@ namespace Application.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -83,19 +87,76 @@ namespace Application.Web
             });
 
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
+            
+
+            context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
-            userManager.FindByEmailAsync("consumer@brewsmuse.com");
-            //var user = new ApplicationUser() { Email = "pony@pony.com" };
-            //context.Users.Add(user);
+            var user = await userManager.FindByEmailAsync("vendor@vendor.com") ;
+            var vendor = new Vendor();
+            var beer = new Beer();
+            var band = new Band();
 
-            //var vendor = new Vendor() { Name = "The Prancing Pony", Latitude = 32.123, Longitude = 33.333, OwnerId = "123", OwnerName = "Barliman Butterbur", Address1 = "1123 Buttermilk Lane", Address2 = "101", City = "Charleston", State = "SC", ZipCode = 35223, Rating = 5, VendorURL = "www.BestKorea.nk", VendorPhone = 2055555555 };
+            if (user == null)
+            {
+                //var userStore = new UserStore<ApplicationUser>(context);
 
-            //vendor.OwnerId = user.Id;
-            //context.Vendors.Add(vendor);
+                user = new ApplicationUser();
 
-            //context.SaveChanges();
+                user.Email = "vendor@vendor.com";
+                await userManager.CreateAsync(user, "password");
+                
+                vendor.Address1 = "1234 Vendor Lane";
+                vendor.Address2 = "101";
+                vendor.City = "Charleston";
+                //vendor.Hours = ;
+                vendor.State = "SC";
+                vendor.ZipCode = 29403;
+                vendor.Name = "The Lonely Vendor";
+                vendor.OwnerName = "John Q. Vendor";
+                vendor.VendorURL = "www.vendor.com";
+                vendor.VendorPhone = "555-555-5555";
+                vendor.Rating = 5;
+                //vendor.ImageURL = "https://cdn.meme.am/cache/images/folder943/600x600/14646943.jpg";
+                vendor.Latitude = 32.123;
+                vendor.Longitude = 33.333;
+                vendor.OwnerId = user.Id;
+                context.Vendors.Add(vendor);
 
+
+                beer.Name = "Dummy Beer";
+                beer.OwnerId = user.Id;
+                beer.Price = 1;
+                beer.Rating = 5;
+                beer.Brewery = "Dummy Brewery";
+                beer.Type = "IPA";
+                context.Beers.Add(beer);
+
+                band.Name = "The Dummies";
+                band.OwnerId = user.Id;
+                band.Genre = "Rock";
+                band.Rating = 5;
+                band.Description = "Dummy description";
+                band.CoverCharge = 10;
+                context.Bands.Add(band);
+            }
+           
+
+            string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
+
+            foreach (string role in roles)
+            {
+                var roleStore = new RoleStore<IdentityRole>(context);
+
+                if (!context.Roles.Any(r => r.Name == role))
+                {
+                    await roleStore.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+
+
+            context.SaveChanges();
         }
     }
 }

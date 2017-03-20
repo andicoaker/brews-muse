@@ -142,17 +142,17 @@ namespace Application.Web
             }
            
 
-            string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
+            //string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
 
-            foreach (string role in roles)
-            {
-                var roleStore = new RoleStore<IdentityRole>(context);
+            //foreach (string role in roles)
+            //{
+            //    var roleStore = new RoleStore<IdentityRole>(context);
 
-                if (!context.Roles.Any(r => r.Name == role))
-                {
-                    await roleStore.CreateAsync(new IdentityRole(role));
-                }
-            }
+            //    if (!context.Roles.Any(r => r.Name == role))
+            //    {
+            //        await roleStore.CreateAsync(new IdentityRole(role));
+            //    }
+            //}
 
 
 

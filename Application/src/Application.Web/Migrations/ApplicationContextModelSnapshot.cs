@@ -102,7 +102,7 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("State");
 
-                    b.Property<int>("VendorPhone");
+                    b.Property<string>("VendorPhone");
 
                     b.Property<string>("VendorURL");
 

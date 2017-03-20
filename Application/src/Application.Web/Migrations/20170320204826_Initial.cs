@@ -104,7 +104,7 @@ namespace Application.Web.Migrations
                     OwnerName = table.Column<string>(nullable: true),
                     Rating = table.Column<byte>(nullable: false),
                     State = table.Column<string>(nullable: true),
-                    VendorPhone = table.Column<int>(nullable: false),
+                    VendorPhone = table.Column<string>(nullable: true),
                     VendorURL = table.Column<string>(nullable: true),
                     Vote = table.Column<int>(nullable: false),
                     ZipCode = table.Column<int>(nullable: false)

@@ -1,0 +1,96 @@
+// ****** styles-all ******
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+	display: block;
+}
+
+
+body{
+	/*background: url('http://www.tapintoyourbeer.com/images/bg_body.jpg');*/
+
+	background: url('https://img01.rl0.ru/9f6746f47dbd3f1cd10a74bd3728cb1d/c1500x1894/www.beer-faq.com/wp-content/uploads/2015/03/Beer-faq-bg-1500.jpg');
+
+	// background: url('http://www.holycitybrewing.com/sites/all/themes/hcb/images/093B1736.jpg?width=1024&height=667');
+
+	// background: url('http://pineislandbeer.com/wp-content/uploads/2015/07/craft-beers.jpg');
+
+}
+
+// ******styles-component-header ******
+
+.logo{
+	width: 25%;
+}
+
+// ****** styles-component-home ******
+
+.main-features{
+	margin-top: 400px;
+}
+
+.media{
+	background-color: white;
+	font-size: 35px;
+
+}
+
+.browse_brews{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.media-left{
+	padding: 20px;
+	width: 130px;
+}
+
+.media-body{
+	padding: 20px;
+	width: 810px;
+}
+
+.media-heading{
+	margin-bottom: 10px;
+}
+
+// ****** styles-component-list_all_vendors ******
+
+.filter-menu{
+	height: 100px;
+	font-size: 35px;
+	border: solid black 3px;
+}
+
+.listing-item{
+	border-top: solid, black, 2px;
+	border-bottom: solid, black, 2px;
+
+}
+
+.media-body_vendor-listing{
+	font-size: 30px;
+
+}
+
+.media-object{
+	width: 150px;
+
+}
+
+// ****** styles-component-map ******
+
+.map-container{
+	height: 400px;
+}
+
+// ****** styles-component-navbar ******
+
+.nav-btn{
+	height: 100px;
+	font-size: 30px;
+}

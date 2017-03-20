@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box; }
+
+img {
+  width: 100%;
+  display: block; }
+
+body {
+  /*background: url('http://www.tapintoyourbeer.com/images/bg_body.jpg');*/
+  background: url("https://img01.rl0.ru/9f6746f47dbd3f1cd10a74bd3728cb1d/c1500x1894/www.beer-faq.com/wp-content/uploads/2015/03/Beer-faq-bg-1500.jpg"); }
+
+.logo {
+  width: 25%; }
+
+.main-features {
+  margin-top: 400px; }
+
+.media {
+  background-color: white;
+  font-size: 35px; }
+
+.browse_brews {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+.media-left {
+  padding: 20px;
+  width: 130px; }
+
+.media-body {
+  padding: 20px;
+  width: 810px; }
+
+.media-heading {
+  margin-bottom: 10px; }
+
+.filter-menu {
+  height: 100px;
+  font-size: 35px;
+  border: solid black 3px; }
+
+.listing-item {
+  border-top: solid, black, 2px;
+  border-bottom: solid, black, 2px; }
+
+.media-body_vendor-listing {
+  font-size: 30px; }
+
+.media-object {
+  width: 150px; }
+
+.map-container {
+  height: 400px; }
+
+.nav-btn {
+  height: 100px;
+  font-size: 30px; }
+
+/*# sourceMappingURL=styles.css.map*/

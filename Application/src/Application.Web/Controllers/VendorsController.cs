@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using BrewsMuse.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.Hosting;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,30 +22,43 @@ namespace BrewsMuse.Controllers
 
         private UserManager<ApplicationUser> _userManager { get; set; }
 
-        public VendorsController(UserManager<ApplicationUser> userManager, ApplicationContext context)
+        private IHostingEnvironment _environment { get; set; }
+        public VendorsController(IHostingEnvironment environment, UserManager<ApplicationUser> userManager, ApplicationContext context)
         {
+            _environment = environment;
             _userManager = userManager;
             _context = context;
         }
 
         [HttpPost]
-        public IActionResult Post(Vendor ImageURL)
+        [Route("~/api/vendors/image")]
+        public async Task<IActionResult> PostPicture(IFormFile file)
         {
-            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
-
-            if (ModelState.IsValid)
+            var extension = Path.GetExtension(file.FileName);
+            var vendor = new Vendor();
+            
+            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
             {
-                _context.Vendors.Add(ImageURL);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var name = Guid.NewGuid().ToString();
+                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
 
-            return View(ImageURL);
+                using(var image = System.IO.File.Create(path))
+                {
+                    file.CopyTo(image);
+                }
+
+                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
+                return Ok(vendor.ImageURL);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // GET: /<controller>/
         [Route("~/vendors")]
-        public IActionResult Vendor() 
+        public IActionResult Vendor()
         {
             return View();
         }

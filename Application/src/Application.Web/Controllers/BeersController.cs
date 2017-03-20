@@ -7,6 +7,8 @@ using BrewsMuse.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 
 
@@ -18,8 +20,10 @@ namespace Application.Web.Controllers
     {
         private readonly ApplicationContext _context;
         private UserManager<ApplicationUser> _userManager { get; set; }
-        public BeersController(UserManager<ApplicationUser> userManager, ApplicationContext context)
+        private IHostingEnvironment _environment { get; set; }
+        public BeersController(IHostingEnvironment environment, UserManager<ApplicationUser> userManager, ApplicationContext context)
         {
+            _environment = environment;
             _userManager = userManager;
             _context = context;
         }
@@ -146,18 +150,29 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostImage(Vendor ImageURL)
+        [Route("~/api/beers/image")]
+        public async Task<IActionResult> PostPicture(IFormFile file)
         {
-            var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
+            var extension = Path.GetExtension(file.FileName);
+            var vendor = new Vendor();
 
-            if (ModelState.IsValid)
+            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
             {
-                _context.Vendors.Add(ImageURL);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var name = Guid.NewGuid().ToString();
+                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
 
-            return View(ImageURL);
+                using (var image = System.IO.File.Create(path))
+                {
+                    file.CopyTo(image);
+                }
+
+                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
+                return Ok(vendor.ImageURL);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

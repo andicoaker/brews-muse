@@ -93,6 +93,7 @@ namespace Application.Web.Migrations
                     Address1 = table.Column<string>(nullable: true),
                     Address2 = table.Column<string>(nullable: true),
                     ApplicationUserId = table.Column<string>(nullable: true),
+                    CheckIn = table.Column<int>(nullable: false),
                     City = table.Column<string>(nullable: true),
                     Hours = table.Column<TimeSpan>(nullable: false),
                     ImageURL = table.Column<string>(nullable: true),

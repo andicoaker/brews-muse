@@ -8,7 +8,7 @@ using BrewsMuse.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20170317183236_Initial")]
+    [Migration("20170320134520_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,6 +80,8 @@ namespace Application.Web.Migrations
                     b.Property<string>("Address2");
 
                     b.Property<string>("ApplicationUserId");
+
+                    b.Property<int>("CheckIn");
 
                     b.Property<string>("City");
 

@@ -8,8 +8,8 @@ namespace BrewsMuse.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        
         public Guid Signature { get; set; }
-
         public List<Vendor> Vendors { get; set; }
     }
 }

@@ -80,6 +80,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("ApplicationUserId");
 
+                    b.Property<int>("CheckIn");
+
                     b.Property<string>("City");
 
                     b.Property<TimeSpan>("Hours");

@@ -10,22 +10,19 @@ using Microsoft.Extensions.Logging;
 using BrewsMuse.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Application.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, IApplicationBuilder app)
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
-            
-           
-
-            builder.AddEnvironmentVariables();
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
             Configuration = builder.Build();
 
             
@@ -44,13 +41,12 @@ namespace Application.Web
             context.Database.Migrate();
             services.AddDbContext<ApplicationContext>();
 
-            services.AddIdentity<ApplicationContext, IdentityRole>(options =>
-           {
-               options.Password.RequireUppercase = false;
-           })
-
-                .AddEntityFrameworkStores<ApplicationContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireUppercase = false;
+            })
+            .AddEntityFrameworkStores<ApplicationContext>()
+            .AddDefaultTokenProviders();
 
             services.AddMvc();
         }
@@ -87,15 +83,18 @@ namespace Application.Web
             });
 
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
-            var user = new ApplicationUser() { Email = "pony@pony.com" };
-            context.Users.Add(user);
-            
-            var vendor = new Vendor() { Name = "The Prancing Pony", Latitude = 32.123, Longitude = 33.333, OwnerId = "123", OwnerName = "Barliman Butterbur", Address1 = "1123 Buttermilk Lane", Address2 = "101", City = "Charleston", State = "SC", ZipCode = 35223, Rating = 5, VendorURL = "www.BestKorea.nk", VendorPhone = 2055555555    };
+            var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
-            vendor.OwnerId = user.Id;
-            context.Vendors.Add(vendor);
+            userManager.FindByEmailAsync("consumer@brewsmuse.com");
+            //var user = new ApplicationUser() { Email = "pony@pony.com" };
+            //context.Users.Add(user);
 
-            context.SaveChanges();
+            //var vendor = new Vendor() { Name = "The Prancing Pony", Latitude = 32.123, Longitude = 33.333, OwnerId = "123", OwnerName = "Barliman Butterbur", Address1 = "1123 Buttermilk Lane", Address2 = "101", City = "Charleston", State = "SC", ZipCode = 35223, Rating = 5, VendorURL = "www.BestKorea.nk", VendorPhone = 2055555555 };
+
+            //vendor.OwnerId = user.Id;
+            //context.Vendors.Add(vendor);
+
+            //context.SaveChanges();
 
         }
     }

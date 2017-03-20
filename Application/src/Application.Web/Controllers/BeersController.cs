@@ -34,14 +34,14 @@ namespace Application.Web.Controllers
         }
         [HttpGet]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public IEnumerable<Beer> GetBeers(int id)
+        public IEnumerable<Beer> GetBeers(int vendorId)
         {
             var userId = _userManager.GetUserId(User);
             return _context.Beers.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
         [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetBeer(int beerId) 
+        [Route("~/api/vendors/{vendorsId}/beers/{beerId}")]
+        public IActionResult GetBeer(int beerId) 
         {
             var userId = _userManager.GetUserId(User);
 

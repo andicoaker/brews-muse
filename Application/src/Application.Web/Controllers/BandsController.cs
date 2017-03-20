@@ -39,7 +39,7 @@ namespace Application.Web.Controllers
 
         [HttpGet]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> GetBand(int vendorId)
+        public IActionResult GetBand(int vendorId)
         {
             var userId = _userManager.GetUserId(User);
 

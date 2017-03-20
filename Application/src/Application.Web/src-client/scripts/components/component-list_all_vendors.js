@@ -4,21 +4,23 @@ import React from 'react'
 
 
 export const AllVendorsListComponent = React.createClass({
+  _makeVendorComponents: function(vendorsList){
+    let arrayOfVendorsComponents = vendorsList.map(function(smod, i){
+      return (
+        <VendorListItem vendorData={smod} key={i}/>
+      )
+    }).reverse()
+
+    return arrayOfVendorsComponents
+  },
+
 
   render: function(){
 
+    return this._makeVendorComponents()
+
 // do i even need makevendorcomponent?  or can i simply pass my vendorslist function through the render function above?
 // in demo what does smod stand for - shout model? should i change to vmod for vendor model?
-
-    _makeVendorComponents: function(vendorsList){
-      let arrayOfVendorsComponents = vendorsList.map(function(smod, i){
-        return (
-          <VendorListItem vendorData={smod} key={i}/>
-        )
-      }).reverse()
-
-      return arrayOfVendorsComponents
-    }
 
   }
 })

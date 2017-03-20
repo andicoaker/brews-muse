@@ -39,7 +39,7 @@ namespace Application.Web.Controllers
 
         [HttpGet]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> GetBand(int vendorId)
+        public IActionResult GetBand(int vendorId)
         {
             var userId = _userManager.GetUserId(User);
 
@@ -138,7 +138,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Vendor ImageURL)
+        public IActionResult PostImage(Vendor ImageURL)
         {
             var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
 

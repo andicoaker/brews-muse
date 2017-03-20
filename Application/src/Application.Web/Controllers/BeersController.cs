@@ -146,7 +146,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Vendor ImageURL)
+        public IActionResult PostImage(Vendor ImageURL)
         {
             var image = _context.Vendors.FirstOrDefault(q => q.Id == ImageURL.Id);
 

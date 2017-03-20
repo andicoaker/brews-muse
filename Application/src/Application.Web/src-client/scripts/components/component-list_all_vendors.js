@@ -4,16 +4,17 @@ import React from 'react'
 
 export const AllVendorsListComponent = React.createClass({
 
-  render: function(){
-
-    _makeShoutOutComponents: function(vendorsList){
-   let arrayOfVendorsComponents = vendorsList.map(function(smod, i){
-        return (
-           <VendorListItem shoutData={smod} key={i}/>
-        )
-     }).reverse()
-
-   return arrayOfVendorsComponents
+ //  render: function(){
+ //
+ //    _makeShoutOutComponents: function(vendorsList){
+ //      let arrayOfVendorsComponents = vendorsList.map(function(smod, i){
+ //        return (
+ //           <VendorListItem shoutData={smod} key={i}/>
+ //        )
+ //     }).reverse()
+ //
+ //   return arrayOfVendorsComponents
+ // }
 
 })
 

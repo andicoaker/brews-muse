@@ -1,7 +1,10 @@
 import React from 'react';
-import {Navbar} from './components/component-navbar.js';
+import {AppRouter} from './router.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
+
+import {HeaderComponent} from './components/component-header.js'
+import {NavbarComponent} from './components/component-navbar.js'
 
 import {HomeView} from './views/view-home.js'
 import {AllVendorsView} from './views/view-all_vendors.js'
@@ -13,21 +16,21 @@ import {VendorProfileView} from './views/view-vendor_profile.js'
 export const ViewController = React.createClass({
 
    getInitialState: function(){
-     ACTIONS.changeCurrentNav(this.props.fromRoute, window.location.hash)
+    //  ACTIONS.changeCurrentNav(this.props.fromRoute, window.location.hash)
      let storeObject = STORE.getStoreData()
      return storeObject
+
    },
 
-   componentDidMount: function(){
-	 	let component = this;
+   componentWillMount: function(){
+     let viewContComponent = this
 
-	    STORE.onStoreChange(function(){
-	 		console.log("YAY CHANGED STATE!")
+      STORE.onStoreCHange(function(){
+        let newStoreState = STORE.getStoreData()
+        viewContComponent.setState(newStoreState)
+      })
 
-	 		let newStoreObj = STORE.getStoreData()
-	 		component.setState(newStoreObj)
-	 	})
-	 	ACTIONS.fetchCurrentUser()
+      let app = new AppRouter()
 	 },
 
   render: function(){
@@ -54,12 +57,14 @@ export const ViewController = React.createClass({
   				componentToRender = <HomeView {...this.state}/>
   				break;
    			default:
+          componentToRender = <h1 className="">Nothing found!</h1>
   	}
 
     return (
 			<div>
-
+        <HeaderComponent/>
 				{componentToRender}
+        <NavbarComponent/>
 			</div>
 		)
 

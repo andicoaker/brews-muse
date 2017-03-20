@@ -13,9 +13,7 @@ export const WelcomeView = React.createClass({
 
 		return (
 			<div className="container">
-          <HeaderComponent/>
           <HomeComponent/>
-          <NavbarComponent/>
 			</div>
 		)
 	}

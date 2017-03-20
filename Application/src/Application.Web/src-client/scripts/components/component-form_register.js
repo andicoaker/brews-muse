@@ -1,13 +1,11 @@
 import React from 'react'
 
 export const RegisterComponent = React.createClass({
-   getInitialState: function(){
-	 	return {}
-  },
+
 
   render: function(){
     return (
-    <form>  
+    <form>
       <div className="form-group">
         <label className="control-label col-sm-2" for="email">Email:</label>
         <div className="col-sm-10">

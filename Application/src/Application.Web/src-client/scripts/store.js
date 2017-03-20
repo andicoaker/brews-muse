@@ -18,7 +18,7 @@ export const STORE = {
 			this._callMeLaterPls()
 		}
 
-  }
+  },
 
   onStoreChange: function(cbFunc){
     if(typeof cbFunc !== 'function'){

@@ -13,6 +13,7 @@ import {LoginView} from './views/view-login.js'
 import {VendorAccountView} from './views/view-vendor_account.js'
 import {VendorProfileView} from './views/view-vendor_profile.js'
 
+
 export const ViewController = React.createClass({
 
    getInitialState: function(){
@@ -25,7 +26,7 @@ export const ViewController = React.createClass({
    componentWillMount: function(){
      let viewContComponent = this
 
-      STORE.onStoreCHange(function(){
+      STORE.onStoreChange(function(){
         let newStoreState = STORE.getStoreData()
         viewContComponent.setState(newStoreState)
       })

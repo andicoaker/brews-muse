@@ -30,9 +30,18 @@ namespace Application.Web.Controllers
                 return BadRequest(ModelState);
             }
             //CheckIn.OwnerId = _userManager.GetUserId(User);
-            vendor.CheckIn++;
 
-            await _context.SaveChangesAsync();
+
+            if(vendor.CheckIn >= 1)
+            {
+                return null;
+            }
+            else
+            {
+                int checkIn = vendor.CheckIn++;
+                await _context.SaveChangesAsync();
+                return View(checkIn);
+            }
 
             return CreatedAtAction("PostCheckIn", new { id = CheckIn.Id }, CheckIn);
         }

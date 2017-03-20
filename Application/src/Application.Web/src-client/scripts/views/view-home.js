@@ -7,7 +7,7 @@ import {NavbarComponent} from '../components/component-navbar.js'
 import {ACTIONS} from '../actions.js'
 import {STORE} from '../store.js'
 
-export const WelcomeView = React.createClass({
+export const HomeView = React.createClass({
 
   render: function(){
 

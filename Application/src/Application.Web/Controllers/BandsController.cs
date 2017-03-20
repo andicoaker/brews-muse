@@ -21,6 +21,7 @@ namespace Application.Web.Controllers
         private IHostingEnvironment _environment { get; set; }
         public BandsController(IHostingEnvironment environment, UserManager<ApplicationUser> userManager, ApplicationContext context)
         {
+            _environment = environment;
             _userManager = userManager;
             _context = context;
         }

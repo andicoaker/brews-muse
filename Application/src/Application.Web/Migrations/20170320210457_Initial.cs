@@ -320,6 +320,8 @@ namespace Application.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            //BRADEN!
         }
     }
 }

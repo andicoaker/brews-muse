@@ -19,6 +19,8 @@ namespace BrewsMuse.Models
         public byte Rating { get; set; }
         public string VendorURL { get; set; }
         public string ImageURL { get; set; }
+        public string Comments { get; set; }
+        public int VendorId { get; set; }
         public string VendorPhone { get; set; }
         public int Vote { get; set; }
         public int CheckIn { get; set; }

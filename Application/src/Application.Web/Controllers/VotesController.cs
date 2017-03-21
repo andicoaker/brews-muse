@@ -28,7 +28,7 @@ namespace Application.Web.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Vote.OwnerId = _userManager.GetUserId(User);
+            
             vendor.Vote++;
 
             await _context.SaveChangesAsync();

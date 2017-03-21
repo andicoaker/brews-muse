@@ -8,7 +8,7 @@ using BrewsMuse.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20170320210457_Initial")]
+    [Migration("20170321171551_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,8 @@ namespace Application.Web.Migrations
                     b.Property<string>("OwnerId");
 
                     b.Property<int>("Rating");
+
+                    b.Property<string>("Showtime");
 
                     b.Property<int?>("VendorId");
 
@@ -85,7 +87,9 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<TimeSpan>("Hours");
+                    b.Property<string>("ClosingTime");
+
+                    b.Property<string>("Comments");
 
                     b.Property<string>("ImageURL");
 
@@ -95,6 +99,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("OpeningTIme");
+
                     b.Property<string>("OwnerId");
 
                     b.Property<string>("OwnerName");
@@ -102,6 +108,8 @@ namespace Application.Web.Migrations
                     b.Property<byte>("Rating");
 
                     b.Property<string>("State");
+
+                    b.Property<int>("VendorId");
 
                     b.Property<string>("VendorPhone");
 
@@ -115,7 +123,7 @@ namespace Application.Web.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Vendors");
+                    b.ToTable("Vendor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

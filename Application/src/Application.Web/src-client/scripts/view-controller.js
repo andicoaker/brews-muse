@@ -14,7 +14,6 @@ import {VendorAccountView} from './views/view-vendor_account.js'
 import {VendorProfileView} from './views/view-vendor_profile.js'
 
 
-
 export const ViewController = React.createClass({
 
    getInitialState: function(){

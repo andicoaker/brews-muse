@@ -1,7 +1,6 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
 
-
 export const AnonNavbarComponent = React.createClass({
 
   _handleNavClick: function(evt){

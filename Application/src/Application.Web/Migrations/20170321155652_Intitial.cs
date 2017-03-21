@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Application.Web.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Intitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,11 +95,12 @@ namespace Application.Web.Migrations
                     ApplicationUserId = table.Column<string>(nullable: true),
                     CheckIn = table.Column<int>(nullable: false),
                     City = table.Column<string>(nullable: true),
-                    Hours = table.Column<TimeSpan>(nullable: false),
+                    ClosingTime = table.Column<string>(nullable: true),
                     ImageURL = table.Column<string>(nullable: true),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
                     Name = table.Column<string>(nullable: true),
+                    OpeningTIme = table.Column<string>(nullable: true),
                     OwnerId = table.Column<string>(nullable: true),
                     OwnerName = table.Column<string>(nullable: true),
                     Rating = table.Column<byte>(nullable: false),
@@ -197,6 +198,7 @@ namespace Application.Web.Migrations
                     Name = table.Column<string>(nullable: true),
                     OwnerId = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
+                    Showtime = table.Column<string>(nullable: true),
                     VendorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -320,8 +322,6 @@ namespace Application.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            //BRADEN!
         }
     }
 }

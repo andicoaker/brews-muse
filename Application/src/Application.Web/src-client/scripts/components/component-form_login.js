@@ -7,10 +7,8 @@ export const LoginComponent = React.createClass({
     return (
     <form>
       <div className="form-group">
-        <label className="control-label col-sm-2" for="email">Email:</label>
-        <div className="col-sm-10">
-          <input type="text" className="form-control" id="email" placeholder="Enter email"/>
-        </div>
+        <label className="control-label col-sm-2" for="pwd">Email:</label>
+        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
       </div>
       <div className="form-group">
         <label className="control-label col-sm-2" for="pwd">Password:</label>

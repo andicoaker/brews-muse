@@ -8,8 +8,17 @@ export const ACTIONS = {
 
   setView: function(viewName){
     STORE.setStore('currentView', viewName)
-  }
+  },
 
-  
+  logUserOut: function(){
+    UserModel.logOut().then(function(){
+      STORE.setStore('currentUser', {})
+    })
+
+  },
+
+  routeTo: function(path){
+    window.location.hash = path
+  }
 
 }

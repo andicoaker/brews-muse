@@ -126,7 +126,7 @@ namespace Application.Web
                 vendor.VendorURL = "www.vendor.com";
                 vendor.VendorPhone = "555-555-5555";
                 vendor.Rating = 5;
-                //vendor.ImageURL = "https://cdn.meme.am/cache/images/folder943/600x600/14646943.jpg";
+                vendor.ImageURL = "http://i.imgur.com/uSExX74.jpg";
                 vendor.Latitude = 32.123;
                 vendor.Longitude = 33.333;
                 vendor.OwnerId = user.Id;
@@ -139,7 +139,7 @@ namespace Application.Web
                 vendor2.City = "Mt Pleasant";
                 vendor2.State = "SC";
                 vendor2.ZipCode = 29464;
-                vendor2.OwnerName = "Victor V. Vendor";
+                vendor2.OwnerName = "Victor von Vendorstein";
                 vendor2.OwnerId = user.Id;
                 vendor2.OpeningTIme = "3:00 PM";
                 vendor2.ClosingTime = "1:00 AM";

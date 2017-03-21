@@ -37,15 +37,15 @@ namespace Application.Web.Controllers
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IEnumerable<Band> GetBands()
         {
-            var userId = _userManager.GetUserId(User);
-            return _context.Bands.Where(q => q.Vendor.OwnerId == userId).ToList();
+            //var userId = _userManager.GetUserId(User);
+            return _context.Bands.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
 
         [HttpGet]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public IActionResult GetBand(int vendorId)
         {
-            var userId = _userManager.GetUserId(User);
+            //var userId = _userManager.GetUserId(User);
 
             var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
             var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
@@ -170,7 +170,7 @@ namespace Application.Web.Controllers
         private bool BandExists(int id)
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Bands.Any(e => e.OwnerId == userId && e.Id == id);
+            return _context.Bands.Any(e => e.Id == id);//e.OwnerId == userId && e.Id == id);
         }
     }
 }

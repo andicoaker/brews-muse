@@ -1,4 +1,5 @@
 import React from 'react'
+import {ACTIONS} from '../actions.js'
 
 export const HomeComponent = React.createClass({
 
@@ -10,7 +11,7 @@ export const HomeComponent = React.createClass({
           <div className="row browse_locations">
             <div className="media">
               <div className="media-left">
-                <a href="#">
+                <a href="#allvendors">
                   <i className="fa fa-map-marker fa-4x" aria-hidden="true"></i>
                 </a>
               </div>
@@ -23,7 +24,7 @@ export const HomeComponent = React.createClass({
           <div className="row browse_brews">
             <div className="media feature-container">
               <div className="media-left">
-                <a href="#">
+                <a href="#allvendors">
                   <i className="fa fa-beer fa-4x" aria-hidden="true"></i>
                 </a>
               </div>
@@ -36,7 +37,7 @@ export const HomeComponent = React.createClass({
           <div className="row browse_music">
             <div className="media feature-container">
               <div className="media-left">
-                <a href="#">
+                <a href="#allvendors">
                   <i className="fa fa-music fa-4x" aria-hidden="true"></i>
                 </a>
               </div>

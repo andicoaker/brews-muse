@@ -8,8 +8,8 @@ using BrewsMuse.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20170321155652_Intitial")]
-    partial class Intitial
+    [Migration("20170321171551_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("ClosingTime");
 
+                    b.Property<string>("Comments");
+
                     b.Property<string>("ImageURL");
 
                     b.Property<double>("Latitude");
@@ -107,6 +109,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("State");
 
+                    b.Property<int>("VendorId");
+
                     b.Property<string>("VendorPhone");
 
                     b.Property<string>("VendorURL");
@@ -119,7 +123,7 @@ namespace Application.Web.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Vendors");
+                    b.ToTable("Vendor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

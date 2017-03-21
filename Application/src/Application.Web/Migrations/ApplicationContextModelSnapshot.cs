@@ -88,6 +88,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("ClosingTime");
 
+                    b.Property<string>("Comments");
+
                     b.Property<string>("ImageURL");
 
                     b.Property<double>("Latitude");
@@ -106,6 +108,8 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("State");
 
+                    b.Property<int>("VendorId");
+
                     b.Property<string>("VendorPhone");
 
                     b.Property<string>("VendorURL");
@@ -118,7 +122,7 @@ namespace Application.Web.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Vendors");
+                    b.ToTable("Vendor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

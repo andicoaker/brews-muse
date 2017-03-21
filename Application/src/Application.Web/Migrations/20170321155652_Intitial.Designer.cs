@@ -8,8 +8,8 @@ using BrewsMuse.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20170320210457_Initial")]
-    partial class Initial
+    [Migration("20170321155652_Intitial")]
+    partial class Intitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,8 @@ namespace Application.Web.Migrations
                     b.Property<string>("OwnerId");
 
                     b.Property<int>("Rating");
+
+                    b.Property<string>("Showtime");
 
                     b.Property<int?>("VendorId");
 
@@ -85,7 +87,7 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<TimeSpan>("Hours");
+                    b.Property<string>("ClosingTime");
 
                     b.Property<string>("ImageURL");
 
@@ -94,6 +96,8 @@ namespace Application.Web.Migrations
                     b.Property<double>("Longitude");
 
                     b.Property<string>("Name");
+
+                    b.Property<string>("OpeningTIme");
 
                     b.Property<string>("OwnerId");
 

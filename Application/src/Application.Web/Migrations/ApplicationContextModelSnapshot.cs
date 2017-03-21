@@ -32,6 +32,8 @@ namespace Application.Web.Migrations
 
                     b.Property<int>("Rating");
 
+                    b.Property<string>("Showtime");
+
                     b.Property<int?>("VendorId");
 
                     b.HasKey("Id");
@@ -84,7 +86,7 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<TimeSpan>("Hours");
+                    b.Property<string>("ClosingTime");
 
                     b.Property<string>("ImageURL");
 
@@ -93,6 +95,8 @@ namespace Application.Web.Migrations
                     b.Property<double>("Longitude");
 
                     b.Property<string>("Name");
+
+                    b.Property<string>("OpeningTIme");
 
                     b.Property<string>("OwnerId");
 

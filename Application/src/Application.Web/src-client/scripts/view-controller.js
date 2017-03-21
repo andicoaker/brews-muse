@@ -4,7 +4,7 @@ import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 
 import {HeaderComponent} from './components/component-header.js'
-import {NavbarComponent} from './components/component-navbar.js'
+import {AnonNavbarComponent, AuthNavbarComponent} from './components/component-navbar.js'
 
 import {HomeView} from './views/view-home.js'
 import {AllVendorsView} from './views/view-all_vendors.js'
@@ -12,7 +12,6 @@ import {RegisterView} from './views/view-register.js'
 import {LoginView} from './views/view-login.js'
 import {VendorAccountView} from './views/view-vendor_account.js'
 import {VendorProfileView} from './views/view-vendor_profile.js'
-
 
 
 export const ViewController = React.createClass({
@@ -37,8 +36,20 @@ export const ViewController = React.createClass({
       // *** add above line in later once user login action is created ***
 	 },
 
-  render: function(){
+  _getNavbar: function(currentUser){
+    let theNavbar = <AnonNavbarComponent/>
 
+    if(typeof currentUser.email !== 'undefined'){
+     theNavbar = <AuthNavbarComponent/>
+    }
+    return theNavbar
+  },
+
+  _getComponent(currentView){
+    return componentToRender
+  },
+
+  render: function(){
     let currentView = this.state.currentView
     let componentToRender
 
@@ -66,10 +77,10 @@ export const ViewController = React.createClass({
   	}
 
     return (
-			<div>
+			<div className="container-fluid">
         <HeaderComponent/>
 				{componentToRender}
-        <NavbarComponent/>
+        {this._getNavbar(this.state.currentUser)}
 			</div>
 		)
 

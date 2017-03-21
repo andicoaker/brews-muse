@@ -25,7 +25,9 @@ namespace BrewsMuse.Models
         public int Vote { get; set; }
         public int CheckIn { get; set; }
         //public DateTime Hours { get; set; } //need start and end instead of hours. maybe timespan
-        public TimeSpan Hours { get; set; }
+        //public TimeSpan Hours { get; set; }
+        public string OpeningTIme { get; set; }
+        public string ClosingTime { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public List<Beer> Beers { get; set; }

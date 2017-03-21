@@ -25,7 +25,7 @@ namespace Application.Web
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -36,7 +36,7 @@ namespace Application.Web
             // Add framework services.
             //services.AddMvc();
 
-            
+
             services.AddDbContext<ApplicationContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -87,7 +87,7 @@ namespace Application.Web
             });
 
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
-            
+
 
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
@@ -105,7 +105,7 @@ namespace Application.Web
 
                 user.Email = "vendor@vendor.com";
                 await userManager.CreateAsync(user, "password");
-                
+
                 vendor.Address1 = "1234 Vendor Lane";
                 vendor.Address2 = "101";
                 vendor.City = "Charleston";
@@ -117,7 +117,7 @@ namespace Application.Web
                 vendor.VendorURL = "www.vendor.com";
                 vendor.VendorPhone = "555-555-5555";
                 vendor.Rating = 5;
-                //vendor.ImageURL = "https://cdn.meme.am/cache/images/folder943/600x600/14646943.jpg";
+                // vendor.ImageURL = "https://cdn.meme.am/cache/images/folder943/600x600/14646943.jpg";
                 vendor.Latitude = 32.123;
                 vendor.Longitude = 33.333;
                 vendor.OwnerId = user.Id;
@@ -140,7 +140,7 @@ namespace Application.Web
                 band.CoverCharge = 10;
                 context.Bands.Add(band);
             }
-           
+
 
             //string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
 

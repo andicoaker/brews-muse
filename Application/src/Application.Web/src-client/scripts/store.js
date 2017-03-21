@@ -1,7 +1,8 @@
 export const STORE = {
   _data: {
     currentView: 'HOME',
-    currentUser: {}
+    currentUser: {},
+    allVendors: []
 
   },
 

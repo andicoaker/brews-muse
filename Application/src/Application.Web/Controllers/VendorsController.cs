@@ -67,8 +67,8 @@ namespace BrewsMuse.Controllers
         [Route("~/api/vendors")]
         public IEnumerable<Vendor> GetVendors()
         {
-            var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Where(q => q.OwnerId == userId).ToList();
+            //var userId = _userManager.GetUserId(User);
+            return _context.Vendors.ToList();//Where(q => q.OwnerId == userId).ToList();
         }
 
 
@@ -77,8 +77,8 @@ namespace BrewsMuse.Controllers
         [Route("~/api/vendors/{id}")]
         public async Task<IActionResult> GetVendor(int id)
         {
-            var userId = _userManager.GetUserId(User);
-            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.OwnerId == userId && m.Id == id);
+            //var userId = _userManager.GetUserId(User);
+            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.Id == id);// m.OwnerId == userId && m.Id == id);
 
             if (vendor == null)
             {

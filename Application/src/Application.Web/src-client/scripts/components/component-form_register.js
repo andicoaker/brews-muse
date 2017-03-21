@@ -27,6 +27,7 @@ export const RegisterComponent = React.createClass({
               <label><input type="checkbox"/> Are you a vendor?</label>
             </div>
         </div>
+        <p>haaayyy</p>
         <div className="form-group">
             <button type="submit" className="btn btn-default">Login</button>
         </div>

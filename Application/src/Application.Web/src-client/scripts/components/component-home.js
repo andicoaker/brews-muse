@@ -16,7 +16,7 @@ export const HomeComponent = React.createClass({
               </div>
               <div className="media-body">
                 <h1 className="media-heading"><strong>Browse Locations</strong></h1>
-                Check out our map feature to see what bars are in your area.
+                Check out our map feature to see what nearby bars offer your fav draft beers and live music.
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@ export const HomeComponent = React.createClass({
               </div>
               <div className="media-body">
                 <h1 className="media-heading"><strong>Browse Brews</strong></h1>
-                Craving a hoppy IPA or a nutty brown ale? Check out what type of beers are in your area.
+                Craving a hoppy IPA or a nutty brown ale? Check out beers on tap in your area.
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ export const HomeComponent = React.createClass({
               </div>
               <div className="media-body">
                 <h1 className="media-heading"><strong>Browse Live Music</strong></h1>
-                Want to listen to some great live music? Check out what type of bands are playing in your area.
+                Want to listen to some great live music? Check out bands playing in your area.
               </div>
             </div>
           </div>

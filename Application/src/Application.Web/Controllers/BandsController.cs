@@ -47,7 +47,7 @@ namespace Application.Web.Controllers
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
+            var vendor  = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
             var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
             if (band == null)
             {

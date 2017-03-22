@@ -9,7 +9,7 @@ import {STORE} from '../store.js'
 export const AllVendorsView = React.createClass({
 
   render: function(){
-    console.log(this.props);
+    console.log(this.props.allVendors);
     if(this.props.allVendors.length < 1){
       return(
         <div></div>
@@ -19,7 +19,9 @@ export const AllVendorsView = React.createClass({
 
 		return (
 			<div className="container-fluid">
-          <VendorsListComponent allVendors={this.props.allVendors}/>
+
+        <VendorsListComponent allVendors={this.props.allVendors}/>
+
 			</div>
 		)
 	}

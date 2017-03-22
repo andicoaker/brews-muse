@@ -19,7 +19,9 @@ export const AllVendorsView = React.createClass({
 
 		return (
 			<div className="container-fluid">
-          <VendorsListComponent allVendors={this.props.allVendors}/>
+
+        <VendorsListComponent allVendors={this.props.allVendors}/>
+
 			</div>
 		)
 	}

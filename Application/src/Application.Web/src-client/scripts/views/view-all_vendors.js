@@ -9,10 +9,17 @@ import {STORE} from '../store.js'
 export const AllVendorsView = React.createClass({
 
   render: function(){
+    console.log(this.props);
+    if(this.props.allVendors.length < 1){
+      return(
+        <div></div>
+      )
+    }
     console.log(this.props)
+
 		return (
 			<div className="container-fluid">
-          <VendorsListComponent {...this.props}/>
+          <VendorsListComponent allVendors={this.props.allVendors}/>
 			</div>
 		)
 	}

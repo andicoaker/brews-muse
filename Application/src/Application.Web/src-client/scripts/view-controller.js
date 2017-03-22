@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import {AppRouter} from './router.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
@@ -25,6 +26,11 @@ export const ViewController = React.createClass({
 
    componentWillMount: function(){
      let viewContComponent = this
+
+       $.getJSON('http://localhost:5000/api/vendors/').then(function(serverRes){
+         console.log("JSON data results:", serverRes);
+         ACTIONS.setAPIData('allVendors', serverRes)
+       })
 
       STORE.onStoreChange(function(){
         let newStoreState = STORE.getStoreData()
@@ -75,6 +81,7 @@ export const ViewController = React.createClass({
    			default:
           componentToRender = <h1 className="">Nothing found!</h1>
   	}
+
 
     return (
 			<div className="container-fluid">

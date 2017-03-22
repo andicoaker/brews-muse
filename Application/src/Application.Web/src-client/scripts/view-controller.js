@@ -28,6 +28,7 @@ export const ViewController = React.createClass({
      let viewContComponent = this
 
        $.getJSON('http://localhost:5000/api/vendors/').then(function(serverRes){
+         console.log('hellloo')
          console.log("JSON data results:", serverRes);
          ACTIONS.setAPIData(serverRes)
        })

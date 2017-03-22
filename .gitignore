@@ -190,6 +190,7 @@ ClientBin/
 *.dbproj.schemaview
 *.pfx
 *.publishsettings
+wwwroot/js/bundle.js
 node_modules/
 wwwroot/js/bundle.js
 orleans.codegen.cs

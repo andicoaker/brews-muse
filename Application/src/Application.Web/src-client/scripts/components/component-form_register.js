@@ -6,36 +6,30 @@ export const RegisterComponent = React.createClass({
   render: function(){
     return (
     <form>
-      <div className="form-group">
-        <label className="control-label col-sm-2" for="email">Email:</label>
-        <div className="col-sm-10">
-          <input type="email" className="form-control" id="email" placeholder="Enter email"/>
+       <h1>Register</h1>
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">Email:</label>
+          <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
         </div>
-      </div>
-      <div className="form-group">
-        <label className="control-label col-sm-2" for="pwd">Password:</label>
-        <div className="col-sm-10">
-          <input type="password" className="form-control" id="pwd" placeholder="Enter password"/>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password:</label>
+          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter password"/>
         </div>
-      </div>
-      <div className="form-group">
-        <label className="control-label col-sm-2" for="pwd">Confirm Password:</label>
-        <div className="col-sm-10">
-          <input type="password" className="form-control" id="pwd" placeholder="Confirm password"/>
+        <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password:</label>
+            <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter password"/>
+        </div><div className="form-group">
+            <label htmlFor="exampleInputPasswordConfirm1">Confirm password:</label>
+            <input type="text" className="form-control" id="exampleInputPasswordConfirm1" placeholder="Confirm password"/>
         </div>
-      </div>
-      <div className="form-group">
-        <div className="col-sm-offset-2 col-sm-10">
-          <div className="checkbox">
-            <label><input type="checkbox"/> Are you a vendor?</label>
-          </div>
+        <div className="form-group">
+            <div className="checkbox">
+              <label><input type="checkbox"/> Are you a vendor?</label>
+            </div>
         </div>
-      </div>
-      <div className="form-group">
-        <div className="col-sm-offset-2 col-sm-10">
-          <button type="submit" className="btn btn-default">Create Account</button>
+        <div className="form-group">
+            <button type="submit" className="btn btn-default">Login</button>
         </div>
-      </div>
     </form>
     )
   }

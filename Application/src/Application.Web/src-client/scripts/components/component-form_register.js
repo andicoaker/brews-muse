@@ -16,9 +16,6 @@ export const RegisterComponent = React.createClass({
           <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter password"/>
         </div>
         <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password:</label>
-            <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter password"/>
-        </div><div className="form-group">
             <label htmlFor="exampleInputPasswordConfirm1">Confirm password:</label>
             <input type="text" className="form-control" id="exampleInputPasswordConfirm1" placeholder="Confirm password"/>
         </div>

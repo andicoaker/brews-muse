@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using BrewsMuse.Models;
 using Microsoft.AspNetCore.Identity;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Application.Web.Controllers
 {

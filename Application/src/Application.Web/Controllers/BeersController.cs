@@ -40,14 +40,14 @@ namespace Application.Web.Controllers
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public IEnumerable<Beer> GetBeers(int vendorId)
         {
-            var userId = _userManager.GetUserId(User);
-            return _context.Beers.Where(q => q.Vendor.OwnerId == userId).ToList();
+            //var userId = _userManager.GetUserId(User);
+            return _context.Beers.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
         [HttpGet]
         [Route("~/api/vendors/{vendorsId}/beers/{beerId}")]
         public IActionResult GetBeer(int beerId) 
         {
-            var userId = _userManager.GetUserId(User);
+            //var userId = _userManager.GetUserId(User);
 
             var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == beerId);
             var beer = vendor.Beers.FirstOrDefault(q => q.Id == beerId); 
@@ -75,7 +75,7 @@ namespace Application.Web.Controllers
             }
             catch
             {
-                if (GroupExists(beer.Id))
+                if (BeerExists(beer.Id))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -111,7 +111,7 @@ namespace Application.Web.Controllers
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!GroupExists(id))
+                if (!BeerExists(id))
                 {
                     return NotFound();
                 }
@@ -143,10 +143,10 @@ namespace Application.Web.Controllers
             return Ok(beer);
         }
 
-        private bool GroupExists(int id)
+        private bool BeerExists(int id)
         {
-            var userId = _userManager.GetUserId(User);
-            return _context.Beers.Any(e => e.OwnerId == userId && e.Id == id);
+            //var userId = _userManager.GetUserId(User);
+            return _context.Beers.Any(e => e.Id == id);//e.OwnerId == userId && e.Id == id);
         }
 
         [HttpPost]

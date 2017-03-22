@@ -1,31 +1,36 @@
 import React from 'react'
+import {ACTIONS} from '../actions.js'
 
-// **** Need to verify list component below is set-up correctly ****
+// **** Need to verify if list component below is set-up correctly ****
 
 
-export const AllVendorsListComponent = React.createClass({
+export const VendorsListComponent = React.createClass({
+
   _makeVendorComponents: function(vendorsList){
-    let arrayOfVendorsComponents = vendorsList.map(function(smod, i){
+    let arrayOfVendorsComponents = vendorsList.map(function(vmod, i){
       return (
-        <VendorListItem vendorData={smod} key={i}/>
+        <VendorsListItem vendorData={vmod} key={i}/>
       )
     }).reverse()
 
     return arrayOfVendorsComponents
   },
 
-
   render: function(){
+    console.log(this.props)
+    return(
+      <div>
+        {this._makeVendorComponents(this.props.allVendors)}
+      </div>
 
-    return this._makeVendorComponents()
+    )
 
 // do i even need makevendorcomponent?  or can i simply pass my vendorslist function through the render function above?
-// in demo what does smod stand for - shout model? should i change to vmod for vendor model?
 
   }
 })
 
-export const VendorListItem = React.createClass({
+export const VendorsListItem = React.createClass({
 
   render: function(){
 
@@ -34,13 +39,14 @@ export const VendorListItem = React.createClass({
       <div className="media">
         <div className="media-left">
           <a href="#">
-            <img className="media-object" src="Insert Vendor Logo src HERE" alt="..."/>
+            <img className="media-object" src={this.props.vendor.ImageURL} alt="..."/>
           </a>
         </div>
         <div className="media-body">
-          <h4 className="media-heading">Insert Vendor Name HERE!</h4>
-          Insert Vendor Address HERE!
-          <a href="#">Insert Vendor Web Site HERE!</a>
+          <h4 className="media-heading">{this.props.vendor.vendorName}</h4>
+          {this.props.vendor.Address1}
+          {this.props.vendor.City}, {this.props.vendor.State} {this.props.vendor.ZipCode}
+          <a href="">{this.props.vendor.VendorURL}</a>
         </div>
       </div>
 

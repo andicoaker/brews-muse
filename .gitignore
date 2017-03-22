@@ -192,6 +192,7 @@ ClientBin/
 *.publishsettings
 wwwroot/js/bundle.js
 node_modules/
+wwwroot/js/bundle.js
 orleans.codegen.cs
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components

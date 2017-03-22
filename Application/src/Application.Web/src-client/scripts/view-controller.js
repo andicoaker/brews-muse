@@ -55,22 +55,22 @@ export const ViewController = React.createClass({
 
     switch(currentView){
   			case "LOGIN":
-  				componentToRender = <LoginView/>
+  				componentToRender = <LoginView {...this.state}/>
   				break;
   			case "REGISTER":
-  				componentToRender = <RegisterView/>
+  				componentToRender = <RegisterView {...this.state}/>
   				break;
    			case "ALL_VENDORS":
-  				componentToRender = <AllVendorsView/>
+  				componentToRender = <AllVendorsView {...this.state}/>
   				break;
         case "VENDOR_ACCOUNT":
-  				componentToRender = <VendorAccountView/>
+  				componentToRender = <VendorAccountView {...this.state}/>
   				break;
         case "VENDOR_PROFILE":
-  				componentToRender = <VendorProfileView/>
+  				componentToRender = <VendorProfileView {...this.state}/>
   				break;
         case "HOME":
-  				componentToRender = <HomeView/>
+  				componentToRender = <HomeView {...this.state}/>
   				break;
    			default:
           componentToRender = <h1 className="">Nothing found!</h1>

@@ -85,7 +85,7 @@ namespace Application.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vendors",
+                name: "Vendor",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -95,15 +95,18 @@ namespace Application.Web.Migrations
                     ApplicationUserId = table.Column<string>(nullable: true),
                     CheckIn = table.Column<int>(nullable: false),
                     City = table.Column<string>(nullable: true),
-                    Hours = table.Column<TimeSpan>(nullable: false),
+                    ClosingTime = table.Column<string>(nullable: true),
+                    Comments = table.Column<string>(nullable: true),
                     ImageURL = table.Column<string>(nullable: true),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
                     Name = table.Column<string>(nullable: true),
+                    OpeningTIme = table.Column<string>(nullable: true),
                     OwnerId = table.Column<string>(nullable: true),
                     OwnerName = table.Column<string>(nullable: true),
                     Rating = table.Column<byte>(nullable: false),
                     State = table.Column<string>(nullable: true),
+                    VendorId = table.Column<int>(nullable: false),
                     VendorPhone = table.Column<string>(nullable: true),
                     VendorURL = table.Column<string>(nullable: true),
                     Vote = table.Column<int>(nullable: false),
@@ -111,9 +114,9 @@ namespace Application.Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vendors", x => x.Id);
+                    table.PrimaryKey("PK_Vendor", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vendors_AspNetUsers_ApplicationUserId",
+                        name: "FK_Vendor_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -197,15 +200,16 @@ namespace Application.Web.Migrations
                     Name = table.Column<string>(nullable: true),
                     OwnerId = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
+                    Showtime = table.Column<string>(nullable: true),
                     VendorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bands", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Bands_Vendors_VendorId",
+                        name: "FK_Bands_Vendor_VendorId",
                         column: x => x.VendorId,
-                        principalTable: "Vendors",
+                        principalTable: "Vendor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -229,9 +233,9 @@ namespace Application.Web.Migrations
                 {
                     table.PrimaryKey("PK_Beers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Beers_Vendors_VendorId",
+                        name: "FK_Beers_Vendor_VendorId",
                         column: x => x.VendorId,
-                        principalTable: "Vendors",
+                        principalTable: "Vendor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -247,8 +251,8 @@ namespace Application.Web.Migrations
                 column: "VendorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vendors_ApplicationUserId",
-                table: "Vendors",
+                name: "IX_Vendor_ApplicationUserId",
+                table: "Vendor",
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
@@ -313,15 +317,13 @@ namespace Application.Web.Migrations
                 name: "UserTokens");
 
             migrationBuilder.DropTable(
-                name: "Vendors");
+                name: "Vendor");
 
             migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            //BRADEN!
         }
     }
 }

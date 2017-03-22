@@ -9,7 +9,9 @@ namespace BrewsMuse.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string OwnerId { get; set; }
+        //public string OwnerId { get; set; }
+
+        public ApplicationUser Owner { get; set; }
         public string OwnerName { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -28,8 +30,8 @@ namespace BrewsMuse.Models
         //public TimeSpan Hours { get; set; }
         public string OpeningTIme { get; set; }
         public string ClosingTime { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
         public List<Beer> Beers { get; set; }
         public List<Band> Bands { get; set; }
         public Vendor()

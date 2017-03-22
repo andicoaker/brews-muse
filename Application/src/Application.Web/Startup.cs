@@ -89,7 +89,7 @@ namespace Application.Web
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
 
 
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
@@ -127,9 +127,9 @@ namespace Application.Web
                 vendor.VendorPhone = "555-555-5555";
                 vendor.Rating = 5;
                 vendor.ImageURL = "http://i.imgur.com/uSExX74.jpg";
-                vendor.Latitude = 32.123;
-                vendor.Longitude = 33.333;
-                vendor.OwnerId = user.Id;
+                vendor.Lat = 79.9342;
+                vendor.Lng = 32.7799;
+                vendor.Owner = user;
                 context.Vendors.Add(vendor);
 
 
@@ -140,14 +140,15 @@ namespace Application.Web
                 vendor2.State = "SC";
                 vendor2.ZipCode = 29464;
                 vendor2.OwnerName = "Victor von Vendorstein";
-                vendor2.OwnerId = user.Id;
+                vendor2.Owner = user;
                 vendor2.OpeningTIme = "3:00 PM";
                 vendor2.ClosingTime = "1:00 AM";
                 vendor2.VendorURL = "www.vendorsrus";
                 vendor2.VendorPhone = "555-867-5309";
                 vendor2.Rating = 4;
-                vendor2.Latitude = 33.123;
-                vendor2.Longitude = 35.333;
+                vendor2.Lat = 79.9158;
+                vendor2.Lng = 32.9001;
+                vendor2.ImageURL = "http://m5.paperblog.com/i/76/765810/calendar-pin-up-dogs-that-look-smashingly-cut-L-ga5X3B.jpeg";
                 context.Vendors.Add(vendor2);
 
 

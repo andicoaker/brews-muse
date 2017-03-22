@@ -80,8 +80,6 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("Address2");
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<int>("CheckIn");
 
                     b.Property<string>("City");
@@ -92,9 +90,9 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("ImageURL");
 
-                    b.Property<double>("Latitude");
+                    b.Property<double>("Lat");
 
-                    b.Property<double>("Longitude");
+                    b.Property<double>("Lng");
 
                     b.Property<string>("Name");
 
@@ -120,7 +118,7 @@ namespace Application.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Vendor");
                 });
@@ -314,9 +312,9 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("BrewsMuse.Models.Vendor", b =>
                 {
-                    b.HasOne("BrewsMuse.Models.ApplicationUser")
+                    b.HasOne("BrewsMuse.Models.ApplicationUser", "Owner")
                         .WithMany("Vendors")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("OwnerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

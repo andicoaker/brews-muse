@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,6 +32,7 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors/image")]
         public async Task<IActionResult> PostPicture(IFormFile file)
         {
@@ -57,6 +59,7 @@ namespace BrewsMuse.Controllers
         }
 
         // GET: /<controller>/
+        [AllowAnonymous]
         [Route("~/vendors")]
         public IActionResult Vendor()
         {
@@ -64,6 +67,7 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors")]
         public IEnumerable<Vendor> GetVendors()
         {
@@ -74,11 +78,12 @@ namespace BrewsMuse.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{id}")]
         public async Task<IActionResult> GetVendor(int id)
         {
             //var userId = _userManager.GetUserId(User);
-            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.Id == id);// m.OwnerId == userId && m.Id == id);
+            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
 
             if (vendor == null)
             {
@@ -103,23 +108,30 @@ namespace BrewsMuse.Controllers
         //}
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors")]
-        public async Task<IActionResult> PostVendor([FromBody]Vendor vendor)
+        public async Task<IActionResult> PostVendor([FromBody] Vendor vendor)  //(int id) //[FromBody] Vendor vendor
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            vendor.OwnerId = _userManager.GetUserId(User);
+            //vendor.OwnerId = _userManager.GetUserId(User);
+            var user = await _userManager.GetUserAsync(User);
+
+            //Vendor vendor = await _context.Vendors.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+
+            vendor.Owner = user;
             _context.Vendors.Add(vendor);
             await _context.SaveChangesAsync();
 
-            return View();
+            return Ok(vendor);
         }
 
         // PUT api/bars/5
         [HttpPut("~/api/vendors/{id}")]
+        [Authorize]
         public async Task<IActionResult> PutVendor(int id, [FromBody] Vendor vendor)
         {
             if (!ModelState.IsValid)
@@ -132,7 +144,7 @@ namespace BrewsMuse.Controllers
                 return BadRequest(Response);
             }
 
-            vendor.OwnerId = _userManager.GetUserId(User);
+            vendor.Owner = await _userManager.GetUserAsync(User);
             _context.Entry(vendor).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
@@ -142,6 +154,7 @@ namespace BrewsMuse.Controllers
 
         // DELETE api/bars/5
         [HttpDelete("~/api/vendors/{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteVendor(int id)
         {
             if (!ModelState.IsValid)
@@ -149,10 +162,10 @@ namespace BrewsMuse.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userId = _userManager.GetUserId(User);
+            var userId = await _userManager.GetUserAsync(User);
 
             Vendor vendor = await _context.Vendors
-                .Where(q => q.OwnerId == userId)
+                .Where(q => q.Owner == userId)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
             if (vendor == null)
@@ -169,7 +182,7 @@ namespace BrewsMuse.Controllers
         private bool VendorExists(int id)
         {
             var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Any(e => e.OwnerId == userId && e.Id == id);
+            return _context.Vendors.Any(e => e.Owner.Id == userId && e.Id == id);
         }
 
     }

@@ -62,6 +62,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> PostBeer(int vendorId, int id)//[FromBody]Beer beer)
         {
@@ -97,6 +98,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> PutBeer(int id, [FromBody] Beer beer)
         {
@@ -133,6 +135,7 @@ namespace Application.Web.Controllers
         }
         
         [HttpDelete]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> DeleteBeer(int id)
         {
@@ -159,6 +162,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/beers/image")]
         public async Task<IActionResult> PostPicture(IFormFile file)
         {

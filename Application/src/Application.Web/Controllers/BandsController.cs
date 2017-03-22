@@ -29,7 +29,7 @@ namespace Application.Web.Controllers
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IActionResult Band(int vendorsId)
         {
-        
+
             var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == vendorsId);
             return View();
         }
@@ -47,7 +47,7 @@ namespace Application.Web.Controllers
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor  = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
+            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
             var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
             if (band == null)
             {
@@ -58,14 +58,18 @@ namespace Application.Web.Controllers
 
         [HttpPost]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> PostBand(int vendorId, [FromBody]Band band)
+        public async Task<IActionResult> PostBand(int vendorId, int id)//[FromBody]Band band)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            band.OwnerId = _userManager.GetUserId(User);
+            //band.OwnerId = _userManager.GetUserId(User);
+
+            var userId = _userManager.GetUserId(User);
+            Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+
             vendor.Bands.Add(band);
             try
             {

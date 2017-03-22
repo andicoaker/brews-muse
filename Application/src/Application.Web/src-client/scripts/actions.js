@@ -17,6 +17,10 @@ export const ACTIONS = {
 
   },
 
+  setAPIData: function(results){
+    STORE.setStore('allVendors', results)
+  },
+
   routeTo: function(path){
     window.location.hash = path
   }

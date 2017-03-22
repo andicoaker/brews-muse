@@ -29,7 +29,7 @@ export const ViewController = React.createClass({
 
        $.getJSON('http://localhost:5000/api/vendors/').then(function(serverRes){
          console.log("JSON data results:", serverRes);
-         ACTIONS.setAPIData('allVendors', serverRes)
+         ACTIONS.setAPIData(serverRes)
        })
 
       STORE.onStoreChange(function(){

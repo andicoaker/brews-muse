@@ -17,7 +17,7 @@ export const VendorsListComponent = React.createClass({
   },
 
   render: function(){
-    console.log(this.props)
+    console.log("vendors list component props: ", this.props)
     return(
       <div>
         {this._makeVendorComponents(this.props.allVendors)}
@@ -39,7 +39,7 @@ export const VendorsListItem = React.createClass({
       <div className="media">
         <div className="media-left">
           <a href="#">
-            <img className="media-object" src={this.props.vendor.ImageURL} alt="..."/>
+            {/* <img className="media-object" src={this.props.vendor.ImageURL} alt="..."/> */}
           </a>
         </div>
         <div className="media-body">

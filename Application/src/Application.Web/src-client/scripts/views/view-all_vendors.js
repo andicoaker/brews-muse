@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import {MapComponent} from '../components/component-map.js'
+import {MapComponent} from '../components/component-map.js'
 import {VendorsListComponent} from '../components/component-list_all_vendors.js'
 
 import {ACTIONS} from '../actions.js'
@@ -20,11 +20,10 @@ export const AllVendorsView = React.createClass({
 		return (
 			<div className="container-fluid">
 
+        <MapComponent/>
         <VendorsListComponent allVendors={this.props.allVendors}/>
 
 			</div>
 		)
 	}
 })
-
-// After map api is working, add <MapComponent/> before <VendorsListComponent/> to the return above.

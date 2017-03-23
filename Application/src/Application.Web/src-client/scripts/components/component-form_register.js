@@ -1,7 +1,15 @@
 import React from 'react'
+import {ACTIONS} from '../actions.js'
 
 export const RegisterComponent = React.createClass({
 
+  getInitialState: function(){
+		return {}
+	},
+
+  _handleSubmit: function(evt){
+    console.log("we clickin boi")
+  },
 
   render: function(){
     return (
@@ -25,7 +33,7 @@ export const RegisterComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button type="submit" className="btn btn-default">Sign Up</button>
+            <button onClick={this._handleClick} type="submit" className="btn btn-default">Sign Up</button>
         </div>
     </form>
     )

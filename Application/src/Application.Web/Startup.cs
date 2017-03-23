@@ -89,7 +89,7 @@ namespace Application.Web
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
 
 
-            context.Database.EnsureDeleted();
+            //context.Database.EnsureDeleted();
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
@@ -116,13 +116,11 @@ namespace Application.Web
 
                 vendor.Name = "The Lonely Vendor";
                 vendor.OwnerName = "John Q. Vendor";
-                vendor.Address1 = "1234 Vendor Lane";
-                vendor.Address2 = "101";
+                vendor.Address = "1234 Vendor Lane";
                 vendor.City = "Charleston";
                 vendor.State = "SC";
                 vendor.ZipCode = 29401;
-                vendor.OpeningTIme = "4:00 PM";
-                vendor.ClosingTime = "2:00 AM";
+                vendor.Hours = "4:00 PM - 2:00 AM";
                 vendor.VendorURL = "www.vendor.com";
                 vendor.VendorPhone = "555-555-5555";
                 vendor.Rating = 5;
@@ -134,25 +132,35 @@ namespace Application.Web
 
 
                 vendor2.Name = "Vendors R Us";
-                vendor2.Address1 = "1533 Vendor Street";
-                vendor2.Address1 = "Suite V";
-                vendor2.City = "Mt Pleasant";
+                vendor2.Address = "1533 Vendor Street";
+                vendor2.City = "Charleston";
                 vendor2.State = "SC";
                 vendor2.ZipCode = 29464;
                 vendor2.OwnerName = "Victor von Vendorstein";
                 vendor2.Owner = user;
-                vendor2.OpeningTIme = "3:00 PM";
-                vendor2.ClosingTime = "1:00 AM";
+                vendor2.Hours = "3:00 PM - 1:00 AM";
                 vendor2.VendorURL = "www.vendorsrus";
                 vendor2.VendorPhone = "555-867-5309";
                 vendor2.Rating = 4;
-                vendor2.Lat = 79.9158;
-                vendor2.Lng = 32.9001;
+                vendor2.Lat = 79.9274;
+                vendor2.Lng = 32.7785;
                 vendor2.ImageURL = "http://m5.paperblog.com/i/76/765810/calendar-pin-up-dogs-that-look-smashingly-cut-L-ga5X3B.jpeg";
                 context.Vendors.Add(vendor2);
 
-
-
+                vendor3.Name = "Vendors and Sons";
+                vendor3.Address = "1600 Pennsylvendor Avenue";
+                vendor3.City = "Charleston";
+                vendor3.State = "SC";
+                vendor3.ZipCode = 29401;
+                vendor3.OwnerName = "Val Vendor Sr.";
+                vendor.Owner = user;
+                vendor3.Hours = "10:00 AM";
+                vendor3.VendorURL = "www.vendorsandsons.com";
+                vendor3.Rating = 4;
+                vendor3.Lat = 79.9287;
+                vendor3.Lng = 32.7768;
+                vendor3.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
+                context.Vendors.Add(vendor3);
 
                 beer.Name = "Dummy Beer";
                 beer.OwnerId = user.Id;

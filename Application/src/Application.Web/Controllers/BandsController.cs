@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,6 +27,7 @@ namespace Application.Web.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IActionResult Band(int vendorsId)
         {
@@ -34,6 +36,7 @@ namespace Application.Web.Controllers
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IEnumerable<Band> GetBands()
         {
@@ -42,6 +45,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public IActionResult GetBand(int vendorId)
         {
@@ -57,6 +61,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> PostBand(int vendorId, int id)//[FromBody]Band band)
         {
@@ -90,6 +95,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> PutBand(int id, [FromBody] Band band)
         {
@@ -126,6 +132,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> DeleteBand(int id)
         {
@@ -146,6 +153,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/bands/image")]
         public async Task<IActionResult> PostPicture(IFormFile file)
         {

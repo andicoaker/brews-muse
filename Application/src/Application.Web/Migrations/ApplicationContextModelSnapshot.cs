@@ -76,17 +76,15 @@ namespace Application.Web.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address1");
-
-                    b.Property<string>("Address2");
+                    b.Property<string>("Address");
 
                     b.Property<int>("CheckIn");
 
                     b.Property<string>("City");
 
-                    b.Property<string>("ClosingTime");
-
                     b.Property<string>("Comments");
+
+                    b.Property<string>("Hours");
 
                     b.Property<string>("ImageURL");
 
@@ -96,8 +94,6 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("OpeningTIme");
-
                     b.Property<string>("OwnerId");
 
                     b.Property<string>("OwnerName");
@@ -105,8 +101,6 @@ namespace Application.Web.Migrations
                     b.Property<byte>("Rating");
 
                     b.Property<string>("State");
-
-                    b.Property<int>("VendorId");
 
                     b.Property<string>("VendorPhone");
 

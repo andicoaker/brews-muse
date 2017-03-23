@@ -3,12 +3,12 @@ import {ACTIONS} from '../actions.js'
 
 export const RegisterComponent = React.createClass({
 
-  getInitialState: function(){
-		return {}
-	},
-
   _handleSubmit: function(evt){
-    console.log("we clickin boi")
+    let clickedRoute = evt.target.dataset.route
+    let routeMapping = {
+      "ALL_VENDORS" : 'allvendors'
+    }
+    ACTIONS.routeTo(routeMapping[clickedRoute])
   },
 
   render: function(){

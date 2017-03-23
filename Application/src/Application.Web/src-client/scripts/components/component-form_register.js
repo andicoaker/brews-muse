@@ -1,7 +1,16 @@
 import React from 'react'
+import {ACTIONS} from '../actions.js'
 
 export const RegisterComponent = React.createClass({
 
+  _handleSubmit: function(evt){
+    let clickedRoute = evt.target.dataset.route
+    let routeMapping = {
+      "ALL_VENDORS" : 'allvendors'
+    }
+    ACTIONS.routeTo(routeMapping[clickedRoute])
+    console.log("we clickin boi")
+  },
 
   render: function(){
     return (
@@ -25,7 +34,7 @@ export const RegisterComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button type="submit" className="btn btn-default">Login</button>
+            <button onClick={this._handleSubmit} type="submit" className="btn btn-default">Sign Up</button>
         </div>
     </form>
     )

@@ -284,7 +284,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor10);
 
                 beer.Name = "Dummy Beer";
-                beer.OwnerId = user.Id;
+                beer.Owner = vendor.Owner;
                 beer.Price = 1;
                 beer.Rating = 5;
                 beer.Brewery = "Dummy Brewery";
@@ -292,7 +292,7 @@ namespace Application.Web
                 context.Beers.Add(beer);
 
                 band.Name = "The Dummies";
-                band.OwnerId = user.Id;
+                band.Owner = vendor.Owner;
                 band.Genre = "Rock";
                 band.Rating = 5;
                 band.Description = "Dummy description";

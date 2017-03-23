@@ -31,32 +31,6 @@ namespace BrewsMuse.Controllers
             _context = context;
         }
 
-        [HttpPost]
-        [Authorize]
-        [Route("~/api/vendors/image")]
-        public async Task<IActionResult> PostPicture(IFormFile file)
-        {
-            var extension = Path.GetExtension(file.FileName);
-            var vendor = new Vendor();
-            
-            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
-            {
-                var name = Guid.NewGuid().ToString();
-                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
-
-                using(var image = System.IO.File.Create(path))
-                {
-                    file.CopyTo(image);
-                }
-
-                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
-                return Ok(vendor.ImageURL);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
 
         // GET: /<controller>/
         [AllowAnonymous]
@@ -147,10 +121,10 @@ namespace BrewsMuse.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userId = await _userManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
 
             Vendor vendor = await _context.Vendors
-                .Where(q => q.Owner == userId)
+                .Where(q => q.Owner == user)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
             if (vendor == null)
@@ -162,6 +136,33 @@ namespace BrewsMuse.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(vendor);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("~/api/vendors/image")]
+        public async Task<IActionResult> PostPicture(IFormFile file)
+        {
+            var extension = Path.GetExtension(file.FileName);
+            var vendor = new Vendor();
+
+            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+            {
+                var name = Guid.NewGuid().ToString();
+                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
+
+                using (var image = System.IO.File.Create(path))
+                {
+                    file.CopyTo(image);
+                }
+
+                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
+                return Ok(vendor.ImageURL);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         private bool VendorExists(int id)

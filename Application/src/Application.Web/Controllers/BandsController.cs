@@ -33,7 +33,7 @@ namespace Application.Web.Controllers
         {
 
             var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == vendorsId);
-            return View();
+            return Ok(vendors);//return View();
         }
         [HttpGet]
         [AllowAnonymous]
@@ -47,12 +47,12 @@ namespace Application.Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public IActionResult GetBand(int vendorId)
+        public IActionResult GetBand(int vendorsId, int id)
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
-            var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
+            //var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
+            var band = _context.Bands.FirstOrDefault(q => q.Id == id);
             if (band == null)
             {
                 return NotFound();
@@ -61,20 +61,21 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> PostBand(int vendorId, int id)//[FromBody]Band band)
+        //[Authorize]
+        [Route("~/api/vendors/{vendorsId}/bands/")]
+        public async Task<IActionResult> PostBand(int vendorsId, [FromBody] Band band)
         {
-            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
+            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorsId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             //band.OwnerId = _userManager.GetUserId(User);
 
-            var userId = _userManager.GetUserId(User);
-            Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var user = await _userManager.GetUserAsync(User);
+            //Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
 
+            band.Owner = vendor.Owner;
             vendor.Bands.Add(band);
             try
             {
@@ -109,7 +110,7 @@ namespace Application.Web.Controllers
                 return BadRequest();
             }
 
-            band.OwnerId = _userManager.GetUserId(User);
+            band.Owner = await _userManager.GetUserAsync(User);
             _context.Entry(band).State = EntityState.Modified;
 
             try
@@ -140,8 +141,8 @@ namespace Application.Web.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var userId = _userManager.GetUserId(User);
-            Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var user = await _userManager.GetUserAsync(User);
+            Band band = await _context.Bands.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
             if (band == null)
             {
                 return NotFound();

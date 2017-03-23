@@ -10,6 +10,7 @@ export const AllVendorsView = React.createClass({
 
   render: function(){
     console.log(this.props.allVendors);
+    console.log(this.props.locationsData);
     if(this.props.allVendors.length < 1){
       return(
         <div></div>
@@ -19,8 +20,7 @@ export const AllVendorsView = React.createClass({
 
 		return (
 			<div className="container-fluid">
-
-        <MapComponent locationsData={this.props.locationsData}/>
+        <MapComponent locationsData={this.props.allVendors}/>
         <VendorsListComponent allVendors={this.props.allVendors}/>
 
 			</div>

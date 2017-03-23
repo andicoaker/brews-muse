@@ -6,7 +6,12 @@ export const MapComponent = React.createClass({
 
   _createMapPins: function(locationsArray){
 		let mapPinComponents= locationsArray.map(function(locationObj, i){
-			return <MapPin key={Date.now()+i} lat={locationObj.latitude} lng={locationObj.longitude} location={locationObj.name} />
+      // console.log(locationObj);
+      console.log(locationsArray);
+
+      return (
+        <MapPin key={Date.now()+i} lat={locationObj.latitude} lng={locationObj.longitude} vendorName={locationObj.name} />
+      )
 		})
 
 		return mapPinComponents
@@ -27,12 +32,12 @@ export const MapComponent = React.createClass({
 
 const MapPin = React.createClass({
 
-  	render: function(){
-  		return (
-  			<div>
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
-  				<span>{this.props.location}</span>
-  			</div>
-  		)
-  	}
+	render: function(){
+		return (
+			<div>
+        <span>{this.props.vendorName}</span>
+        <i className="fa fa-map-marker" aria-hidden="true"></i>
+			</div>
+		)
+	}
 })

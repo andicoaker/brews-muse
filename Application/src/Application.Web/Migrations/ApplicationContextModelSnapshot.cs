@@ -76,29 +76,23 @@ namespace Application.Web.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address1");
-
-                    b.Property<string>("Address2");
-
-                    b.Property<string>("ApplicationUserId");
+                    b.Property<string>("Address");
 
                     b.Property<int>("CheckIn");
 
                     b.Property<string>("City");
 
-                    b.Property<string>("ClosingTime");
-
                     b.Property<string>("Comments");
+
+                    b.Property<string>("Hours");
 
                     b.Property<string>("ImageURL");
 
-                    b.Property<double>("Latitude");
+                    b.Property<double>("Lat");
 
-                    b.Property<double>("Longitude");
+                    b.Property<double>("Lng");
 
                     b.Property<string>("Name");
-
-                    b.Property<string>("OpeningTIme");
 
                     b.Property<string>("OwnerId");
 
@@ -107,8 +101,6 @@ namespace Application.Web.Migrations
                     b.Property<byte>("Rating");
 
                     b.Property<string>("State");
-
-                    b.Property<int>("VendorId");
 
                     b.Property<string>("VendorPhone");
 
@@ -120,7 +112,7 @@ namespace Application.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Vendor");
                 });
@@ -314,9 +306,9 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("BrewsMuse.Models.Vendor", b =>
                 {
-                    b.HasOne("BrewsMuse.Models.ApplicationUser")
+                    b.HasOne("BrewsMuse.Models.ApplicationUser", "Owner")
                         .WithMany("Vendors")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("OwnerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

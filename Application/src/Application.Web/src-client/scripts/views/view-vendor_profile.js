@@ -19,9 +19,6 @@ export const VendorProfileView = React.createClass({
 		return (
 			<div className="container">
           <VendorDetailsComponent/>
-          <MapComponent/>
-          <BeersListComponent/>
-          <BandsListComponent/>
 			</div>
 		)
 	}

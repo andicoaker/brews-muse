@@ -19,7 +19,7 @@ namespace Application.Web.Controllers
             _context = context;
         }
         [HttpPost]
-        [Route("~/api/vendors")]
+        [Route("~/api/vendors/checkin")]
         public async Task<IActionResult> PostCheckIn(int vendorId, [FromBody]Vendor CheckIn)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
@@ -31,7 +31,7 @@ namespace Application.Web.Controllers
             //CheckIn.OwnerId = _userManager.GetUserId(User);
 
 
-            if(vendor.CheckIn >= 1)
+            if (vendor.CheckIn >= 1)
             {
                 return null;
             }

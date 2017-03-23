@@ -90,23 +90,19 @@ namespace Application.Web.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Address1 = table.Column<string>(nullable: true),
-                    Address2 = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
                     CheckIn = table.Column<int>(nullable: false),
                     City = table.Column<string>(nullable: true),
-                    ClosingTime = table.Column<string>(nullable: true),
                     Comments = table.Column<string>(nullable: true),
+                    Hours = table.Column<string>(nullable: true),
                     ImageURL = table.Column<string>(nullable: true),
-                    Latitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false),
+                    Lat = table.Column<double>(nullable: false),
+                    Lng = table.Column<double>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    OpeningTIme = table.Column<string>(nullable: true),
                     OwnerId = table.Column<string>(nullable: true),
                     OwnerName = table.Column<string>(nullable: true),
                     Rating = table.Column<byte>(nullable: false),
                     State = table.Column<string>(nullable: true),
-                    VendorId = table.Column<int>(nullable: false),
                     VendorPhone = table.Column<string>(nullable: true),
                     VendorURL = table.Column<string>(nullable: true),
                     Vote = table.Column<int>(nullable: false),
@@ -116,8 +112,8 @@ namespace Application.Web.Migrations
                 {
                     table.PrimaryKey("PK_Vendor", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vendor_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
+                        name: "FK_Vendor_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -251,9 +247,9 @@ namespace Application.Web.Migrations
                 column: "VendorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vendor_ApplicationUserId",
+                name: "IX_Vendor_OwnerId",
                 table: "Vendor",
-                column: "ApplicationUserId");
+                column: "OwnerId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",

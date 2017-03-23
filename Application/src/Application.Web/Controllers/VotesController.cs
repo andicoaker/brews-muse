@@ -19,7 +19,7 @@ namespace Application.Web.Controllers
             _context = context;
         }
         [HttpPost]
-        [Route("~/api/vendors")]
+        [Route("~/api/vendors/{vendorId}/votes")]
         public async Task<IActionResult> PostVote(int vendorId, [FromBody]Vendor Vote)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
@@ -28,7 +28,7 @@ namespace Application.Web.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
+
             vendor.Vote++;
 
             await _context.SaveChangesAsync();

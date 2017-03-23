@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,14 +27,16 @@ namespace Application.Web.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IActionResult Band(int vendorsId)
         {
-        
+
             var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == vendorsId);
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands")]
         public IEnumerable<Band> GetBands()
         {
@@ -42,12 +45,13 @@ namespace Application.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public IActionResult GetBand(int vendorId)
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor  = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
+            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
             var band = vendor.Bands.FirstOrDefault(q => q.Id == vendorId);
             if (band == null)
             {
@@ -57,15 +61,20 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> PostBand(int vendorId, [FromBody]Band band)
+        public async Task<IActionResult> PostBand(int vendorId, int id)//[FromBody]Band band)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            band.OwnerId = _userManager.GetUserId(User);
+            //band.OwnerId = _userManager.GetUserId(User);
+
+            var userId = _userManager.GetUserId(User);
+            Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+
             vendor.Bands.Add(band);
             try
             {
@@ -86,6 +95,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> PutBand(int id, [FromBody] Band band)
         {
@@ -122,6 +132,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> DeleteBand(int id)
         {
@@ -142,6 +153,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/bands/image")]
         public async Task<IActionResult> PostPicture(IFormFile file)
         {

@@ -59,7 +59,7 @@ body {
   width: 150px; }
 
 .map-container {
-  height: 400px; }
+  height: 500px; }
 
 .nav-btn {
   height: 100px;
@@ -76,5 +76,8 @@ body {
 
 h1 {
   font-size: 50px; }
+
+.thumbnail {
+  width: 100%; }
 
 /*# sourceMappingURL=styles.css.map*/

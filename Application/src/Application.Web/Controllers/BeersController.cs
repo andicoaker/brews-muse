@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -28,7 +29,7 @@ namespace Application.Web.Controllers
             _context = context;
         }
         // GET: /<controller>/
-
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/beers")]
         public IActionResult Beer(int beerId)
         {
@@ -37,6 +38,7 @@ namespace Application.Web.Controllers
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public IEnumerable<Beer> GetBeers(int vendorId)
         {
@@ -44,13 +46,14 @@ namespace Application.Web.Controllers
             return _context.Beers.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
         [HttpGet]
+        [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/beers/{beerId}")]
-        public IActionResult GetBeer(int beerId) 
+        public IActionResult GetBeer(int vendorId) 
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == beerId);
-            var beer = vendor.Beers.FirstOrDefault(q => q.Id == beerId); 
+            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorId);
+            var beer = vendor.Beers.FirstOrDefault(q => q.Id == vendorId); 
             if (beer == null)
             {
                 return NotFound();
@@ -59,15 +62,22 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public async Task<IActionResult> PostBeer(int vendorId, [FromBody]Beer beer)
+        public async Task<IActionResult> PostBeer(int vendorId, int id)//[FromBody]Beer beer)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            beer.OwnerId = _userManager.GetUserId(User);
+
+
+            //beer.OwnerId = _userManager.GetUserId(User);
+
+            var userId = _userManager.GetUserId(User);
+            Beer beer = await _context.Beers.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+
             vendor.Beers.Add(beer);
             try
             {
@@ -88,6 +98,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> PutBeer(int id, [FromBody] Beer beer)
         {
@@ -124,6 +135,7 @@ namespace Application.Web.Controllers
         }
         
         [HttpDelete]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> DeleteBeer(int id)
         {
@@ -150,6 +162,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("~/api/beers/image")]
         public async Task<IActionResult> PostPicture(IFormFile file)
         {

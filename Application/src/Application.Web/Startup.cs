@@ -109,6 +109,9 @@ namespace Application.Web
             var vendor10 = new Vendor();
 
             var beer = new Beer();
+            var beer2 = new Beer();
+            var beer3 = new Beer();
+
             var band = new Band();
 
             if (user == null)
@@ -133,7 +136,7 @@ namespace Application.Web
                 vendor.VendorPhone = "843-577-7970";
                 vendor.Rating = 4;
                 vendor.ImageURL = "https://media-cdn.tripadvisor.com/media/photo-s/01/c6/4d/ca/rooftop-with-a-view.jpg";
-                vendor.Lat = 79.9265;
+                vendor.Lat = -79.9265;
                 vendor.Lng = 32.7786;
                 vendor.Owner = user;
                 context.Vendors.Add(vendor);
@@ -150,7 +153,7 @@ namespace Application.Web
                 vendor2.VendorURL = "http://www.thecocktailclubcharleston.com/";
                 vendor2.VendorPhone = "843-724-9411";
                 vendor2.Rating = 4;
-                vendor2.Lat = 79.9389;
+                vendor2.Lat = -79.9389;
                 vendor2.Lng = 32.7894;
                 vendor2.ImageURL = "http://www.thecocktailclubcharleston.com/wordpress2/wp-content/uploads/2014/11/cc-logo.jpg";
                 context.Vendors.Add(vendor2);
@@ -166,7 +169,7 @@ namespace Application.Web
                 vendor3.VendorURL = "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjR9cbc_-zSAhXHRyYKHYJJCqgQhAcIJA&url=http%3A%2F%2Ftheginjoint.com%2Fcategory%2Fmenu-2%2F&usg=AFQjCNHT-y-_13inQz4GsLDege2r9kfM4A";
                 vendor3.VendorPhone = "843-577-6111";
                 vendor3.Rating = 4;
-                vendor3.Lat = 79.9287;
+                vendor3.Lat = -79.9287;
                 vendor3.Lng = 32.7768;
                 vendor3.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
                 context.Vendors.Add(vendor3);
@@ -198,7 +201,7 @@ namespace Application.Web
                 vendor5.VendorURL = "http://tattooedmoose.com/home-copy-2-copy-2.html";
                 vendor5.VendorPhone = "843-277-2990";
                 vendor5.Rating = 5;
-                vendor5.Lat = 79.9493;
+                vendor5.Lat = -79.9493;
                 vendor5.Lng = 32.8114;
                 vendor5.ImageURL = "http://tattooedmoose.com/images/moose_logo_400px.png?crc=4036922751";
                 context.Vendors.Add(vendor5);
@@ -214,7 +217,7 @@ namespace Application.Web
                 vendor6.VendorURL = "http://www.thebelmontcharleston.com/";
                 vendor6.VendorPhone = "843-628-5515";
                 vendor6.Rating = 5;
-                vendor6.Lat = 79.9395;
+                vendor6.Lat = -79.9395;
                 vendor6.Lng = 32.7903;
                 vendor6.ImageURL = "http://www.thebelmontcharleston.com/logos/belmont-logo-v5.png";
                 context.Vendors.Add(vendor6);
@@ -230,7 +233,7 @@ namespace Application.Web
                 vendor7.VendorURL = "http://theroyalamerican.com/menu/";
                 vendor7.VendorPhone = "843-817-6925";
                 vendor7.Rating = 5;
-                vendor7.Lat = 79.9420;
+                vendor7.Lat = -79.9420;
                 vendor7.Lng = 32.8067;
                 vendor7.ImageURL = "https://media2.fdncms.com/charleston/imager/the-royal-american/u/zoom/4007753/royalam.jpg";
                 context.Vendors.Add(vendor7);
@@ -246,7 +249,7 @@ namespace Application.Web
                 vendor8.VendorURL = "http://therarebit.com/";
                 vendor8.VendorPhone = "843-974-5483";
                 vendor8.Rating = 4;
-                vendor8.Lat = 79.9388;
+                vendor8.Lat = -79.9388;
                 vendor8.Lng = 32.7900;
                 vendor8.ImageURL = "http://therarebit.com/custom/logo_cover.png";
                 context.Vendors.Add(vendor8);
@@ -262,7 +265,7 @@ namespace Application.Web
                 vendor9.VendorURL = "http://thealleycharleston.com/about";
                 vendor9.VendorPhone = "843-818-4080";
                 vendor9.Rating = 4;
-                vendor9.Lat = 79.9407;
+                vendor9.Lat = -79.9407;
                 vendor9.Lng = 32.7938;
                 vendor9.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
                 context.Vendors.Add(vendor9);
@@ -275,21 +278,37 @@ namespace Application.Web
                 vendor10.OwnerName = "Charleston Harbor";
                 vendor10.Owner = user;
                 vendor10.Hours = "3:00 PM - 10:00 PM";
-                vendor10.VendorURL = "http://thealleycharleston.com/about";
+                vendor10.VendorURL = "https://www.facebook.com/saltymikes/";
                 vendor10.VendorPhone = "843-937-0208";
                 vendor10.Rating = 4;
-                vendor10.Lat = 79.9503;
+                vendor10.Lat = -79.9503;
                 vendor10.Lng = 32.7787;
                 vendor10.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
                 context.Vendors.Add(vendor10);
 
-                beer.Name = "Dummy Beer";
+                beer.Name = "Kolsch";
                 beer.OwnerId = user.Id;
                 beer.Price = 1;
                 beer.Rating = 5;
-                beer.Brewery = "Dummy Brewery";
+                beer.Brewery = "COAST Brewing Company";
                 beer.Type = "IPA";
                 context.Beers.Add(beer);
+
+                beer2.Name = "PB&J";
+                beer2.OwnerId = user.Id;
+                beer2.Price = 1;
+                beer2.Rating = 5;
+                beer2.Brewery = "Edmund's Oast";
+                beer2.Type = "IPA";
+                context.Beers.Add(beer2);
+
+                beer3.Name = "Ashley Farmhouse Ale";
+                beer3.OwnerId = user.Id;
+                beer3.Price = 1;
+                beer3.Rating = 5;
+                beer3.Brewery = "Freehouse Brewery";
+                beer3.Type = "Saison";
+                context.Beers.Add(beer3);
 
                 band.Name = "The Dummies";
                 band.OwnerId = user.Id;

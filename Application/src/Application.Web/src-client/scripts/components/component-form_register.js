@@ -33,7 +33,7 @@ export const RegisterComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button onClick={this._handleClick} type="submit" className="btn btn-default">Sign Up</button>
+            <button onClick={this._handleSubmit} type="submit" className="btn btn-default">Sign Up</button>
         </div>
     </form>
     )

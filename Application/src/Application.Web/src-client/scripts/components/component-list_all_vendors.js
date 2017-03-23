@@ -15,28 +15,10 @@ export const VendorsListComponent = React.createClass({
 
   render: function(){
     console.log("vendors list component props: ", this.props)
+
     return(
-
       <div>
-        {/*
-        <div className="row">
-          <div className="container-fluid col-xs-12 filter-menu">
-            <div className="col-xs-6">
-              Find brews or live music
-            </div>
-            <div className="col-xs-6">
-              <button type="button" name="button">Filter Drop Down</button>
-            </div>
-          </div>
-        </div>
-        <div className="container-fluid col-xs-12 map-container">
-          Map place-holder container
-        </div> */}
-
-        <div>
-          {this._makeVendorComponents(this.props.allVendors)}
-        </div>
-
+        {this._makeVendorComponents(this.props.allVendors)}
       </div>
     )
   }

@@ -100,6 +100,7 @@ namespace Application.Web
             var vendor = new Vendor();
             var vendor2 = new Vendor();
             var vendor3 = new Vendor();
+            var vendor4 = new Vendor();
             var beer = new Beer();
             var band = new Band();
 
@@ -114,37 +115,37 @@ namespace Application.Web
                 await userManager.CreateAsync(user, "password");
 
 
-                vendor.Name = "The Lonely Vendor";
-                vendor.OwnerName = "John Q. Vendor";
-                vendor.Address = "1234 Vendor Lane";
+                vendor.Name = "The Rooftop Bar at Vendue";
+                vendor.OwnerName = "Jonathan Weitz";
+                vendor.Address = "19 Vendue Range";
                 vendor.City = "Charleston";
                 vendor.State = "SC";
                 vendor.ZipCode = 29401;
-                vendor.Hours = "4:00 PM - 2:00 AM";
-                vendor.VendorURL = "www.vendor.com";
-                vendor.VendorPhone = "555-555-5555";
-                vendor.Rating = 5;
-                vendor.ImageURL = "http://i.imgur.com/uSExX74.jpg";
-                vendor.Lat = 79.9342;
-                vendor.Lng = 32.7799;
+                vendor.Hours = "11:30 AM - 12:00 AM";
+                vendor.VendorURL = "http://places.singleplatform.com/the-rooftop-at-the-vendue/menu?ref=google";
+                vendor.VendorPhone = "843-577-7970";
+                vendor.Rating = 4;
+                vendor.ImageURL = "https://media-cdn.tripadvisor.com/media/photo-s/01/c6/4d/ca/rooftop-with-a-view.jpg";
+                vendor.Lat = 79.9265;
+                vendor.Lng = 32.7786;
                 vendor.Owner = user;
                 context.Vendors.Add(vendor);
 
 
-                vendor2.Name = "Vendors R Us";
-                vendor2.Address = "1533 Vendor Street";
+                vendor2.Name = "The Cocktail Club";
+                vendor2.Address = "479 King St #200";
                 vendor2.City = "Charleston";
                 vendor2.State = "SC";
-                vendor2.ZipCode = 29464;
-                vendor2.OwnerName = "Victor von Vendorstein";
+                vendor2.ZipCode = 29403;
+                vendor2.OwnerName = "The Indigo Road";
                 vendor2.Owner = user;
-                vendor2.Hours = "3:00 PM - 1:00 AM";
-                vendor2.VendorURL = "www.vendorsrus";
-                vendor2.VendorPhone = "555-867-5309";
+                vendor2.Hours = "5:00 PM - 2:00 AM";
+                vendor2.VendorURL = "http://www.thecocktailclubcharleston.com/";
+                vendor2.VendorPhone = "843-724-9411";
                 vendor2.Rating = 4;
-                vendor2.Lat = 79.9274;
-                vendor2.Lng = 32.7785;
-                vendor2.ImageURL = "http://m5.paperblog.com/i/76/765810/calendar-pin-up-dogs-that-look-smashingly-cut-L-ga5X3B.jpeg";
+                vendor2.Lat = 79.9389;
+                vendor2.Lng = 32.7894;
+                vendor2.ImageURL = "http://www.thecocktailclubcharleston.com/wordpress2/wp-content/uploads/2014/11/cc-logo.jpg";
                 context.Vendors.Add(vendor2);
 
                 vendor3.Name = "Vendors and Sons";
@@ -161,6 +162,21 @@ namespace Application.Web
                 vendor3.Lng = 32.7768;
                 vendor3.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
                 context.Vendors.Add(vendor3);
+
+                vendor4.Name = "Vendors and Sons";
+                vendor4.Address = "1600 Pennsylvendor Avenue";
+                vendor4.City = "Charleston";
+                vendor4.State = "SC";
+                vendor4.ZipCode = 29401;
+                vendor4.OwnerName = "Val Vendor Sr.";
+                vendor4.Owner = user;
+                vendor4.Hours = "10:00 AM";
+                vendor4.VendorURL = "www.vendorsandsons.com";
+                vendor4.Rating = 4;
+                vendor4.Lat = 79.9287;
+                vendor4.Lng = 32.7768;
+                vendor4.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
+                context.Vendors.Add(vendor4);
 
                 beer.Name = "Dummy Beer";
                 beer.OwnerId = user.Id;

@@ -20,7 +20,7 @@ export const AllVendorsView = React.createClass({
 		return (
 			<div className="container-fluid">
 
-        <MapComponent/>
+        <MapComponent locationsData={this.props.locationsData}/>
         <VendorsListComponent allVendors={this.props.allVendors}/>
 
 			</div>

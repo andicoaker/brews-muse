@@ -9,6 +9,7 @@ export const RegisterComponent = React.createClass({
       "ALL_VENDORS" : 'allvendors'
     }
     ACTIONS.routeTo(routeMapping[clickedRoute])
+    console.log("we clickin boi")
   },
 
   render: function(){

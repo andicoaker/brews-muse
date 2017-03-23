@@ -7,7 +7,7 @@ export const MapComponent = React.createClass({
   _createMapPins: function(locationsArray){
 		let mapPinComponents= locationsArray.map(function(locationObj, i){
       // console.log(locationObj);
-      console.log(locationsArray);
+      // console.log(locationsArray);
 
       return (
         <MapPin key={Date.now()+i} lat={locationObj.lat} lng={locationObj.lng} vendorName={locationObj.name} />

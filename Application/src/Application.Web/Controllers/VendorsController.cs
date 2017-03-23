@@ -92,21 +92,6 @@ namespace BrewsMuse.Controllers
             return Ok(vendor);
         }
 
-        //[HttpPost]
-        //[Route("~/api/vendors/{id}")]
-        //private async Task<IActionResult> PostImage([FromBody]Vendor ImageURL)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    _context.Vendors.Add(ImageURL);
-        //    await _context.SaveChangesAsync();
-
-        //    return View();
-        //}
-
         [HttpPost]
         //[Authorize]
         [Route("~/api/vendors")]

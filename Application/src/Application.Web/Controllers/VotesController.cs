@@ -19,7 +19,7 @@ namespace Application.Web.Controllers
             _context = context;
         }
         [HttpPost]
-        [Route("~/api/vendors/votes")]
+        [Route("~/api/vendors/{vendorId}/votes")]
         public async Task<IActionResult> PostVote(int vendorId, [FromBody]Vendor Vote)
         {
             var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);

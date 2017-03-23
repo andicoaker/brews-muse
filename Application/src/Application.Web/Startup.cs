@@ -125,52 +125,52 @@ namespace Application.Web
                 await userManager.CreateAsync(user, "password");
 
 
-                vendor.Name = "The Rooftop Bar at Vendue";
+                vendor.Name = "Bay Street Biergarten";
                 vendor.OwnerName = "Jonathan Weitz";
-                vendor.Address = "19 Vendue Range";
+                vendor.Address = "549 E Bay St";
                 vendor.City = "Charleston";
                 vendor.State = "SC";
-                vendor.ZipCode = 29401;
-                vendor.Hours = "11:30 AM - 12:00 AM";
-                vendor.VendorURL = "http://places.singleplatform.com/the-rooftop-at-the-vendue/menu?ref=google";
-                vendor.VendorPhone = "843-577-7970";
+                vendor.ZipCode = 29403;
+                vendor.Hours = "11:00 AM - 2:00 AM";
+                vendor.VendorURL = "http://baystreetbiergarten.com/";
+                vendor.VendorPhone = "843-266-2437";
                 vendor.Rating = 4;
-                vendor.ImageURL = "https://media-cdn.tripadvisor.com/media/photo-s/01/c6/4d/ca/rooftop-with-a-view.jpg";
-                vendor.Lat = -79.9265;
-                vendor.Lng = 32.7786;
+                vendor.ImageURL = "https://pbs.twimg.com/profile_images/578927224771870720/u-sRbrst.jpeg";
+                vendor.Lng = -79.9314;
+                vendor.Lat = 32.7920;
                 vendor.Owner = user;
                 context.Vendors.Add(vendor);
 
 
-                vendor2.Name = "The Cocktail Club";
-                vendor2.Address = "479 King St #200";
+                vendor2.Name = "Closed for Business";
+                vendor2.Address = "453 King St";
                 vendor2.City = "Charleston";
                 vendor2.State = "SC";
                 vendor2.ZipCode = 29403;
                 vendor2.OwnerName = "The Indigo Road";
                 vendor2.Owner = user;
-                vendor2.Hours = "5:00 PM - 2:00 AM";
-                vendor2.VendorURL = "http://www.thecocktailclubcharleston.com/";
-                vendor2.VendorPhone = "843-724-9411";
+                vendor2.Hours = "11:00 AM - 2:00 AM";
+                vendor2.VendorURL = "http://closed4business.com/";
+                vendor2.VendorPhone = "843-853-8466";
                 vendor2.Rating = 4;
-                vendor2.Lat = -79.9389;
-                vendor2.Lng = 32.7894;
-                vendor2.ImageURL = "http://www.thecocktailclubcharleston.com/wordpress2/wp-content/uploads/2014/11/cc-logo.jpg";
+                vendor2.Lng = -79.9384;
+                vendor2.Lat = 32.7886;
+                vendor2.ImageURL = "https://media1.fdncms.com/charleston/imager/u/blog/6018630/cfb_logo.jpg?cb=1478128577";
                 context.Vendors.Add(vendor2);
 
-                vendor3.Name = "The Gin Joint";
-                vendor3.Address = "182 E Bay St";
+                vendor3.Name = "Charleston Beer Works";
+                vendor3.Address = "480 King Street St";
                 vendor3.City = "Charleston";
                 vendor3.State = "SC";
                 vendor3.ZipCode = 29401;
                 vendor3.OwnerName = "Joe Raya";
                 vendor.Owner = user;
-                vendor3.Hours = "3:00 PM - 2:00 AM";
+                vendor3.Hours = "11:30 PM - 2:00 AM";
                 vendor3.VendorURL = "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjR9cbc_-zSAhXHRyYKHYJJCqgQhAcIJA&url=http%3A%2F%2Ftheginjoint.com%2Fcategory%2Fmenu-2%2F&usg=AFQjCNHT-y-_13inQz4GsLDege2r9kfM4A";
                 vendor3.VendorPhone = "843-577-6111";
                 vendor3.Rating = 4;
-                vendor3.Lat = -79.9287;
-                vendor3.Lng = 32.7768;
+                vendor3.Lng = -79.9287;
+                vendor3.Lat = 32.7768;
                 vendor3.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
                 context.Vendors.Add(vendor3);
 
@@ -185,8 +185,8 @@ namespace Application.Web
                 vendor4.VendorURL = "http://www.acsbar.com/";
                 vendor4.VendorPhone = "843-577-6742";
                 vendor4.Rating = 4;
-                vendor4.Lat = 79.9388;
-                vendor4.Lng = 32.7890;
+                vendor4.Lng = -79.9388;
+                vendor4.Lat = 32.7890;
                 vendor4.ImageURL = "http://www.acsbar.com/images/logo%20copy.jpg";
                 context.Vendors.Add(vendor4);
 
@@ -201,8 +201,8 @@ namespace Application.Web
                 vendor5.VendorURL = "http://tattooedmoose.com/home-copy-2-copy-2.html";
                 vendor5.VendorPhone = "843-277-2990";
                 vendor5.Rating = 5;
-                vendor5.Lat = -79.9493;
-                vendor5.Lng = 32.8114;
+                vendor5.Lng = -79.9493;
+                vendor5.Lat = 32.8114;
                 vendor5.ImageURL = "http://tattooedmoose.com/images/moose_logo_400px.png?crc=4036922751";
                 context.Vendors.Add(vendor5);
 
@@ -217,8 +217,8 @@ namespace Application.Web
                 vendor6.VendorURL = "http://www.thebelmontcharleston.com/";
                 vendor6.VendorPhone = "843-628-5515";
                 vendor6.Rating = 5;
-                vendor6.Lat = -79.9395;
-                vendor6.Lng = 32.7903;
+                vendor6.Lng = -79.9395;
+                vendor6.Lat = 32.7903;
                 vendor6.ImageURL = "http://www.thebelmontcharleston.com/logos/belmont-logo-v5.png";
                 context.Vendors.Add(vendor6);
 
@@ -233,8 +233,8 @@ namespace Application.Web
                 vendor7.VendorURL = "http://theroyalamerican.com/menu/";
                 vendor7.VendorPhone = "843-817-6925";
                 vendor7.Rating = 5;
-                vendor7.Lat = -79.9420;
-                vendor7.Lng = 32.8067;
+                vendor7.Lng = -79.9420;
+                vendor7.Lat = 32.8067;
                 vendor7.ImageURL = "https://media2.fdncms.com/charleston/imager/the-royal-american/u/zoom/4007753/royalam.jpg";
                 context.Vendors.Add(vendor7);
 
@@ -249,8 +249,8 @@ namespace Application.Web
                 vendor8.VendorURL = "http://therarebit.com/";
                 vendor8.VendorPhone = "843-974-5483";
                 vendor8.Rating = 4;
-                vendor8.Lat = -79.9388;
-                vendor8.Lng = 32.7900;
+                vendor8.Lng = -79.9388;
+                vendor8.Lat = 32.7900;
                 vendor8.ImageURL = "http://therarebit.com/custom/logo_cover.png";
                 context.Vendors.Add(vendor8);
 
@@ -265,25 +265,25 @@ namespace Application.Web
                 vendor9.VendorURL = "http://thealleycharleston.com/about";
                 vendor9.VendorPhone = "843-818-4080";
                 vendor9.Rating = 4;
-                vendor9.Lat = -79.9407;
-                vendor9.Lng = 32.7938;
+                vendor9.Lng = -79.9407;
+                vendor9.Lat = 32.7938;
                 vendor9.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
                 context.Vendors.Add(vendor9);
 
-                vendor10.Name = "Salty Mike's";
-                vendor10.Address = "17 Lockwood Dr";
+                vendor10.Name = "Blind Tiger Pub";
+                vendor10.Address = "36 Broad St";
                 vendor10.City = "Charleston";
                 vendor10.State = "SC";
                 vendor10.ZipCode = 29401;
-                vendor10.OwnerName = "Charleston Harbor";
+                vendor10.OwnerName = "Lisa Brown";
                 vendor10.Owner = user;
-                vendor10.Hours = "3:00 PM - 10:00 PM";
-                vendor10.VendorURL = "https://www.facebook.com/saltymikes/";
-                vendor10.VendorPhone = "843-937-0208";
+                vendor10.Hours = "11:00 AM - 2:00 AM";
+                vendor10.VendorURL = "http://blindtigerchs.com/";
+                vendor10.VendorPhone = "843-872-6700";
                 vendor10.Rating = 4;
-                vendor10.Lat = -79.9503;
-                vendor10.Lng = 32.7787;
-                vendor10.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
+                vendor10.Lng = -79.9287;
+                vendor10.Lat = 32.7768;
+                vendor10.ImageURL = "http://blindtigerchs.com/wp-content/uploads/2016/08/logo-mobile.png";
                 context.Vendors.Add(vendor10);
 
                 beer.Name = "Kolsch";

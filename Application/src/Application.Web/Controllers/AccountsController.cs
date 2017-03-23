@@ -1,4 +1,5 @@
 ﻿using BrewsMuse.Models;
+using ChatRoom.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +61,10 @@ namespace BrewsMuse.Controllers
                 return BadRequest("Email not found.");
             }
 
+            var newUser = new User();
+            newUser.Email = model.Email;
+            newUser.UserName = model.Email;
+
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
             if (result.Succeeded)
@@ -86,8 +91,8 @@ namespace BrewsMuse.Controllers
             }
 
             var newUser = new ApplicationUser();
-            //newUser.Email = model.Email;
-            //newUser.UserName = model.Email;
+            newUser.Email = model.Email;
+            newUser.UserName = model.Email;
 
             var identity = await _userManager.CreateAsync(newUser, model.Password);
 

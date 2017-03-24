@@ -456,7 +456,7 @@ namespace Application.Web
 
                 band8.Name = "Emerald Empire Band";
                 band8.Owner = user;
-                band8.Genre = "Various";
+                band8.Genre = "Variety";
                 band8.Rating = 5;
                 band8.Description = "They play all your favorite songs! The Emerald Empire Band can play all the classics and 70s, 80s, 90s etc, and all the latest stuff too – from Frank Sinatra and Chuck Berry to Kings of Leon and Beyonce– and everything in between. Although this band was built from the ground up to fill the dance floor, all of the musicians are trained jazz musicians, who are just as happy to play cocktail music, acoustic covers, and all of those tunes that work best at the beginning of the night, before the party has really fired up! But when it is time to fill the dancefloor, this is when the band really excels! They pride themselves on knowing exactly the right songs to play at just the right time to pack your dancefloor. See their website for a full list of tunes that they can play, plus live recordings etc... ";
                 band8.CoverCharge = 10;

@@ -93,7 +93,7 @@ namespace BrewsMuse.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [Route("~/api/vendors")]
         public async Task<IActionResult> PostVendor([FromBody] Vendor vendor)  //(int id) //[FromBody] Vendor vendor
         {

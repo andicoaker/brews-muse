@@ -89,11 +89,11 @@ namespace Application.Web
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
 
 
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
-            var user = await userManager.FindByEmailAsync("vendor@vendor.com") ;
+            var user = await userManager.FindByEmailAsync("vendor@vendor.com");
 
 
 
@@ -111,8 +111,24 @@ namespace Application.Web
             var beer = new Beer();
             var beer2 = new Beer();
             var beer3 = new Beer();
+            var beer4 = new Beer();
+            var beer5 = new Beer();
+            var beer6 = new Beer();
+            var beer7 = new Beer();
+            var beer8 = new Beer();
+            var beer9 = new Beer();
+            var beer10 = new Beer();
 
             var band = new Band();
+            var band1 = new Band();
+            var band2 = new Band();
+            var band3 = new Band();
+            var band4 = new Band();
+            var band5 = new Band();
+            var band6 = new Band();
+            var band7 = new Band();
+            var band8 = new Band();
+            var band9 = new Band();
 
             if (user == null)
             {
@@ -166,7 +182,7 @@ namespace Application.Web
                 vendor3.OwnerName = "Joe Raya";
                 vendor.Owner = user;
                 vendor3.Hours = "11:30 PM - 2:00 AM";
-                vendor3.VendorURL = "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjR9cbc_-zSAhXHRyYKHYJJCqgQhAcIJA&url=http%3A%2F%2Ftheginjoint.com%2Fcategory%2Fmenu-2%2F&usg=AFQjCNHT-y-_13inQz4GsLDege2r9kfM4A";
+                vendor3.VendorURL = "http://charlestonbeerworks.com/";
                 vendor3.VendorPhone = "843-577-6111";
                 vendor3.Rating = 4;
                 vendor3.Lng = -79.9287;
@@ -198,7 +214,7 @@ namespace Application.Web
                 vendor5.OwnerName = "Mike Kulick";
                 vendor5.Owner = user;
                 vendor5.Hours = "11:30 AM - 2:00 AM";
-                vendor5.VendorURL = "http://tattooedmoose.com/home-copy-2-copy-2.html";
+                vendor5.VendorURL = "http://tattooedmoose.com/";
                 vendor5.VendorPhone = "843-277-2990";
                 vendor5.Rating = 5;
                 vendor5.Lng = -79.9493;
@@ -227,10 +243,10 @@ namespace Application.Web
                 vendor7.City = "Charleston";
                 vendor7.State = "SC";
                 vendor7.ZipCode = 29403;
-                vendor7.OwnerName = "John";
+                vendor7.OwnerName = "John Jacob Jingleheimer Schmidt";
                 vendor7.Owner = user;
                 vendor7.Hours = "4:00 PM - 2:00 AM";
-                vendor7.VendorURL = "http://theroyalamerican.com/menu/";
+                vendor7.VendorURL = "http://theroyalamerican.com/";
                 vendor7.VendorPhone = "843-817-6925";
                 vendor7.Rating = 5;
                 vendor7.Lng = -79.9420;
@@ -238,20 +254,20 @@ namespace Application.Web
                 vendor7.ImageURL = "https://media2.fdncms.com/charleston/imager/the-royal-american/u/zoom/4007753/royalam.jpg";
                 context.Vendors.Add(vendor7);
 
-                vendor8.Name = "The Rarebit";
-                vendor8.Address = "474 King St";
+                vendor8.Name = "Midtown Bar & Grill";
+                vendor8.Address = "559 King St";
                 vendor8.City = "Charleston";
                 vendor8.State = "SC";
-                vendor8.ZipCode = 29403;
-                vendor8.OwnerName = "John Adamson";
+                vendor8.ZipCode = 29401;
+                vendor8.OwnerName = "Michael Shuler, Chris Houston, Thomas Shepard";
                 vendor8.Owner = user;
-                vendor8.Hours = "11:00 AM - 2:00 AM";
-                vendor8.VendorURL = "http://therarebit.com/";
-                vendor8.VendorPhone = "843-974-5483";
+                vendor8.Hours = "4:00 PM - 2:00 AM";
+                vendor8.VendorURL = "http://www.midtownbarcharleston.com/";
+                vendor8.VendorPhone = "843-737-4284";
                 vendor8.Rating = 4;
                 vendor8.Lng = -79.9388;
                 vendor8.Lat = 32.7900;
-                vendor8.ImageURL = "http://therarebit.com/custom/logo_cover.png";
+                vendor8.ImageURL = "http://midtownbarcharleston.info/wp-content/uploads/2016/09/white-logo.png";
                 context.Vendors.Add(vendor8);
 
                 vendor9.Name = "The Alley";
@@ -262,7 +278,7 @@ namespace Application.Web
                 vendor9.OwnerName = "David Crowley";
                 vendor9.Owner = user;
                 vendor9.Hours = "11:00 AM - 2:00 AM";
-                vendor9.VendorURL = "http://thealleycharleston.com/about";
+                vendor9.VendorURL = "http://thealleycharleston.com/";
                 vendor9.VendorPhone = "843-818-4080";
                 vendor9.Rating = 4;
                 vendor9.Lng = -79.9407;
@@ -287,7 +303,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor10);
 
                 beer.Name = "Kolsch";
-                beer.OwnerId = user.Id;
+                beer.Owner = user;
                 beer.Price = 1;
                 beer.Rating = 5;
                 beer.Brewery = "COAST Brewing Company";
@@ -295,29 +311,166 @@ namespace Application.Web
                 context.Beers.Add(beer);
 
                 beer2.Name = "PB&J";
-                beer2.OwnerId = user.Id;
+                beer2.Owner = user;
                 beer2.Price = 1;
                 beer2.Rating = 5;
                 beer2.Brewery = "Edmund's Oast";
-                beer2.Type = "IPA";
+                beer2.Type = "Stout";
                 context.Beers.Add(beer2);
 
-                beer3.Name = "Ashley Farmhouse Ale";
-                beer3.OwnerId = user.Id;
+                beer3.Name = "Hoptart";
+                beer3.Owner = user;
                 beer3.Price = 1;
                 beer3.Rating = 5;
                 beer3.Brewery = "Freehouse Brewery";
                 beer3.Type = "Saison";
                 context.Beers.Add(beer3);
 
-                band.Name = "The Dummies";
-                band.OwnerId = user.Id;
-                band.Genre = "Rock";
+                beer4.Name = "Blackbeerd";
+                beer4.Owner = user;
+                beer4.Price = 1;
+                beer4.Rating = 5;
+                beer4.Brewery = "COAST Brewing Company";
+                beer4.Type = "Stout";
+                context.Beers.Add(beer4);
+
+                beer5.Name = "Viridi Rex";
+                beer5.Owner = user;
+                beer5.Price = 1;
+                beer5.Rating = 5;
+                beer5.Brewery = "Edmund's Oast";
+                beer5.Type = "IPA";
+                context.Beers.Add(beer5);
+
+                beer6.Name = "Charleston Lager";
+                beer6.Owner = user;
+                beer6.Price = 1;
+                beer6.Rating = 5;
+                beer6.Brewery = "Palmetto Brewing Company";
+                beer6.Type = "Amber Ale";
+                context.Beers.Add(beer6);
+
+                beer7.Name = "Palmetto Ale";
+                beer7.Owner = user;
+                beer7.Price = 1;
+                beer7.Rating = 5;
+                beer7.Brewery = "Palmetto Brewing Company";
+                beer7.Type = "Ale";
+                context.Beers.Add(beer7);
+
+                beer8.Name = "White Thai";
+                beer8.Owner = user;
+                beer8.Price = 1;
+                beer8.Rating = 5;
+                beer8.Brewery = "Westbrook Brewing Company";
+                beer8.Type = "Wheat beer";
+                context.Beers.Add(beer8);
+
+                beer9.Name = "Boy King Double IPA";
+                beer9.Owner = user;
+                beer9.Price = 1;
+                beer9.Rating = 5;
+                beer9.Brewery = "Coast Brewing Company";
+                beer9.Type = "IPA";
+                context.Beers.Add(beer9);
+
+                beer10.Name = "Dead Arm";
+                beer10.Owner = user;
+                beer10.Price = 1;
+                beer10.Rating = 5;
+                beer10.Brewery = "COAST Brewing Company";
+                beer10.Type = "American Pale Ale";
+                context.Beers.Add(beer10);
+
+                band.Name = "MoJo McGee";
+                band.Owner = user;
+                band.Genre = "Various";
                 band.Rating = 5;
-                band.Description = "Dummy description";
-                band.CoverCharge = 10;
+                band.Description = "4 piece rock-Fusion/Indie band based out of Charleston, SC that consists of guitar , keys, bass drums , saxophone. Can provide a variety of rock,Pop and R&B cover tunes as well as original music.";
+                band.CoverCharge = 30;
                 band.Showtime = "10:00 PM";
                 context.Bands.Add(band);
+
+                band1.Name = "The Vistas";
+                band1.Owner = user;
+                band1.Genre = "Rock";
+                band1.Rating = 5;
+                band1.Description = "When you book The Vistas, you can expect a fun, interactive, and exciting party. We can handle everything from the emcee duties, learning your special song, to keeping your guests on the dance floor all night long. ";
+                band1.CoverCharge = 20;
+                band1.Showtime = "10:00 PM";
+                context.Bands.Add(band1);
+
+                band2.Name = "The Officials Band";
+                band2.Owner = user;
+                band2.Genre = "Jazz";
+                band2.Rating = 5;
+                band2.Description = "The Officials Band is Charleston's most versatile private party band. Begin your special occasion with a lively jazz cocktail hour. Enjoy a variety of acoustic instruments from stand up bass and saxophone, to mandolin and guitar. Have a bite to eat while enjoying some funky old soul, then hold on tight for a supercharged dance floor experience as we cycle through your favorite genres. With a setlist that boasts over 300 songs, we have a little something for everyone. The Officials Band deliver as smooth as Frankie Blue Eyes, and as sharp as MJ. Feel free to request the anthem or ballad that fuels your trip down memory lane. You can relax and focus on having fun, because The Officials Band will do the rest.";
+                band2.CoverCharge = 10;
+                band2.Showtime = "10:00 PM";
+                context.Bands.Add(band2);
+
+                band3.Name = "Ocean Drive Party Band O.D.P.B.";
+                band3.Owner = user;
+                band3.Genre = "Variety";
+                band3.Rating = 5;
+                band3.Description = "Ocean Drive has over 350 of the most popular songs, Motown, Beach & Shag, Oldies, Classic Country Music, Tropical Rock (Jimmy Buffett style tunes), Classic Rock, Jazz, Blues, Southern Rock, Funk and more. Perfect for your budget and event, Ocean Drive is available as a 2, 3 or 4 piece band and can include an optional SAXOPHONE player, pending availability. ";
+                band3.CoverCharge = 10;
+                band3.Showtime = "10:00 PM";
+                context.Bands.Add(band3);
+
+                band4.Name = "Palmetto Soul";
+                band4.Owner = user;
+                band4.Genre = "Rock";
+                band4.Rating = 5;
+                band4.Description = "Coming to Charleston before the big day? We love to meet with our Brides, Grooms and their families to review reception layout, go over song selections, choose special dance songs, and answer any questions you may have. Having your ceremony at the same venue as your reception? Yep, we do that too! We are happy to provide beautiful ceremony music as your guest are arriving, during the actual ceremony and as you take your first steps down the aisle as Mr. & Mrs.! ";
+                band4.CoverCharge = 10;
+                band4.Showtime = "10:00 PM";
+                context.Bands.Add(band);
+
+                band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
+                band5.Owner = user;
+                band5.Genre = "Variety";
+                band5.Rating = 5;
+                band5.Description = "Dummy description";
+                band5.CoverCharge = 10;
+                band5.Showtime = "10:00 PM";
+                context.Bands.Add(band5);
+
+                band6.Name = "Andrew Thielen 'Motown' Band";
+                band6.Owner = user;
+                band6.Genre = "Oldies, disco, beach music";
+                band6.Rating = 5;
+                band6.Description = "You have found the best party band anywhere. This fabulous band with its numerous, sensational singers is like having the American Idol Band and your favorite singers entertain at your wedding, festival or corporate event. We play it all from classic rock & roll to swing and shag music. We also play funk, dance, light country, 50's, 60's, 70's, motown, beach music, disco, and music of today. But one of our best musical specialties is how we play authentic MOTOWN music with all the live horns saxes and brass. Everyone and every taste will be on the dance floor all night! Great singers, all those horns, fantastic energy, a world class drummer and the songs you just love. This is the band and party everyone will remember for years. Call us now to book your event. ";
+                band6.CoverCharge = 10;
+                band6.Showtime = "10:00 PM";
+                context.Bands.Add(band6);
+
+                band7.Name = "The SugarBees";
+                band7.Owner = user;
+                band7.Genre = "Variety";
+                band7.Rating = 5;
+                band7.Description = "The SugarBees are a six piece band which includes vocals, guitar, bass, keyboard, and drums and covers a wide variety of music. Along with covering hit songs from the 60s to today, the band has had many original beach, boogie, and blues hits of their own. ";
+                band7.CoverCharge = 10;
+                band7.Showtime = "10:00 PM";
+                context.Bands.Add(band7);
+
+                band8.Name = "Emerald Empire Band";
+                band8.Owner = user;
+                band8.Genre = "Variety";
+                band8.Rating = 5;
+                band8.Description = "They play all your favorite songs! The Emerald Empire Band can play all the classics and 70s, 80s, 90s etc, and all the latest stuff too – from Frank Sinatra and Chuck Berry to Kings of Leon and Beyonce– and everything in between. Although this band was built from the ground up to fill the dance floor, all of the musicians are trained jazz musicians, who are just as happy to play cocktail music, acoustic covers, and all of those tunes that work best at the beginning of the night, before the party has really fired up! But when it is time to fill the dancefloor, this is when the band really excels! They pride themselves on knowing exactly the right songs to play at just the right time to pack your dancefloor. See their website for a full list of tunes that they can play, plus live recordings etc... ";
+                band8.CoverCharge = 10;
+                band8.Showtime = "10:00 PM";
+                context.Bands.Add(band8);
+
+                band9.Name = "Chewbacky Band";
+                band9.Owner = user;
+                band9.Genre = "Country";
+                band9.Rating = 5;
+                band9.Description = "We are regulars in the bar scene in Charleston and surrounding areas. Chewbacky books weddings, rehearsal dinners, fundraisers, & events of all kinds. Prior to 2016, we booked our special events/ bar gigs via word-of-mouth. Since joining Gigmasters in the December, 2015, we have booked almost 2-dozen events with many references. ";
+                band9.CoverCharge = 10;
+                band9.Showtime = "10:00 PM";
+                context.Bands.Add(band9);
             }
 
 

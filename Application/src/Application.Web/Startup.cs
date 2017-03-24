@@ -93,7 +93,7 @@ namespace Application.Web
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 
-            var user = await userManager.FindByEmailAsync("vendor@vendor.com") ;
+            var user = await userManager.FindByEmailAsync("vendor@vendor.com");
 
 
 
@@ -234,7 +234,7 @@ namespace Application.Web
                 vendor7.City = "Charleston";
                 vendor7.State = "SC";
                 vendor7.ZipCode = 29403;
-                vendor7.OwnerName = "John";
+                vendor7.OwnerName = "John Jacob Jingleheimer Schmidt";
                 vendor7.Owner = user;
                 vendor7.Hours = "4:00 PM - 2:00 AM";
                 vendor7.VendorURL = "http://theroyalamerican.com/";
@@ -294,7 +294,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor10);
 
                 beer.Name = "Kolsch";
-                beer.OwnerId = user.Id;
+                beer.Owner = user;
                 beer.Price = 1;
                 beer.Rating = 5;
                 beer.Brewery = "COAST Brewing Company";
@@ -302,7 +302,7 @@ namespace Application.Web
                 context.Beers.Add(beer);
 
                 beer2.Name = "PB&J";
-                beer2.OwnerId = user.Id;
+                beer2.Owner = user;
                 beer2.Price = 1;
                 beer2.Rating = 5;
                 beer2.Brewery = "Edmund's Oast";
@@ -310,7 +310,7 @@ namespace Application.Web
                 context.Beers.Add(beer2);
 
                 beer3.Name = "Hoptart";
-                beer3.OwnerId = user.Id;
+                beer3.Owner = user;
                 beer3.Price = 1;
                 beer3.Rating = 5;
                 beer3.Brewery = "Freehouse Brewery";
@@ -318,7 +318,7 @@ namespace Application.Web
                 context.Beers.Add(beer3);
 
                 beer4.Name = "Blackbeerd";
-                beer4.OwnerId = user.Id;
+                beer4.Owner = user;
                 beer4.Price = 1;
                 beer4.Rating = 5;
                 beer4.Brewery = "COAST Brewing Company";
@@ -326,7 +326,7 @@ namespace Application.Web
                 context.Beers.Add(beer4);
 
                 beer5.Name = "Viridi Rex";
-                beer5.OwnerId = user.Id;
+                beer5.Owner = user;
                 beer5.Price = 1;
                 beer5.Rating = 5;
                 beer5.Brewery = "Edmund's Oast";
@@ -334,7 +334,7 @@ namespace Application.Web
                 context.Beers.Add(beer5);
 
                 beer6.Name = "Charleston Lager";
-                beer6.OwnerId = user.Id;
+                beer6.Owner = user;
                 beer6.Price = 1;
                 beer6.Rating = 5;
                 beer6.Brewery = "Palmetto Brewing Company";
@@ -342,7 +342,7 @@ namespace Application.Web
                 context.Beers.Add(beer6);
 
                 beer7.Name = "Palmetto Ale";
-                beer7.OwnerId = user.Id;
+                beer7.Owner = user;
                 beer7.Price = 1;
                 beer7.Rating = 5;
                 beer7.Brewery = "Palmetto Brewing Company";
@@ -350,7 +350,7 @@ namespace Application.Web
                 context.Beers.Add(beer7);
 
                 beer8.Name = "White Thai";
-                beer8.OwnerId = user.Id;
+                beer8.Owner = user;
                 beer8.Price = 1;
                 beer8.Rating = 5;
                 beer8.Brewery = "Westbrook Brewing Company";
@@ -358,7 +358,7 @@ namespace Application.Web
                 context.Beers.Add(beer8);
 
                 beer9.Name = "Boy King Double IPA";
-                beer9.OwnerId = user.Id;
+                beer9.Owner = user;
                 beer9.Price = 1;
                 beer9.Rating = 5;
                 beer9.Brewery = "Coast Brewing Company";
@@ -366,7 +366,7 @@ namespace Application.Web
                 context.Beers.Add(beer9);
 
                 beer10.Name = "Dead Arm";
-                beer10.OwnerId = user.Id;
+                beer10.Owner = user;
                 beer10.Price = 1;
                 beer10.Rating = 5;
                 beer10.Brewery = "COAST Brewing Company";
@@ -374,7 +374,7 @@ namespace Application.Web
                 context.Beers.Add(beer10);
 
                 band.Name = "The Dummies";
-                band.OwnerId = user.Id;
+                band.Owner = user;
                 band.Genre = "Rock";
                 band.Rating = 5;
                 band.Description = "Dummy description";

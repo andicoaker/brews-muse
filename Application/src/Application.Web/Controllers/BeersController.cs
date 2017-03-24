@@ -34,26 +34,29 @@ namespace Application.Web.Controllers
         public IActionResult Beer(int beerId)
         {
 
+
+
             var vendors = _context.Vendors.Include(q => q.Beers).FirstOrDefault(m => m.Id == beerId);
-            return View();
+            //return View();
+            return Ok(vendors);
         }
         [HttpGet]
         [AllowAnonymous]
-        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public IEnumerable<Beer> GetBeers(int vendorId)
+        [Route("~/api/vendors/{vendorsId}/beers/")]
+        public IEnumerable<Beer> GetBeers()
         {
             //var userId = _userManager.GetUserId(User);
             return _context.Beers.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
         [HttpGet]
         [AllowAnonymous]
-        [Route("~/api/vendors/{vendorsId}/beers/{beerId}")]
-        public IActionResult GetBeer(int vendorId) 
+        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
+        public IActionResult GetBeer(int vendorsId, int id)
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorId);
-            var beer = vendor.Beers.FirstOrDefault(q => q.Id == vendorId); 
+            //var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorsId);
+            var beer = _context.Beers.FirstOrDefault(q => q.Id == id);//vendorsId); 
             if (beer == null)
             {
                 return NotFound();
@@ -63,21 +66,20 @@ namespace Application.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public async Task<IActionResult> PostBeer(int vendorId, int id)//[FromBody]Beer beer)
+        [Route("~/api/vendors/{vendorsId}/beers/")]
+        public async Task<IActionResult> PostBeer(int vendorsId, [FromBody]Beer beer) //int id //[FromBody]Beer beer)
         {
-            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
+            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorsId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-
             //beer.OwnerId = _userManager.GetUserId(User);
 
-            var userId = _userManager.GetUserId(User);
-            Beer beer = await _context.Beers.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var user = await _userManager.GetUserAsync(User);
+            //Beer beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
 
+            beer.Owner = vendor.Owner;
             vendor.Beers.Add(beer);
             try
             {
@@ -112,7 +114,7 @@ namespace Application.Web.Controllers
                 return BadRequest();
             }
 
-            beer.OwnerId = _userManager.GetUserId(User);
+            beer.Owner = await _userManager.GetUserAsync(User);
             _context.Entry(beer).State = EntityState.Modified;
 
             try
@@ -133,7 +135,7 @@ namespace Application.Web.Controllers
             }
             return NoContent();
         }
-        
+
         [HttpDelete]
         [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
@@ -143,8 +145,8 @@ namespace Application.Web.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var userId = _userManager.GetUserId(User);
-            Beer beer = await _context.Beers.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var user = await _userManager.GetUserAsync(User);
+            Beer beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
             if (beer == null)
             {
                 return NotFound();

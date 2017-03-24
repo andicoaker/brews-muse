@@ -191,6 +191,8 @@ namespace Application.Web.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CoverCharge = table.Column<decimal>(nullable: false),
+                    Date = table.Column<string>(nullable: true),
+                    Day = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Genre = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
@@ -202,6 +204,12 @@ namespace Application.Web.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bands", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bands_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bands_Vendor_VendorId",
                         column: x => x.VendorId,
@@ -229,6 +237,12 @@ namespace Application.Web.Migrations
                 {
                     table.PrimaryKey("PK_Beers", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Beers_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Beers_Vendor_VendorId",
                         column: x => x.VendorId,
                         principalTable: "Vendor",
@@ -237,9 +251,19 @@ namespace Application.Web.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bands_OwnerId",
+                table: "Bands",
+                column: "OwnerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Bands_VendorId",
                 table: "Bands",
                 column: "VendorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Beers_OwnerId",
+                table: "Beers",
+                column: "OwnerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Beers_VendorId",

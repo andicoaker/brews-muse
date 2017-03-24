@@ -31,6 +31,7 @@ namespace Application.Web.Controllers
 
             vendor.Vote++;
 
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("PostVote", new { id = Vote.Id }, Vote);

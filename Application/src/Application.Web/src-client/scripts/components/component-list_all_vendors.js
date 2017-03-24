@@ -38,9 +38,9 @@ export const VendorsListItem = React.createClass({
           </div>
           <div className="media-body">
             <h4 className="media-heading">{this.props.vendorData.name}</h4>
-            {this.props.vendorData.address1}&nbsp;
-            {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}
-            <a href="">{this.props.vendorData.vendorURL}</a>
+            {this.props.vendorData.address}&nbsp; {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}&nbsp;
+
+            <p><a href="">{this.props.vendorData.vendorURL}</a></p>
           </div>
         </div>
 

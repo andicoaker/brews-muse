@@ -9,8 +9,7 @@ import {STORE} from '../store.js'
 export const AllVendorsView = React.createClass({
 
   render: function(){
-    console.log(this.props.allVendors);
-    console.log(this.props.locationsData);
+    // console.log(this.props.allVendors);
     if(this.props.allVendors.length < 1){
       return(
         <div></div>

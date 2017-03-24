@@ -89,7 +89,7 @@ namespace Application.Web
             var context = app.ApplicationServices.GetRequiredService<ApplicationContext>();
 
 
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.Migrate();
             var userManager = app.ApplicationServices.GetRequiredService<UserManager<ApplicationUser>>();
 

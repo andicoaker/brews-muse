@@ -120,6 +120,15 @@ namespace Application.Web
             var beer10 = new Beer();
 
             var band = new Band();
+            var band1 = new Band();
+            var band2 = new Band();
+            var band3 = new Band();
+            var band4 = new Band();
+            var band5 = new Band();
+            var band6 = new Band();
+            var band7 = new Band();
+            var band8 = new Band();
+            var band9 = new Band();
 
             if (user == null)
             {
@@ -373,14 +382,95 @@ namespace Application.Web
                 beer10.Type = "American Pale Ale";
                 context.Beers.Add(beer10);
 
-                band.Name = "The Dummies";
+                band.Name = "MoJo McGee";
                 band.Owner = user;
-                band.Genre = "Rock";
+                band.Genre = "Various";
                 band.Rating = 5;
-                band.Description = "Dummy description";
-                band.CoverCharge = 10;
+                band.Description = "4 piece rock-Fusion/Indie band based out of Charleston, SC that consists of guitar , keys, bass drums , saxophone. Can provide a variety of rock,Pop and R&B cover tunes as well as original music.";
+                band.CoverCharge = 30;
                 band.Showtime = "10:00 PM";
                 context.Bands.Add(band);
+
+                band1.Name = "The Vistas";
+                band1.Owner = user;
+                band1.Genre = "Rock";
+                band1.Rating = 5;
+                band1.Description = "When you book The Vistas, you can expect a fun, interactive, and exciting party. We can handle everything from the emcee duties, learning your special song, to keeping your guests on the dance floor all night long. ";
+                band1.CoverCharge = 20;
+                band1.Showtime = "10:00 PM";
+                context.Bands.Add(band1);
+
+                band2.Name = "The Officials Band";
+                band2.Owner = user;
+                band2.Genre = "Jazz";
+                band2.Rating = 5;
+                band2.Description = "The Officials Band is Charleston's most versatile private party band. Begin your special occasion with a lively jazz cocktail hour. Enjoy a variety of acoustic instruments from stand up bass and saxophone, to mandolin and guitar. Have a bite to eat while enjoying some funky old soul, then hold on tight for a supercharged dance floor experience as we cycle through your favorite genres. With a setlist that boasts over 300 songs, we have a little something for everyone. The Officials Band deliver as smooth as Frankie Blue Eyes, and as sharp as MJ. Feel free to request the anthem or ballad that fuels your trip down memory lane. You can relax and focus on having fun, because The Officials Band will do the rest.";
+                band2.CoverCharge = 10;
+                band2.Showtime = "10:00 PM";
+                context.Bands.Add(band2);
+
+                band3.Name = "Ocean Drive Party Band O.D.P.B.";
+                band3.Owner = user;
+                band3.Genre = "Variety";
+                band3.Rating = 5;
+                band3.Description = "Ocean Drive has over 350 of the most popular songs, Motown, Beach & Shag, Oldies, Classic Country Music, Tropical Rock (Jimmy Buffett style tunes), Classic Rock, Jazz, Blues, Southern Rock, Funk and more. Perfect for your budget and event, Ocean Drive is available as a 2, 3 or 4 piece band and can include an optional SAXOPHONE player, pending availability. ";
+                band3.CoverCharge = 10;
+                band3.Showtime = "10:00 PM";
+                context.Bands.Add(band3);
+
+                band4.Name = "Palmetto Soul";
+                band4.Owner = user;
+                band4.Genre = "Rock";
+                band4.Rating = 5;
+                band4.Description = "Coming to Charleston before the big day? We love to meet with our Brides, Grooms and their families to review reception layout, go over song selections, choose special dance songs, and answer any questions you may have. Having your ceremony at the same venue as your reception? Yep, we do that too! We are happy to provide beautiful ceremony music as your guest are arriving, during the actual ceremony and as you take your first steps down the aisle as Mr. & Mrs.! ";
+                band4.CoverCharge = 10;
+                band4.Showtime = "10:00 PM";
+                context.Bands.Add(band);
+
+                band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
+                band5.Owner = user;
+                band5.Genre = "Variety";
+                band5.Rating = 5;
+                band5.Description = "Dummy description";
+                band5.CoverCharge = 10;
+                band5.Showtime = "10:00 PM";
+                context.Bands.Add(band5);
+
+                band6.Name = "Andrew Thielen 'Motown' Band";
+                band6.Owner = user;
+                band6.Genre = "Oldies, disco, beach music";
+                band6.Rating = 5;
+                band6.Description = "You have found the best party band anywhere. This fabulous band with its numerous, sensational singers is like having the American Idol Band and your favorite singers entertain at your wedding, festival or corporate event. We play it all from classic rock & roll to swing and shag music. We also play funk, dance, light country, 50's, 60's, 70's, motown, beach music, disco, and music of today. But one of our best musical specialties is how we play authentic MOTOWN music with all the live horns saxes and brass. Everyone and every taste will be on the dance floor all night! Great singers, all those horns, fantastic energy, a world class drummer and the songs you just love. This is the band and party everyone will remember for years. Call us now to book your event. ";
+                band6.CoverCharge = 10;
+                band6.Showtime = "10:00 PM";
+                context.Bands.Add(band6);
+
+                band7.Name = "The SugarBees";
+                band7.Owner = user;
+                band7.Genre = "Variety";
+                band7.Rating = 5;
+                band7.Description = "The SugarBees are a six piece band which includes vocals, guitar, bass, keyboard, and drums and covers a wide variety of music. Along with covering hit songs from the 60s to today, the band has had many original beach, boogie, and blues hits of their own. ";
+                band7.CoverCharge = 10;
+                band7.Showtime = "10:00 PM";
+                context.Bands.Add(band7);
+
+                band8.Name = "Emerald Empire Band";
+                band8.Owner = user;
+                band8.Genre = "Variety";
+                band8.Rating = 5;
+                band8.Description = "They play all your favorite songs! The Emerald Empire Band can play all the classics and 70s, 80s, 90s etc, and all the latest stuff too – from Frank Sinatra and Chuck Berry to Kings of Leon and Beyonce– and everything in between. Although this band was built from the ground up to fill the dance floor, all of the musicians are trained jazz musicians, who are just as happy to play cocktail music, acoustic covers, and all of those tunes that work best at the beginning of the night, before the party has really fired up! But when it is time to fill the dancefloor, this is when the band really excels! They pride themselves on knowing exactly the right songs to play at just the right time to pack your dancefloor. See their website for a full list of tunes that they can play, plus live recordings etc... ";
+                band8.CoverCharge = 10;
+                band8.Showtime = "10:00 PM";
+                context.Bands.Add(band8);
+
+                band9.Name = "Chewbacky Band";
+                band9.Owner = user;
+                band9.Genre = "Country";
+                band9.Rating = 5;
+                band9.Description = "We are regulars in the bar scene in Charleston and surrounding areas. Chewbacky books weddings, rehearsal dinners, fundraisers, & events of all kinds. Prior to 2016, we booked our special events/ bar gigs via word-of-mouth. Since joining Gigmasters in the December, 2015, we have booked almost 2-dozen events with many references. ";
+                band9.CoverCharge = 10;
+                band9.Showtime = "10:00 PM";
+                context.Bands.Add(band9);
             }
 
 

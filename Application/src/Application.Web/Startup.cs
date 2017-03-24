@@ -111,6 +111,13 @@ namespace Application.Web
             var beer = new Beer();
             var beer2 = new Beer();
             var beer3 = new Beer();
+            var beer4 = new Beer();
+            var beer5 = new Beer();
+            var beer6 = new Beer();
+            var beer7 = new Beer();
+            var beer8 = new Beer();
+            var beer9 = new Beer();
+            var beer10 = new Beer();
 
             var band = new Band();
 
@@ -166,7 +173,7 @@ namespace Application.Web
                 vendor3.OwnerName = "Joe Raya";
                 vendor.Owner = user;
                 vendor3.Hours = "11:30 PM - 2:00 AM";
-                vendor3.VendorURL = "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjR9cbc_-zSAhXHRyYKHYJJCqgQhAcIJA&url=http%3A%2F%2Ftheginjoint.com%2Fcategory%2Fmenu-2%2F&usg=AFQjCNHT-y-_13inQz4GsLDege2r9kfM4A";
+                vendor3.VendorURL = "http://charlestonbeerworks.com/";
                 vendor3.VendorPhone = "843-577-6111";
                 vendor3.Rating = 4;
                 vendor3.Lng = -79.9287;
@@ -198,7 +205,7 @@ namespace Application.Web
                 vendor5.OwnerName = "Mike Kulick";
                 vendor5.Owner = user;
                 vendor5.Hours = "11:30 AM - 2:00 AM";
-                vendor5.VendorURL = "http://tattooedmoose.com/home-copy-2-copy-2.html";
+                vendor5.VendorURL = "http://tattooedmoose.com/";
                 vendor5.VendorPhone = "843-277-2990";
                 vendor5.Rating = 5;
                 vendor5.Lng = -79.9493;
@@ -230,7 +237,7 @@ namespace Application.Web
                 vendor7.OwnerName = "John";
                 vendor7.Owner = user;
                 vendor7.Hours = "4:00 PM - 2:00 AM";
-                vendor7.VendorURL = "http://theroyalamerican.com/menu/";
+                vendor7.VendorURL = "http://theroyalamerican.com/";
                 vendor7.VendorPhone = "843-817-6925";
                 vendor7.Rating = 5;
                 vendor7.Lng = -79.9420;
@@ -238,20 +245,20 @@ namespace Application.Web
                 vendor7.ImageURL = "https://media2.fdncms.com/charleston/imager/the-royal-american/u/zoom/4007753/royalam.jpg";
                 context.Vendors.Add(vendor7);
 
-                vendor8.Name = "The Rarebit";
-                vendor8.Address = "474 King St";
+                vendor8.Name = "Midtown Bar & Grill";
+                vendor8.Address = "559 King St";
                 vendor8.City = "Charleston";
                 vendor8.State = "SC";
-                vendor8.ZipCode = 29403;
-                vendor8.OwnerName = "John Adamson";
+                vendor8.ZipCode = 29401;
+                vendor8.OwnerName = "Michael Shuler, Chris Houston, Thomas Shepard";
                 vendor8.Owner = user;
-                vendor8.Hours = "11:00 AM - 2:00 AM";
-                vendor8.VendorURL = "http://therarebit.com/";
-                vendor8.VendorPhone = "843-974-5483";
+                vendor8.Hours = "4:00 PM - 2:00 AM";
+                vendor8.VendorURL = "http://www.midtownbarcharleston.com/";
+                vendor8.VendorPhone = "843-737-4284";
                 vendor8.Rating = 4;
                 vendor8.Lng = -79.9388;
                 vendor8.Lat = 32.7900;
-                vendor8.ImageURL = "http://therarebit.com/custom/logo_cover.png";
+                vendor8.ImageURL = "http://midtownbarcharleston.info/wp-content/uploads/2016/09/white-logo.png";
                 context.Vendors.Add(vendor8);
 
                 vendor9.Name = "The Alley";
@@ -262,7 +269,7 @@ namespace Application.Web
                 vendor9.OwnerName = "David Crowley";
                 vendor9.Owner = user;
                 vendor9.Hours = "11:00 AM - 2:00 AM";
-                vendor9.VendorURL = "http://thealleycharleston.com/about";
+                vendor9.VendorURL = "http://thealleycharleston.com/";
                 vendor9.VendorPhone = "843-818-4080";
                 vendor9.Rating = 4;
                 vendor9.Lng = -79.9407;
@@ -299,16 +306,72 @@ namespace Application.Web
                 beer2.Price = 1;
                 beer2.Rating = 5;
                 beer2.Brewery = "Edmund's Oast";
-                beer2.Type = "IPA";
+                beer2.Type = "Stout";
                 context.Beers.Add(beer2);
 
-                beer3.Name = "Ashley Farmhouse Ale";
+                beer3.Name = "Hoptart";
                 beer3.OwnerId = user.Id;
                 beer3.Price = 1;
                 beer3.Rating = 5;
                 beer3.Brewery = "Freehouse Brewery";
                 beer3.Type = "Saison";
                 context.Beers.Add(beer3);
+
+                beer4.Name = "Blackbeerd";
+                beer4.OwnerId = user.Id;
+                beer4.Price = 1;
+                beer4.Rating = 5;
+                beer4.Brewery = "COAST Brewing Company";
+                beer4.Type = "Stout";
+                context.Beers.Add(beer4);
+
+                beer5.Name = "Viridi Rex";
+                beer5.OwnerId = user.Id;
+                beer5.Price = 1;
+                beer5.Rating = 5;
+                beer5.Brewery = "Edmund's Oast";
+                beer5.Type = "IPA";
+                context.Beers.Add(beer5);
+
+                beer6.Name = "Charleston Lager";
+                beer6.OwnerId = user.Id;
+                beer6.Price = 1;
+                beer6.Rating = 5;
+                beer6.Brewery = "Palmetto Brewing Company";
+                beer6.Type = "Amber Ale";
+                context.Beers.Add(beer6);
+
+                beer7.Name = "Palmetto Ale";
+                beer7.OwnerId = user.Id;
+                beer7.Price = 1;
+                beer7.Rating = 5;
+                beer7.Brewery = "Palmetto Brewing Company";
+                beer7.Type = "Ale";
+                context.Beers.Add(beer7);
+
+                beer8.Name = "White Thai";
+                beer8.OwnerId = user.Id;
+                beer8.Price = 1;
+                beer8.Rating = 5;
+                beer8.Brewery = "Westbrook Brewing Company";
+                beer8.Type = "Wheat beer";
+                context.Beers.Add(beer8);
+
+                beer9.Name = "Boy King Double IPA";
+                beer9.OwnerId = user.Id;
+                beer9.Price = 1;
+                beer9.Rating = 5;
+                beer9.Brewery = "Coast Brewing Company";
+                beer9.Type = "IPA";
+                context.Beers.Add(beer9);
+
+                beer10.Name = "Dead Arm";
+                beer10.OwnerId = user.Id;
+                beer10.Price = 1;
+                beer10.Rating = 5;
+                beer10.Brewery = "COAST Brewing Company";
+                beer10.Type = "American Pale Ale";
+                context.Beers.Add(beer10);
 
                 band.Name = "The Dummies";
                 band.OwnerId = user.Id;

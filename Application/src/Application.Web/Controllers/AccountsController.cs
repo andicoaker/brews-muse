@@ -103,17 +103,15 @@ namespace BrewsMuse.Controllers
             if (result.Succeeded)
             {
 
-                //AAAAHHHHHHHHHHHHHHHHHHHHHH MIGRATIONS
-
-                return Ok(result);
-                //if (resultConfirm.Succeeded && resultConfirm == result)
-                //{
-                //    return Ok(result);
-                //}
-                //else
-                //{
-                //    return BadRequest(result);
-                //}
+                //return Ok(result);
+                if (resultConfirm.Succeeded && resultConfirm == result)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return BadRequest(resultConfirm);
+                }
             }
             else
             {

@@ -18,7 +18,12 @@ export const MapComponent = React.createClass({
       // console.log(locationsArray);
 
       return (
-        <MapPin key={Date.now()+i} lat={locationObj.lat} lng={locationObj.lng} vendorName={locationObj.name} handlePinHoverCB ={this._handlePinHoverCB}/>
+        <MapPin
+          key={Date.now()+i}
+          lat={locationObj.lat}
+          lng={locationObj.lng}
+          vendorName={locationObj.name}
+          handlePinHoverCB ={this._handlePinHoverCB}/>
       )
 		})
 

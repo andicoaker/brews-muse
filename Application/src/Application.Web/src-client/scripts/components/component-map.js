@@ -9,7 +9,7 @@ export const MapComponent = React.createClass({
   //     locationsData : this.props.locationsData
   //   }
   //
-  // }
+  // },
 
   _createMapPins: function(locationsArray){
     let component = this
@@ -34,14 +34,14 @@ export const MapComponent = React.createClass({
   //     locationsData : locationsCopy
   //   })
   //
-  // }
+  // },
 
   _handlePinHoverCB: function(payload){
-    console.log(POLO!, payload);
+    console.log('POLO!', payload);
     this.props.handlePinHoverCB(this.props.place)
 
     this.setState()
-  }
+  },
 
   render: function(){
     return (
@@ -63,8 +63,8 @@ export const MapComponent = React.createClass({
 const MapPin = React.createClass({
 
   getInitialState: function(){
-    pinStyle:
-  }
+    // pinStyle:
+  },
 
   _togglePinHover: function (evt){
     console.log('hello? is it me you are listening for?', evt);
@@ -73,7 +73,7 @@ const MapPin = React.createClass({
     console.log('MARCO: ', thisprops.place);
 
 
-  }
+  },
 
 
 

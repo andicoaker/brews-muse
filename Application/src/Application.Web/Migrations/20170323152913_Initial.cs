@@ -197,7 +197,9 @@ namespace Application.Web.Migrations
                     OwnerId = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
                     Showtime = table.Column<string>(nullable: true),
-                    VendorId = table.Column<int>(nullable: true)
+                    VendorId = table.Column<int>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
+                    Day = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

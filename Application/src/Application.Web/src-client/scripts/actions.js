@@ -18,7 +18,7 @@ export const ACTIONS = {
   },
 
   setAPIData: function(results){
-    console.log(results, 'action results')
+    // console.log(results, 'action results')
     STORE.setStore('allVendors', results)
   },
 

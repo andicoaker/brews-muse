@@ -98,13 +98,15 @@ namespace BrewsMuse.Controllers
 
             var result = await _signInManager.PasswordSignInAsync(newUser, model.Password, true, false);
 
-            //var resultConfirm = await _signInManager.PasswordSignInAsync(newUser, model.PasswordConfirm, true, false);
+            var resultConfirm = await _signInManager.PasswordSignInAsync(newUser, model.PasswordConfirm, true, false);
 
             if (result.Succeeded)
             {
 
+                //AAAAHHHHHHHHHHHHHHHHHHHHHH MIGRATIONS
+
                 return Ok(result);
-                //if (resultConfirm.Succeeded)
+                //if (resultConfirm.Succeeded && resultConfirm == result)
                 //{
                 //    return Ok(result);
                 //}

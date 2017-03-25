@@ -10,6 +10,17 @@ export const ACTIONS = {
     STORE.setStore('currentView', viewName)
   },
 
+  changeCurrentNav: function(selectedAppRoute, urlRoute){
+		STORE.setStore('currentView', selectedAppRoute)
+		window.location.hash = urlRoute
+	},
+
+  registerNewUser: function(newUserInfoObj){
+		UserModel.register(newUserInfoObj).then(function(serverRes){
+			ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+		})
+	},
+
   logUserOut: function(){
     UserModel.logOut().then(function(){
       STORE.setStore('currentUser', {})

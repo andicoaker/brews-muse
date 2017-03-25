@@ -30,39 +30,30 @@ export const MapComponent = React.createClass({
 		return mapPinComponents
 	},
 
-  // _handleMapClick: function(evt){
-  //   console.log(evt);
-  //   let locationsCopy = [...this.state.locationsData]
-  //   locationsCopy.push({lt: evt.lat, lg: evt.lng})
-  //
-  //   this.setState({
-  //     locationsData : locationsCopy
-  //   })
-  //
-  // },
 
   _handlePinHoverCB: function(payload){
-    console.log('POLO!', payload);
+
     this.props.handlePinHoverCB(this.props.place)
 
-    this.setState()
+    this.setState({
+      someInfo : payload
+    })
   },
 
   render: function(){
     return (
 
       <div className="map-container">
-        <GoogleMapReact defaultZoom={14} defaultCenter={{lat: 32.784618, lng: -79.940918}}>
+        <GoogleMapReact
+          defaultZoom={14}
+          defaultCenter={{lat: 32.784618, lng: -79.940918}}>
           {this._createMapPins(this.props.locationsData)}
-          <h3>
-            Location Info: <mark></mark>
-          </h3>
         </GoogleMapReact>
+
       </div>
     )
   },
 })
-
 
 
 const MapPin = React.createClass({
@@ -74,17 +65,19 @@ const MapPin = React.createClass({
   _togglePinHover: function (evt){
     console.log('hello? is it me you are listening for?', evt);
 
-    // if(evt.type === 'mouseover')
-    console.log('MARCO: ', thisprops.place);
-
+    if(evt.type === 'mouseover'){
+      this.setState({
+				isHovering: true
+      })
+    }
 
   },
 
 
-
 	render: function(){
 		return (
-			<div onMouseOver={this._togglePinHover} onMouseOut={this._togglePinHover}>
+			<div
+        onMouseOver={this._togglePinHover} onMouseOut={this._togglePinHover}>
         <span>{this.props.vendorName}</span>
         <i className="fa fa-map-marker" aria-hidden="true"></i>
 			</div>

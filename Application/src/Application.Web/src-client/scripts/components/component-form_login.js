@@ -1,7 +1,15 @@
 import React from 'react'
+import {ACTIONS} from '../actions.js'
 
 export const LoginComponent = React.createClass({
 
+  _handleLogin: function(evt){
+    let clickedRoute = evt.target.dataset.route
+    let routeMapping = {
+      "VENDOR_ACCOUNT" : 'vendoraccount',
+    }
+    ACTIONS.routeTo(routeMapping[clickedRoute])
+  },
 
   render: function(){
     return (
@@ -21,7 +29,7 @@ export const LoginComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button type="submit" className="btn btn-default">Login</button>
+            <button onClick={this._handleLogin} type="submit" className="btn btn-default" data-route="VENDOR_ACCOUNT">Login</button>
         </div>
     </form>
     )

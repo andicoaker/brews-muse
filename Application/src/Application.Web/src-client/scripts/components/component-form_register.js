@@ -1,40 +1,58 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
+import {VendorsListComponent} from '../components/component-list_all_vendors.js'
+import {AppRouter} from '../router.js'
 
 export const RegisterComponent = React.createClass({
+  getInitialState: function(){
+    return {
+      registeredUser: ''
+    }
+  },
 
   _handleSubmit: function(evt){
-    let clickedRoute = evt.target.dataset.route
-    let routeMapping = {
-      "ALL_VENDORS" : 'allvendors'
-    }
+  // let clickedRoute = evt.target.dataset.route
+  // let routeMapping = {
+  //   "ALL_VENDORS" : 'allvendors',
+  // }
+  // ACTIONS.routeTo(routeMapping[clickedRoute])
+    evt.preventDefault()
+  	let formEl = evt.target
+  	let objToSave = {
+  		 email: formEl.emailField.value ,
+  	   password: formEl.passwordField.value
+  	}
+  	ACTIONS.registerNewUser(objToSave)
     ACTIONS.routeTo(routeMapping[clickedRoute])
-    console.log("we clickin boi")
   },
 
   render: function(){
     return (
-    <form>
+    <form onSubmit={this._handleSubmit}>
        <h1>Register</h1>
+        {/* <div className="form-group">
+          <label htmlFor="InputUserName">Username:</label>
+          <input type="text" className="form-control" name="userNameField" placeholder="Enter Username"/>
+        </div> */}
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email:</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
+          <label htmlFor="InputEmail">Email:</label>
+          <input type="text" className="form-control" name="emailField" placeholder="Enter email"/>
         </div>
         <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password:</label>
-          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter password"/>
+          <label htmlFor="InputPassWord">Password:</label>
+          <input type="text" className="form-control" name="passwordField" placeholder="Enter password"/>
         </div>
-        <div className="form-group">
-            <label htmlFor="exampleInputPasswordConfirm1">Confirm password:</label>
-            <input type="text" className="form-control" id="exampleInputPasswordConfirm1" placeholder="Confirm password"/>
-        </div>
+        {/* <div className="form-group">
+            <label htmlFor="InputConfirmPass">Confirm password:</label>
+            <input type="text" className="form-control" name="confirmPassField" placeholder="Confirm password"/>
+        </div> */}
         <div className="form-group">
             <div className="checkbox">
               <label><input type="checkbox"/> Are you a vendor?</label>
             </div>
         </div>
         <div className="form-group">
-            <button onClick={this._handleSubmit} type="submit" className="btn btn-default">Sign Up</button>
+            <button type="submit" className="btn btn-default">Sign Up</button>
         </div>
     </form>
     )

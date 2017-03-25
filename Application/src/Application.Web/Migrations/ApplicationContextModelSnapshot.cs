@@ -22,6 +22,10 @@ namespace Application.Web.Migrations
 
                     b.Property<decimal>("CoverCharge");
 
+                    b.Property<string>("Date");
+
+                    b.Property<string>("Day");
+
                     b.Property<string>("Description");
 
                     b.Property<string>("Genre");
@@ -37,6 +41,8 @@ namespace Application.Web.Migrations
                     b.Property<int?>("VendorId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.HasIndex("VendorId");
 
@@ -65,6 +71,8 @@ namespace Application.Web.Migrations
                     b.Property<int?>("VendorId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.HasIndex("VendorId");
 
@@ -292,6 +300,10 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("BrewsMuse.Models.Band", b =>
                 {
+                    b.HasOne("BrewsMuse.Models.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+
                     b.HasOne("BrewsMuse.Models.Vendor", "Vendor")
                         .WithMany("Bands")
                         .HasForeignKey("VendorId");
@@ -299,6 +311,10 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("BrewsMuse.Models.Beer", b =>
                 {
+                    b.HasOne("BrewsMuse.Models.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+
                     b.HasOne("BrewsMuse.Models.Vendor", "Vendor")
                         .WithMany("Beers")
                         .HasForeignKey("VendorId");

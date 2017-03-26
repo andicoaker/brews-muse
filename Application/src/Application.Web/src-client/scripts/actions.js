@@ -22,6 +22,13 @@ export const ACTIONS = {
 		})
 	},
 
+  loginUser: function(user, password){
+		UserModel.logIn(user, password).then(function(serverRes){
+			STORE.setStore('currentUser', serverRes)
+			ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
+		})
+	},
+
   logUserOut: function(){
     UserModel.logOut().then(function(){
       STORE.setStore('currentUser', {})

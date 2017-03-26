@@ -1,10 +1,8 @@
 import React from 'react'
-import {HeaderComponent} from '../components/component-header.js'
 import {VendorDetailsComponent} from '../components/component-vendor_details.js'
 import {MapComponent} from '../components/component-map.js'
 import {BeersComponent} from '../components/component-list_beers.js'
 import {BandsComponent} from '../components/component-list_bands.js'
-import {NavbarComponent} from '../components/component-navbar.js'
 
 
 import {ACTIONS} from '../actions.js'

@@ -7,6 +7,7 @@ import {UserModel} from './models/model-user.js'
 export const ACTIONS = {
 
   setView: function(viewName){
+
     STORE.setStore('currentView', viewName)
   },
 
@@ -18,6 +19,13 @@ export const ACTIONS = {
   registerNewUser: function(newUserInfoObj){
 		UserModel.register(newUserInfoObj).then(function(serverRes){
 			ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+		})
+	},
+
+  loginUser: function(user, password){
+		UserModel.logIn(user, password).then(function(serverRes){
+			STORE.setStore('currentUser', serverRes)
+			ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
 		})
 	},
 

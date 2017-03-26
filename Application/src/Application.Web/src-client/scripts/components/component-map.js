@@ -4,40 +4,58 @@ import GoogleMapReact from 'google-map-react'
 
 export const MapComponent = React.createClass({
 
-  // getInitialState: function(){
-  //   return{
-  //     locationsData : this.props.locationsData
-  //   }
-  //
-  // },
+  getInitialState: function(){
+    return {
+      isClicked : false,
+      vendorName : ""
+    }
+  },
 
   _createMapPins: function(locationsArray){
     let component = this
-    let mapPinComponents= locationsArray.map(function(locationObj, i){
-      // console.log(locationObj);
-      // console.log(locationsArray);
+    let mapPinComponents = locationsArray.map(function(locationObj, i){
 
       return (
         <MapPin
           key={Date.now()+i}
+          isClicked={component.state.isClicked}
           lat={locationObj.lat}
           lng={locationObj.lng}
           vendorName={locationObj.name}
-          handlePinHoverCB ={this._handlePinHoverCB}/>
+          handlePinHoverCB ={component._handlePinHoverCB}
+        />
       )
 		})
-
 		return mapPinComponents
 	},
 
 
-  _handlePinHoverCB: function(payload){
+  _handlePinHoverCB: function(evtType, vendorName){
+    console.log('firignnnn')
+    if(evtType){
+      this.setState({
+        isClicked : evtType,
+        vendorName : vendorName
+      })
 
-    this.props.handlePinHoverCB(this.props.place)
+    }else{
+      this.setState({
+        isClicked : evtType,
+        vendorName : ""
+      })
+    }
 
-    this.setState({
-      someInfo : payload
-    })
+  },
+
+  _showInfo: function(){
+    if(this.state.isClicked){
+      return (
+        <h1>{this.state.vendorName}</h1>
+      )
+
+    }else{
+      return
+    }
   },
 
   render: function(){
@@ -49,7 +67,7 @@ export const MapComponent = React.createClass({
           defaultCenter={{lat: 32.784618, lng: -79.940918}}>
           {this._createMapPins(this.props.locationsData)}
         </GoogleMapReact>
-
+        {this._showInfo()}
       </div>
     )
   },
@@ -59,27 +77,48 @@ export const MapComponent = React.createClass({
 const MapPin = React.createClass({
 
   getInitialState: function(){
-    // pinStyle:
+    return { isHovered: false, classStyles: "map-pin" }
   },
 
   _togglePinHover: function (evt){
-    console.log('hello? is it me you are listening for?', evt);
-
-    if(evt.type === 'mouseover'){
+    console.log('hello? is it me you are listening for?', evt.type);
+    //
+    let toggleInfo
+    if(evt.type === "mouseenter"){
       this.setState({
-				isHovering: true
+        isHovered: true,
+        classStyles: "selected map-pin"
+
+      })
+    }else{
+      this.setState({
+        isHovered: false,
+        classStyles: "map-pin"
+
       })
     }
 
   },
+  _renderVendor: function(){
+    if(this.state.isHovered){
+      return (
+        <span>{this.props.vendorName}</span>
+      )
 
+    }
+    else{
+      return
+    }
+  },
 
 	render: function(){
 		return (
 			<div
-        onMouseOver={this._togglePinHover} onMouseOut={this._togglePinHover}>
-        <span>{this.props.vendorName}</span>
-        <i className="fa fa-map-marker" aria-hidden="true"></i>
+        className={this.state.classStyles}
+        onMouseEnter={this._togglePinHover}
+        onMouseLeave={this._togglePinHover}>
+        <i className="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+        {this._renderVendor()}
 			</div>
 		)
 	}

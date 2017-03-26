@@ -7,6 +7,7 @@ import {UserModel} from './models/model-user.js'
 export const ACTIONS = {
 
   setView: function(viewName){
+
     STORE.setStore('currentView', viewName)
   },
 

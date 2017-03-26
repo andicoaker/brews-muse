@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {MapComponent} from '../components/component-map.js'
-import {VendorsListComponent} from '../components/component-list_all_vendors.js'
+import {AllVendorsComponent} from '../components/component-list_all_vendors.js'
 
 import {ACTIONS} from '../actions.js'
 import {STORE} from '../store.js'
@@ -20,7 +20,7 @@ export const AllVendorsView = React.createClass({
 		return (
 			<div className="container-fluid">
         <MapComponent locationsData={this.props.allVendors}/>
-        <VendorsListComponent allVendors={this.props.allVendors}/>
+        <AllVendorsComponent allVendors={this.props.allVendors}/>
 
 			</div>
 		)

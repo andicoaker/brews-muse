@@ -2,8 +2,9 @@ export const STORE = {
   _data: {
     currentView: 'HOME',
     currentUser: {},
-    allVendors: []
-
+    allVendors: [],
+    currentVendorToggleTab: "BEER", //either BEER or BAND
+    routeParams: {}
   },
 
   getStoreData: function(){

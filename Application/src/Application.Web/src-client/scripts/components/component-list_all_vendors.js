@@ -25,16 +25,22 @@ export const AllVendorsComponent = React.createClass({
 })
 
 export const SingleVendor = React.createClass({
+  _handleVendorClick: function(evt){
+    console.log(evt.currentTarget);
+    let clickedVendorId = evt.currentTarget.dataset.vendor_id
+    console.log(clickedVendorId);
+
+    ACTIONS.routeTo(`vendorprofile/${clickedVendorId}`)
+  },
+
 
   render: function(){
 
     return (
 
-        <div className="media">
+        <div className="media" onClick={this._handleVendorClick} data-vendor_id={this.props.vendorData.id}>
           <div className="media-left">
-            <a href="#vendorprofile">
               <img className="media-object" src={this.props.vendorData.imageURL} alt="..."/>
-            </a>
           </div>
           <div className="media-body">
             <h4 className="media-heading">{this.props.vendorData.name}</h4>

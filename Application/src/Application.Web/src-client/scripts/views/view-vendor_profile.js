@@ -10,15 +10,27 @@ import {STORE} from '../store.js'
 
 export const VendorProfileView = React.createClass({
 
+  componentWillMount: function(){
+    console.log(this.props.routeParams.vendorId);
+    let theVendorId = this.props.routeParams.vendorId
+    ACTIONS.fetchSingleVendor(theVendorId)
+
+
+  },
+
+  _renderSelectedTabList: function(selectedTab){
+
+  },
+
   render: function(){
 
-    // Do we need a beer/band tab component? Or can that be coded in the view?? What's best way to set this up?  If statement upon the click event - if xx-tab is clicked then render xx-view?
 
 		return (
 			<div className="container">
           <VendorDetailsComponent/>
-          <BeersComponent/>
-          <BandsComponent/>
+
+          {/* create TabToggler component (that updates store's currentVendorToggleTab thru firing an action... onClick() ) */}
+
 			</div>
 		)
 	}

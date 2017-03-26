@@ -47,12 +47,12 @@ namespace Application.Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public IActionResult GetBand(int vendorId)
+        public IActionResult GetBand(int vendorId, int id)
         {
             //var userId = _userManager.GetUserId(User);
 
             //var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
-            var band = _context.Bands.FirstOrDefault(q => q.Id == vendorId);
+            var band = _context.Bands.FirstOrDefault(q => q.Id == id);
             if (band == null)
             {
                 return NotFound();
@@ -133,16 +133,16 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
-        [Authorize]
+        //[Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> DeleteBand(int id)
+        public async Task<IActionResult> DeleteBand(int id, [FromBody] Band band)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var user = await _userManager.GetUserAsync(User);
-            Band band = await _context.Bands.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
+            //var user = await _userManager.GetUserAsync(User);
+            band = await _context.Bands.SingleOrDefaultAsync(m => m.Id == id);
             if (band == null)
             {
                 return NotFound();

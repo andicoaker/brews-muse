@@ -138,30 +138,33 @@ namespace BrewsMuse.Controllers
 
 
         // DELETE api/bars/5
-        [HttpDelete("~/api/vendors/{id}")]
-        [Authorize]
-        public async Task<IActionResult> DeleteVendor(int id)
+        [HttpDelete]
+        [Route("~/api/vendors/{id}")]
+        [AllowAnonymous]
+        //[Authorize]
+        public async Task<IActionResult> DeleteVendor(int id, [FromBody] Vendor vendor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            var userId = await _userManager.GetUserAsync(User);
-
-            Vendor vendor = await _context.Vendors
-                .Where(q => q.Owner == userId)
-                .SingleOrDefaultAsync(m => m.Id == id);
-
+            vendor = _context.Vendors.SingleOrDefault(q => q.Id == id);
             if (vendor == null)
             {
                 return NotFound();
             }
+            foreach (var beer in vendor.Beers)
+            {
+                _context.Beers.Remove(beer);
+            }
 
+            foreach (var band in vendor.Bands)
+            {
+                _context.Bands.Remove(band);
+            }
             _context.Vendors.Remove(vendor);
             await _context.SaveChangesAsync();
-
-            return Ok(vendor);
+            return Ok();
         }
 
         private bool VendorExists(int id)

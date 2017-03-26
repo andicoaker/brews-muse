@@ -109,16 +109,16 @@ namespace Application.Web
             var vendor10 = new Vendor();
             var vendor11 = new Vendor();
 
-            var beer = new Beer();
-            var beer2 = new Beer();
-            var beer3 = new Beer();
-            var beer4 = new Beer();
-            var beer5 = new Beer();
-            var beer6 = new Beer();
-            var beer7 = new Beer();
-            var beer8 = new Beer();
-            var beer9 = new Beer();
-            var beer10 = new Beer();
+            //var beer = new Beer();
+            //var beer2 = new Beer();
+            //var beer3 = new Beer();
+            //var beer4 = new Beer();
+            //var beer5 = new Beer();
+            //var beer6 = new Beer();
+            //var beer7 = new Beer();
+            //var beer8 = new Beer();
+            //var beer9 = new Beer();
+            //var beer10 = new Beer();
 
             var band = new Band();
             var band2 = new Band();
@@ -140,7 +140,7 @@ namespace Application.Web
 
                 user.Email = "vendor@vendor.com";
                 await userManager.CreateAsync(user, "password");
-
+                context.Add(user);
 
                 vendor.Name = "Bay Street Biergarten";
                 vendor.OwnerName = "Jonathan Weitz";
@@ -156,7 +156,10 @@ namespace Application.Web
                 vendor.Lng = -79.9314;
                 vendor.Lat = 32.7920;
                 vendor.Owner = user;
+                var beer = new Beer();
+                beer.Vendor = vendor;
                 context.Vendors.Add(vendor);
+                context.Vendors.Add(beer.Vendor);
 
 
                 vendor2.Name = "Closed for Business";
@@ -305,21 +308,21 @@ namespace Application.Web
                 vendor8.ImageURL = "https://cdn0.vox-cdn.com/uploads/chorus_image/image/42527886/upload.0.jpg";
                 context.Vendors.Add(vendor8);
 
-                //vendor8.Name = "Midtown Bar & Grill";
-                //vendor8.Address = "559 King St";
-                //vendor8.City = "Charleston";
-                //vendor8.State = "SC";
-                //vendor8.ZipCode = 29401;
-                //vendor8.OwnerName = "Michael Shuler, Chris Houston, Thomas Shepard";
-                //vendor8.Owner = user;
-                //vendor8.Hours = "4:00 PM - 2:00 AM";
-                //vendor8.VendorURL = "http://www.midtownbarcharleston.com/";
-                //vendor8.VendorPhone = "843-737-4284";
-                //vendor8.Rating = 4;
-                //vendor8.Lng = -79.9388;
-                //vendor8.Lat = 32.7900;
-                //vendor8.ImageURL = "http://midtownbarcharleston.info/wp-content/uploads/2016/09/white-logo.png";
-                //context.Vendors.Add(vendor8);
+                //    //vendor8.Name = "Midtown Bar & Grill";
+                //    //vendor8.Address = "559 King St";
+                //    //vendor8.City = "Charleston";
+                //    //vendor8.State = "SC";
+                //    //vendor8.ZipCode = 29401;
+                //    //vendor8.OwnerName = "Michael Shuler, Chris Houston, Thomas Shepard";
+                //    //vendor8.Owner = user;
+                //    //vendor8.Hours = "4:00 PM - 2:00 AM";
+                //    //vendor8.VendorURL = "http://www.midtownbarcharleston.com/";
+                //    //vendor8.VendorPhone = "843-737-4284";
+                //    //vendor8.Rating = 4;
+                //    //vendor8.Lng = -79.9388;
+                //    //vendor8.Lat = 32.7900;
+                //    //vendor8.ImageURL = "http://midtownbarcharleston.info/wp-content/uploads/2016/09/white-logo.png";
+                //    //context.Vendors.Add(vendor8);
 
                 vendor9.Name = "The Alley";
                 vendor9.Address = "131 Columbus St";
@@ -367,98 +370,101 @@ namespace Application.Web
                 vendor11.Lng = -79.9503;
                 vendor11.Lat = 32.7787;
                 vendor11.ImageURL = "https://static.wixstatic.com/media/ff43d5_2f7309ede9144011bb97d3ac93f04248.png/v1/fill/w_449,h_630,al_c,usm_0.66_1.00_0.01/ff43d5_2f7309ede9144011bb97d3ac93f04248.png";
+                context.Vendors.Add(vendor11);
+
 
 
                 beer.Name = "Kolsch";
-                beer.Owner = user;
+                beer.Owner = vendor.Owner;
                 beer.Price = 1;
                 beer.Rating = 5;
                 beer.Brewery = "COAST Brewing Company";
-                beer.Type = "IPA";
-                beer.AlcoholContent = 5.2m;
-                //if you're wondering about the m, it's needed as a suffix for the decimal. Why? I don't know. Blame Bill Gates.
+                beer.Type = "Pilsner";
+                beer.AlcoholContent = 4.8m;
+                ////if you're wondering about the m, it's needed as a suffix for the decimal. Why? I don't know. Blame Bill Gates.
+
                 context.Beers.Add(beer);
 
-                beer2.Name = "PB&J";
-                beer2.Owner = user;
-                beer2.Price = 1;
-                beer2.Rating = 5;
-                beer2.Brewery = "Edmund's Oast";
-                beer2.Type = "Stout";
-                beer.AlcoholContent = 5.0m;
-                context.Beers.Add(beer2);
+                //beer2.Name = "PB&J";
+                //beer2.Owner = vendor.Owner;
+                //beer2.Price = 1;
+                //beer2.Rating = 5;
+                //beer2.Brewery = "Edmund's Oast";
+                //beer2.Type = "Stout";
+                //beer.AlcoholContent = 5.0m;
+                //context.Beers.Add(beer2);
 
-                beer3.Name = "Hoptart";
-                beer3.Owner = user;
-                beer3.Price = 1;
-                beer3.Rating = 5;
-                beer3.Brewery = "Freehouse Brewery";
-                beer3.Type = "Saison";
-                beer.AlcoholContent = 8.0m;
-                context.Beers.Add(beer3);
+                //beer3.Name = "Hoptart";
+                //beer3.Owner = vendor.Owner;
+                //beer3.Price = 1;
+                //beer3.Rating = 5;
+                //beer3.Brewery = "Freehouse Brewery";
+                //beer3.Type = "Saison";
+                //beer.AlcoholContent = 8.0m;
+                //context.Beers.Add(beer3);
 
-                beer4.Name = "Blackbeerd";
-                beer4.Owner = user;
-                beer4.Price = 1;
-                beer4.Rating = 5;
-                beer4.Brewery = "COAST Brewing Company";
-                beer4.Type = "Stout";
-                beer.AlcoholContent = 9.3m;
-                context.Beers.Add(beer4);
+                //beer4.Name = "Blackbeerd";
+                //beer4.Owner = vendor.Owner;
+                //beer4.Price = 1;
+                //beer4.Rating = 5;
+                //beer4.Brewery = "COAST Brewing Company";
+                //beer4.Type = "Stout";
+                //beer.AlcoholContent = 9.3m;
+                //context.Beers.Add(beer4);
 
-                beer5.Name = "Viridi Rex";
-                beer5.Owner = user;
-                beer5.Price = 1;
-                beer5.Rating = 5;
-                beer5.Brewery = "Edmund's Oast";
-                beer5.Type = "IPA";
-                beer.AlcoholContent = 9.5m;
-                context.Beers.Add(beer5);
+                //beer5.Name = "Viridi Rex";
+                //beer5.Owner = vendor.Owner;
+                //beer5.Price = 1;
+                //beer5.Rating = 5;
+                //beer5.Brewery = "Edmund's Oast";
+                //beer5.Type = "IPA";
+                //beer.AlcoholContent = 9.5m;
+                //context.Beers.Add(beer5);
 
-                beer6.Name = "Charleston Lager";
-                beer6.Owner = user;
-                beer6.Price = 1;
-                beer6.Rating = 5;
-                beer6.Brewery = "Palmetto Brewing Company";
-                beer6.Type = "Amber Ale";
-                beer.AlcoholContent = 5.4m;
-                context.Beers.Add(beer6);
+                //beer6.Name = "Charleston Lager";
+                //beer6.Owner = vendor.Owner;
+                //beer6.Price = 1;
+                //beer6.Rating = 5;
+                //beer6.Brewery = "Palmetto Brewing Company";
+                //beer6.Type = "Amber Ale";
+                //beer.AlcoholContent = 5.4m;
+                //context.Beers.Add(beer6);
 
-                beer7.Name = "Palmetto Pale Ale";
-                beer7.Owner = user;
-                beer7.Price = 1;
-                beer7.Rating = 5;
-                beer7.Brewery = "Palmetto Brewing Company";
-                beer7.Type = "American Pale Ale";
-                beer.AlcoholContent = 5.2m;
-                context.Beers.Add(beer7);
+                //beer7.Name = "Palmetto Pale Ale";
+                //beer7.Owner = vendor.Owner;
+                //beer7.Price = 1;
+                //beer7.Rating = 5;
+                //beer7.Brewery = "Palmetto Brewing Company";
+                //beer7.Type = "American Pale Ale";
+                //beer.AlcoholContent = 5.2m;
+                //context.Beers.Add(beer7);
 
-                beer8.Name = "White Thai";
-                beer8.Owner = user;
-                beer8.Price = 1;
-                beer8.Rating = 5;
-                beer8.Brewery = "Westbrook Brewing Company";
-                beer8.Type = "Wheat beer";
-                beer.AlcoholContent = 5.0m;
-                context.Beers.Add(beer8);
+                //beer8.Name = "White Thai";
+                //beer8.Owner = vendor.Owner;
+                //beer8.Price = 1;
+                //beer8.Rating = 5;
+                //beer8.Brewery = "Westbrook Brewing Company";
+                //beer8.Type = "Wheat beer";
+                //beer.AlcoholContent = 5.0m;
+                //context.Beers.Add(beer8);
 
-                beer9.Name = "Boy King Double IPA";
-                beer9.Owner = user;
-                beer9.Price = 1;
-                beer9.Rating = 5;
-                beer9.Brewery = "Coast Brewing Company";
-                beer9.Type = "IPA";
-                beer.AlcoholContent = 9.7m;
-                context.Beers.Add(beer9);
+                //beer9.Name = "Boy King Double IPA";
+                //beer9.Owner = vendor.Owner;
+                //beer9.Price = 1;
+                //beer9.Rating = 5;
+                //beer9.Brewery = "Coast Brewing Company";
+                //beer9.Type = "IPA";
+                //beer.AlcoholContent = 9.7m;
+                //context.Beers.Add(beer9);
 
-                beer10.Name = "Dead Arm";
-                beer10.Owner = user;
-                beer10.Price = 1;
-                beer10.Rating = 5;
-                beer10.Brewery = "COAST Brewing Company";
-                beer10.Type = "American Pale Ale";
-                beer.AlcoholContent = 6.0m;
-                context.Beers.Add(beer10);
+                //beer10.Name = "Dead Arm";
+                //beer10.Owner = vendor.Owner;
+                //beer10.Price = 1;
+                //beer10.Rating = 5;
+                //beer10.Brewery = "COAST Brewing Company";
+                //beer10.Type = "American Pale Ale";
+                //beer.AlcoholContent = 6.0m;
+                //context.Beers.Add(beer10);
 
                 band.Name = "MoJo McGee";
                 band.Owner = user;
@@ -542,21 +548,22 @@ namespace Application.Web
             }
 
 
-            //string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
+            ////string[] roles = new string[] { "Vendor", "Consumer", "Anonymous" };
 
-            //foreach (string role in roles)
-            //{
-            //    var roleStore = new RoleStore<IdentityRole>(context);
+            ////foreach (string role in roles)
+            ////{
+            ////    var roleStore = new RoleStore<IdentityRole>(context);
 
-            //    if (!context.Roles.Any(r => r.Name == role))
-            //    {
-            //        await roleStore.CreateAsync(new IdentityRole(role));
-            //    }
-            //}
+            ////    if (!context.Roles.Any(r => r.Name == role))
+            ////    {
+            ////        await roleStore.CreateAsync(new IdentityRole(role));
+            ////    }
+            ////}
 
 
 
             context.SaveChanges();
+            }
         }
     }
-}
+

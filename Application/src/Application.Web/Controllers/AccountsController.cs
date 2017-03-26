@@ -69,7 +69,7 @@ namespace BrewsMuse.Controllers
 
             if (result.Succeeded)
             {
-                return Ok();
+                return Ok(newUser);
             }
 
             return BadRequest("Invalid login attempt.");
@@ -106,7 +106,7 @@ namespace BrewsMuse.Controllers
                 //return Ok(result);
                 if (resultConfirm.Succeeded && resultConfirm == result)
                 {
-                    return Ok(result);
+                    return Ok(newUser);
                 }
                 else
                 {

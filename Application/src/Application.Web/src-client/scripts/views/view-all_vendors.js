@@ -7,7 +7,7 @@ import {ACTIONS} from '../actions.js'
 import {STORE} from '../store.js'
 
 export const AllVendorsView = React.createClass({
-
+  
   render: function(){
     // console.log(this.props.allVendors);
     if(this.props.allVendors.length < 1){

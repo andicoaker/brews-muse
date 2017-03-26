@@ -1,6 +1,6 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
-import {VendorsListComponent} from '../components/component-list_all_vendors.js'
+import {AllVendorsComponent} from '../components/component-list_all_vendors.js'
 import {AppRouter} from '../router.js'
 
 export const RegisterComponent = React.createClass({

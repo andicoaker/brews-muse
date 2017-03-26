@@ -1,12 +1,12 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
 
-export const VendorsListComponent = React.createClass({
+export const AllVendorsComponent = React.createClass({
 
   _makeVendorComponents: function(vendorsList){
     let arrayOfVendorsComponents = vendorsList.map(function(vmod, i){
       return (
-        <VendorsListItem vendorData={vmod} key={i}/>
+        <SingleVendor vendorData={vmod} key={i}/>
       )
     }).reverse()
 
@@ -24,7 +24,7 @@ export const VendorsListComponent = React.createClass({
   }
 })
 
-export const VendorsListItem = React.createClass({
+export const SingleVendor = React.createClass({
 
   render: function(){
 

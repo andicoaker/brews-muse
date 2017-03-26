@@ -137,16 +137,18 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
-        [Authorize]
+        //[Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public async Task<IActionResult> DeleteBeer(int id)
+        public async Task<IActionResult> DeleteBeer(int id, [FromBody] Beer beer)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var user = await _userManager.GetUserAsync(User);
-            Beer beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
+            //var user = await _userManager.GetUserAsync(User);
+            beer = await _context.Beers.SingleOrDefaultAsync(m => m.Id == id);
+
+            //beer.Owner = user;
             if (beer == null)
             {
                 return NotFound();

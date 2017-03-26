@@ -43,10 +43,10 @@ namespace Application.Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/beers/")]
-        public IEnumerable<Beer> GetBeers()
+        public IEnumerable<Beer> GetBeers(int vendorsId)
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Beers.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
+            return _context.Beers.Where(q => q.Vendor.Id == vendorsId).ToList();
         }
         [HttpGet]
         [AllowAnonymous]
@@ -56,7 +56,7 @@ namespace Application.Web.Controllers
             //var userId = _userManager.GetUserId(User);
 
             //var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorsId);
-            var beer = _context.Beers.FirstOrDefault(q => q.Id == id);//vendorsId); 
+            var beer = _context.Beers.Where(q => q.Vendor.Id == vendorsId).FirstOrDefault(q => q.Id == id);//vendorsId); 
             if (beer == null)
             {
                 return NotFound();
@@ -77,10 +77,11 @@ namespace Application.Web.Controllers
             //beer.OwnerId = _userManager.GetUserId(User);
 
             var user = await _userManager.GetUserAsync(User);
-            //Beer beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
+            //beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
 
             beer.Owner = vendor.Owner;
-            vendor.Beers.Add(beer);
+            _context.Vendors.Add(beer.Vendor);
+            //vendor.Beers.Add(beer);
             try
             {
                 await _context.SaveChangesAsync();

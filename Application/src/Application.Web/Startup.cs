@@ -109,7 +109,7 @@ namespace Application.Web
             var vendor10 = new Vendor();
             var vendor11 = new Vendor();
 
-            var beer = new Beer();
+            var beer1 = new Beer();
             var beer2 = new Beer();
             var beer3 = new Beer();
             var beer4 = new Beer();
@@ -120,7 +120,7 @@ namespace Application.Web
             var beer9 = new Beer();
             var beer10 = new Beer();
 
-            var band = new Band();
+            var band1 = new Band();
             var band2 = new Band();
             var band3 = new Band();
             var band4 = new Band();
@@ -144,7 +144,7 @@ namespace Application.Web
 
                 vendor.Name = "Bay Street Biergarten";
                 vendor.OwnerName = "Jonathan Weitz";
-                vendor.Address = "549 E Bay St.";
+                vendor.Address = "549 E Bay St";
                 vendor.City = "Charleston";
                 vendor.State = "SC";
                 vendor.ZipCode = 29403;
@@ -156,9 +156,7 @@ namespace Application.Web
                 vendor.Lng = -79.9314;
                 vendor.Lat = 32.7920;
                 vendor.Owner = user;
-                beer.Vendor = vendor;
                 context.Vendors.Add(vendor);
-                context.Vendors.Add(beer.Vendor);
 
 
                 vendor2.Name = "Closed for Business";
@@ -373,16 +371,15 @@ namespace Application.Web
 
 
 
-                beer.Name = "Kolsch";
-                beer.Owner = vendor.Owner;
-                beer.Price = 1;
-                beer.Rating = 5;
-                beer.Brewery = "COAST Brewing Company";
-                beer.Type = "Pilsner";
-                beer.AlcoholContent = 4.8m;
-                ////if you're wondering about the m, it's needed as a suffix for the decimal. Why? I don't know. Blame Bill Gates.
-
-                vendor.Beers.Add(beer);
+                beer1.Name = "Kolsch";
+                beer1.Owner = vendor.Owner;
+                beer1.Price = 1;
+                beer1.Rating = 5;
+                beer1.Brewery = "COAST Brewing Company";
+                beer1.Type = "Pilsner";
+                beer1.AlcoholContent = 4.8m;
+                vendor.Beers.Add(beer1);
+                vendor2.Beers.Add(beer2);
 
                 beer2.Name = "PB&J";
                 beer2.Owner = vendor.Owner;
@@ -390,8 +387,9 @@ namespace Application.Web
                 beer2.Rating = 5;
                 beer2.Brewery = "Edmund's Oast";
                 beer2.Type = "Stout";
-                beer.AlcoholContent = 5.0m;
+                beer2.AlcoholContent = 5.0m;
                 vendor.Beers.Add(beer2);
+                vendor2.Beers.Add(beer2);
 
                 beer3.Name = "Hoptart";
                 beer3.Owner = vendor.Owner;
@@ -399,8 +397,9 @@ namespace Application.Web
                 beer3.Rating = 5;
                 beer3.Brewery = "Freehouse Brewery";
                 beer3.Type = "Saison";
-                beer.AlcoholContent = 8.0m;
-                vendor.Beers.Add(beer3);
+                beer3.AlcoholContent = 8.0m;
+                vendor3.Beers.Add(beer3);
+                vendor4.Beers.Add(beer3);
 
                 beer4.Name = "Blackbeerd";
                 beer4.Owner = vendor.Owner;
@@ -408,8 +407,9 @@ namespace Application.Web
                 beer4.Rating = 5;
                 beer4.Brewery = "COAST Brewing Company";
                 beer4.Type = "Stout";
-                beer.AlcoholContent = 9.3m;
-                vendor.Beers.Add(beer4);
+                beer4.AlcoholContent = 9.3m;
+                vendor3.Beers.Add(beer4);
+                vendor4.Beers.Add(beer4);
 
                 beer5.Name = "Viridi Rex";
                 beer5.Owner = vendor.Owner;
@@ -417,8 +417,9 @@ namespace Application.Web
                 beer5.Rating = 5;
                 beer5.Brewery = "Edmund's Oast";
                 beer5.Type = "IPA";
-                beer.AlcoholContent = 9.5m;
-                vendor.Beers.Add(beer5);
+                beer5.AlcoholContent = 9.5m;
+                vendor5.Beers.Add(beer5);
+                vendor6.Beers.Add(beer6);
 
                 beer6.Name = "Charleston Lager";
                 beer6.Owner = vendor.Owner;
@@ -426,8 +427,9 @@ namespace Application.Web
                 beer6.Rating = 5;
                 beer6.Brewery = "Palmetto Brewing Company";
                 beer6.Type = "Amber Ale";
-                beer.AlcoholContent = 5.4m;
-                vendor.Beers.Add(beer6);
+                beer6.AlcoholContent = 5.4m;
+                vendor6.Beers.Add(beer6);
+                vendor5.Beers.Add(beer6);
 
                 beer7.Name = "Palmetto Pale Ale";
                 beer7.Owner = vendor.Owner;
@@ -435,8 +437,9 @@ namespace Application.Web
                 beer7.Rating = 5;
                 beer7.Brewery = "Palmetto Brewing Company";
                 beer7.Type = "American Pale Ale";
-                beer.AlcoholContent = 5.2m;
-                vendor.Beers.Add(beer7);
+                beer7.AlcoholContent = 5.2m;
+                vendor7.Beers.Add(beer7);
+                vendor8.Beers.Add(beer7);
 
                 beer8.Name = "White Thai";
                 beer8.Owner = vendor.Owner;
@@ -444,8 +447,9 @@ namespace Application.Web
                 beer8.Rating = 5;
                 beer8.Brewery = "Westbrook Brewing Company";
                 beer8.Type = "Wheat beer";
-                beer.AlcoholContent = 5.0m;
-                vendor.Beers.Add(beer8);
+                beer8.AlcoholContent = 5.0m;
+                vendor8.Beers.Add(beer8);
+                vendor7.Beers.Add(beer8);
 
                 beer9.Name = "Boy King Double IPA";
                 beer9.Owner = vendor.Owner;
@@ -453,8 +457,9 @@ namespace Application.Web
                 beer9.Rating = 5;
                 beer9.Brewery = "Coast Brewing Company";
                 beer9.Type = "IPA";
-                beer.AlcoholContent = 9.7m;
-                vendor.Beers.Add(beer9);
+                beer9.AlcoholContent = 9.7m;
+                vendor9.Beers.Add(beer9);
+                vendor10.Beers.Add(beer9);
 
                 beer10.Name = "Dead Arm";
                 beer10.Owner = vendor.Owner;
@@ -462,16 +467,18 @@ namespace Application.Web
                 beer10.Rating = 5;
                 beer10.Brewery = "COAST Brewing Company";
                 beer10.Type = "American Pale Ale";
-                beer.AlcoholContent = 6.0m;
-                vendor.Beers.Add(beer10);
+                beer10.AlcoholContent = 6.0m;
+                vendor10.Beers.Add(beer10);
+                vendor9.Beers.Add(beer10);
+                vendor11.Beers.Add(beer10);
 
-                band.Name = "MoJo McGee";
-                band.Owner = user;
-                band.Genre = "Various";
-                band.Rating = 5;
-                band.CoverCharge = 30;
-                band.Showtime = "4/10/2017 8:00 PM - 12:00 AM";
-                vendor.Bands.Add(band);
+                band1.Name = "MoJo McGee";
+                band1.Owner = user;
+                band1.Genre = "Various";
+                band1.Rating = 5;
+                band1.CoverCharge = 30;
+                band1.Showtime = "4/10/2017 8:00 PM - 12:00 AM";
+                vendor.Bands.Add(band1);
 
                 band2.Name = "The Officials Band";
                 band2.Owner = user;
@@ -495,7 +502,7 @@ namespace Application.Web
                 band4.Rating = 5;
                 band4.CoverCharge = 10;
                 band4.Showtime = "4/4/2017 10:00 PM - 12:00 AM";
-                vendor.Bands.Add(band);
+                vendor.Bands.Add(band4);
 
                 band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
                 band5.Owner = user;

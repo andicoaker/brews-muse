@@ -43,7 +43,7 @@ export const RegisterComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button type="submit" className="btn btn-default">Sign Up</button>
+            <button type="submit" className="btn submit-button">Sign Up</button>
         </div>
     </form>
     )

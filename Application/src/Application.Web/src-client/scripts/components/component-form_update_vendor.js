@@ -3,7 +3,7 @@ import React from 'react'
 export const UpdateVendorComponent = React.createClass({
   render: function(){
     return (
-      <form>
+      <form className="form-inline">
          <h1>Update Account</h1>
           <div className="form-group">
             <input type="text" className="form-control" id="inputFirstName" placeholder="First Name"/>
@@ -73,8 +73,9 @@ export const UpdateVendorComponent = React.createClass({
           <div className="form-group">
               <input type="text" className="form-control" id="inputImage" placeholder="image URL"/>
           </div>
+        <hr/>
           <div className="form-group">
-              <button type="submit" className="btn btn-default">Update Account</button>
+              <button type="submit" className="btn submit-button">Update Account</button>
           </div>
       </form>
     )

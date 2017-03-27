@@ -19,6 +19,8 @@ export const VendorProfileView = React.createClass({
   },
 
   _renderSelectedTabList: function(selectedTab){
+    // if statement - if selected tab === beers retrn beers list
+    // else - render bands list
 
   },
 
@@ -33,6 +35,8 @@ export const VendorProfileView = React.createClass({
 			<div className="container-fluid">
           <VendorDetailsComponent {...this.props}/>
           <TabTogglerComponent/>
+          <BeersComponent/>
+          <BandsComponent/>
 
 			</div>
 		)

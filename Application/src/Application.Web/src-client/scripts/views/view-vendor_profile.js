@@ -23,11 +23,15 @@ export const VendorProfileView = React.createClass({
   },
 
   render: function(){
-
-
+    // console.log(this.props)
+    if(this.props.currentVendor.name === undefined){
+      return(
+        <div></div>
+      )
+    }
 		return (
 			<div className="container">
-          <VendorDetailsComponent/>
+          <VendorDetailsComponent {...this.props}/>
 
           {/* create TabToggler component (that updates store's currentVendorToggleTab thru firing an action... onClick() ) */}
 

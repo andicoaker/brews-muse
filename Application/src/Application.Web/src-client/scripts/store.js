@@ -3,6 +3,7 @@ export const STORE = {
     currentView: 'HOME',
     currentUser: {},
     allVendors: [],
+    currentVendor: {},
     currentVendorToggleTab: "BEER", //either BEER or BAND
     routeParams: {}
   },

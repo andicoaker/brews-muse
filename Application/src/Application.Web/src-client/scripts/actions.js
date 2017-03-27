@@ -45,7 +45,7 @@ export const ACTIONS = {
 
   fetchVendors: function(results){
     // console.log(results, 'action results')
-    $.getJSON('/api/vendors/').then(function(serverRes){
+    $.getJSON('/api/vendors').then(function(serverRes){
       console.log("JSON data results:", serverRes);
       STORE.setStore('allVendors', serverRes)
 
@@ -56,7 +56,7 @@ export const ACTIONS = {
       let vendorMod = new VendorProfileModel()
       vendorMod.set({id: vendorId})
       vendorMod.fetch().then(function(serverRes){
-
+        STORE.setStore('currentVendor', serverRes)
         console.log(serverRes);
 
       })

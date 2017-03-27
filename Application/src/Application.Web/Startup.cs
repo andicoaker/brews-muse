@@ -421,7 +421,7 @@ namespace Application.Web
                 beer5.AlcoholContent = 9.5m;
                 vendor5.Beers.Add(beer5);
                 vendor6.Beers.Add(beer6);
-                vendor10.Beers.Add(beer10);
+                vendor10.Beers.Add(beer5);
 
                 beer6.Name = "Charleston Lager";
                 beer6.Owner = vendor.Owner;
@@ -432,7 +432,7 @@ namespace Application.Web
                 beer6.AlcoholContent = 5.4m;
                 vendor6.Beers.Add(beer6);
                 vendor5.Beers.Add(beer6);
-                vendor10.Beers.Add(beer10);
+                vendor10.Beers.Add(beer6);
 
                 beer7.Name = "Palmetto Pale Ale";
                 beer7.Owner = vendor.Owner;
@@ -443,7 +443,7 @@ namespace Application.Web
                 beer7.AlcoholContent = 5.2m;
                 vendor7.Beers.Add(beer7);
                 vendor8.Beers.Add(beer7);
-                vendor10.Beers.Add(beer10);
+                vendor10.Beers.Add(beer7);
 
                 beer8.Name = "White Thai";
                 beer8.Owner = vendor.Owner;

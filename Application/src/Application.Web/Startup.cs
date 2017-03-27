@@ -144,7 +144,7 @@ namespace Application.Web
 
                 vendor.Name = "Bay Street Biergarten";
                 vendor.OwnerName = "Jonathan Weitz";
-                vendor.Address = "549 E Bay St";
+                vendor.Address = "549 E Bay St.";
                 vendor.City = "Charleston";
                 vendor.State = "SC";
                 vendor.ZipCode = 29403;
@@ -162,7 +162,7 @@ namespace Application.Web
 
 
                 vendor2.Name = "Closed for Business";
-                vendor2.Address = "453 King St";
+                vendor2.Address = "453 King St.";
                 vendor2.City = "Charleston";
                 vendor2.State = "SC";
                 vendor2.ZipCode = 29403;
@@ -178,7 +178,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor2);
 
                 vendor3.Name = "Charleston Beer Works";
-                vendor3.Address = "480 King Street St";
+                vendor3.Address = "480 King Street St.";
                 vendor3.City = "Charleston";
                 vendor3.State = "SC";
                 vendor3.ZipCode = 29401;
@@ -194,7 +194,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor3);
 
                 vendor4.Name = "Lagunitas";
-                vendor4.Address = "161 E Bay St";
+                vendor4.Address = "161 E Bay St.";
                 vendor4.City = "Charleston";
                 vendor4.State = "SC";
                 vendor4.ZipCode = 29401;
@@ -211,7 +211,7 @@ namespace Application.Web
 
 
                 //vendor4.Name = "A C's Bar and Grill";
-                //vendor4.Address = "467 King St";
+                //vendor4.Address = "467 King St.";
                 //vendor4.City = "Charleston";
                 //vendor4.State = "SC";
                 //vendor4.ZipCode = 29403;
@@ -227,7 +227,7 @@ namespace Application.Web
                 //context.Vendors.Add(vendor4);
 
                 vendor5.Name = "The Tattood Moose";
-                vendor5.Address = "3328 Maybank Highway";
+                vendor5.Address = "3328 Maybank Hwy.";
                 vendor5.City = "Charleston";
                 vendor5.State = "SC";
                 vendor5.ZipCode = 29455;
@@ -243,7 +243,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor5);
 
                 vendor6.Name = "Tommy Condons";
-                vendor6.Address = "160 Church St";
+                vendor6.Address = "160 Church St.";
                 vendor6.City = "Charleston";
                 vendor6.State = "SC";
                 vendor6.ZipCode = 29401;
@@ -275,7 +275,7 @@ namespace Application.Web
                 //context.Vendors.Add(vendor6);
 
                 vendor7.Name = "The Royal American";
-                vendor7.Address = "970 Morrison Dr";
+                vendor7.Address = "970 Morrison Dr.";
                 vendor7.City = "Charleston";
                 vendor7.State = "SC";
                 vendor7.ZipCode = 29403;
@@ -324,7 +324,7 @@ namespace Application.Web
                 //    //context.Vendors.Add(vendor8);
 
                 vendor9.Name = "The Alley";
-                vendor9.Address = "131 Columbus St";
+                vendor9.Address = "131 Columbus St.";
                 vendor9.City = "Charleston";
                 vendor9.State = "SC";
                 vendor9.ZipCode = 29403;
@@ -340,7 +340,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor9);
 
                 vendor10.Name = "Blind Tiger Pub";
-                vendor10.Address = "36 Broad St";
+                vendor10.Address = "36 Broad St.";
                 vendor10.City = "Charleston";
                 vendor10.State = "SC";
                 vendor10.ZipCode = 29401;
@@ -356,7 +356,7 @@ namespace Application.Web
                 context.Vendors.Add(vendor10);
 
                 vendor11.Name = "Salty Mike's";
-                vendor11.Address = "17 Lockwood Dr";
+                vendor11.Address = "17 Lockwood Dr.";
                 vendor11.City = "Charleston";
                 vendor11.State = "SC";
                 vendor11.ZipCode = 29401;

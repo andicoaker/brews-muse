@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 
 
+
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Application.Web.Controllers
@@ -46,7 +47,9 @@ namespace Application.Web.Controllers
         public IEnumerable<Beer> GetBeers(int vendorsId)
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Beers.Where(q => q.Vendor.Id == vendorsId).ToList();
+
+            var vendor = _context.Vendors.SingleOrDefault(m => m.Id == vendorsId);
+            return vendor.Beers.ToList(); //_context.Beers.Where(q => q.Vendor.Id == vendorsId).ToList();
         }
         [HttpGet]
         [AllowAnonymous]
@@ -55,8 +58,8 @@ namespace Application.Web.Controllers
         {
             //var userId = _userManager.GetUserId(User);
 
-            //var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorsId);
-            var beer = _context.Beers.Where(q => q.Vendor.Id == vendorsId).FirstOrDefault(q => q.Id == id);//vendorsId); 
+            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorsId);
+            var beer = vendor.Beers.FirstOrDefault(q => q.Id == id);//vendorsId); 
             if (beer == null)
             {
                 return NotFound();
@@ -79,9 +82,9 @@ namespace Application.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             //beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
 
-            beer.Owner = vendor.Owner;
-            _context.Vendors.Add(beer.Vendor);
-            //vendor.Beers.Add(beer);
+           
+            //_context.Beers.Add(beer);
+            vendor.Beers.Add(beer);
             try
             {
                 await _context.SaveChangesAsync();
@@ -138,7 +141,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
-        //[Authorize]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
         public async Task<IActionResult> DeleteBeer(int id, [FromBody] Beer beer)
         {

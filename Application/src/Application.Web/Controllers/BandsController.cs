@@ -27,32 +27,26 @@ namespace Application.Web.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
-        [Route("~/api/vendors/{vendorsId}/bands")]
-        public IActionResult Band(int vendorsId)
-        {
-
-            var vendors = _context.Vendors.Include(q => q.Bands).FirstOrDefault(m => m.Id == vendorsId);
-            return Ok(vendors);
-        }
+       
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands")]
-        public IEnumerable<Band> GetBands()
+        public IEnumerable<Band> GetBands(int vendorsId)
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Bands.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
+            var vendor = _context.Vendors.SingleOrDefault(m => m.Id == vendorsId);
+            return vendor.Bands.ToList();//.Where(q => q.Vendor.OwnerId == userId).ToList();
         }
 
         [HttpGet]
         [AllowAnonymous]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public IActionResult GetBand(int vendorId, int id)
+        public IActionResult GetBand(int vendorsId, int id)
         {
             //var userId = _userManager.GetUserId(User);
 
-            //var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorId);
-            var band = _context.Bands.FirstOrDefault(q => q.Id == id);
+            var vendor = _context.Vendors.Include(q => q.Bands).FirstOrDefault(q => q.Id == vendorsId);
+            var band = vendor.Bands.FirstOrDefault(q => q.Id == id);
             if (band == null)
             {
                 return NotFound();
@@ -70,12 +64,12 @@ namespace Application.Web.Controllers
             {
                 return BadRequest(ModelState);
             }
-            //band.OwnerId = _userManager.GetUserId(User);
+         
 
-            var userId = _userManager.GetUserId(User);
-            //Band band = await _context.Bands.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var user = await _userManager.GetUserAsync(User);
 
-            band.Owner = vendor.Owner;
+
+            //band.Owner = vendor.Owner;
             vendor.Bands.Add(band);
             try
             {
@@ -133,7 +127,7 @@ namespace Application.Web.Controllers
         }
 
         [HttpDelete]
-        //[Authorize]
+        [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
         public async Task<IActionResult> DeleteBand(int id, [FromBody] Band band)
         {

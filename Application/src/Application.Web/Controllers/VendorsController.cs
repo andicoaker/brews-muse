@@ -31,40 +31,6 @@ namespace BrewsMuse.Controllers
             _context = context;
         }
 
-        [HttpPost]
-        [Authorize]
-        [Route("~/api/vendors/image")]
-        public async Task<IActionResult> PostPicture(IFormFile file)
-        {
-            var extension = Path.GetExtension(file.FileName);
-            var vendor = new Vendor();
-            
-            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
-            {
-                var name = Guid.NewGuid().ToString();
-                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
-
-                using(var image = System.IO.File.Create(path))
-                {
-                    file.CopyTo(image);
-                }
-
-                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
-                return Ok(vendor.ImageURL);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
-
-        // GET: /<controller>/
-        [AllowAnonymous]
-        [Route("~/vendors")]
-        public IActionResult Vendor()
-        {
-            return View();
-        }
 
         [HttpGet]
         [AllowAnonymous]
@@ -72,9 +38,13 @@ namespace BrewsMuse.Controllers
         public IEnumerable<Vendor> GetVendors()
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Vendors.ToList();//Where(q => q.OwnerId == userId).ToList();
+            return _context.Vendors
+                .Include(n => n.Beers)
+                .Include(q => q.Bands)
+                .ToList();
         }
 
+        //Where(q => q.OwnerId == userId).ToList();
 
 
         [HttpGet]
@@ -83,7 +53,8 @@ namespace BrewsMuse.Controllers
         public async Task<IActionResult> GetVendor(int id)
         {
             //var userId = _userManager.GetUserId(User);
-            Vendor vendor = await _context.Vendors.SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
+            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
+          
 
             if (vendor == null)
             {
@@ -91,6 +62,8 @@ namespace BrewsMuse.Controllers
             }
             return Ok(vendor);
         }
+
+
 
         [HttpPost]
         [Authorize]
@@ -112,6 +85,33 @@ namespace BrewsMuse.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(vendor);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("~/api/vendors/image")]
+        public async Task<IActionResult> PostPicture(IFormFile file)
+        {
+            var extension = Path.GetExtension(file.FileName);
+            var vendor = new Vendor();
+
+            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+            {
+                var name = Guid.NewGuid().ToString();
+                var path = Path.Combine(_environment.WebRootPath, "images", "vendors", $"{name}.{extension}");
+
+                using (var image = System.IO.File.Create(path))
+                {
+                    file.CopyTo(image);
+                }
+
+                vendor.ImageURL = $"/images/vendors/{name}.{extension}";
+                return Ok(vendor.ImageURL);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // PUT api/bars/5
@@ -153,15 +153,18 @@ namespace BrewsMuse.Controllers
             {
                 return NotFound();
             }
-            foreach (var beer in vendor.Beers)
-            {
-                _context.Beers.Remove(beer);
-            }
 
-            foreach (var band in vendor.Bands)
-            {
-                _context.Bands.Remove(band);
-            }
+            //var beers = _context.Beers.Where(p => p.Vendor == vendor).ToList();
+            //var bands = _context.Bands.Where(n => n.Vendor == vendor).ToList();
+            //foreach (var beer in beers)
+            //{
+            //    _context.Beers.Remove(beer);
+            //}
+
+            //foreach (var band in bands)
+            //{
+            //    _context.Bands.Remove(band);
+            //}
             _context.Vendors.Remove(vendor);
             await _context.SaveChangesAsync();
             return Ok();

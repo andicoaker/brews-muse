@@ -17,6 +17,6 @@ namespace BrewsMuse.Models
         public string Date { get; set; }
         public string Day { get; set; }
         public string Showtime { get; set; }
-        public Vendor Vendor { get; set; }
+        //public Vendor Vendor { get; set; }
     }
 }

@@ -17,30 +17,24 @@ import {VendorProfileView} from './views/view-vendor_profile.js'
 
 export const ViewController = React.createClass({
 
-   getInitialState: function(){
+  getInitialState: function(){
 
-     let storeObject = STORE.getStoreData()
-     return storeObject
+   let storeObject = STORE.getStoreData()
+   return storeObject
 
-   },
+  },
 
-   componentWillMount: function(){
-     let viewContComponent = this
+componentWillMount: function(){
+ let viewContComponent = this
 
-       $.getJSON('http://localhost:5000/api/vendors/').then(function(serverRes){
-         console.log("JSON data results:", serverRes);
-         ACTIONS.setAPIData(serverRes)
-       })
+  STORE.onStoreChange(function(){
+    let newStoreState = STORE.getStoreData()
+    viewContComponent.setState(newStoreState)
+  })
 
-      STORE.onStoreChange(function(){
-        let newStoreState = STORE.getStoreData()
-        viewContComponent.setState(newStoreState)
-      })
+  let router = new AppRouter()
 
-      let router = new AppRouter()
-      // ACTIONS.fetchloggedInUser()
-      // *** add above line in later once user login action is created ***
-	 },
+},
 
   _getNavbar: function(currentUser){
     let theNavbar = <AnonNavbarComponent/>

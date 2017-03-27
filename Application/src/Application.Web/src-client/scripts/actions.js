@@ -1,12 +1,19 @@
 import Backbone from 'backbone';
+import $ from 'jquery'
 import React from 'react'
 import ReactDom from 'react-dom'
 import {STORE} from './store.js'
 import {UserModel} from './models/model-user.js'
+import {VendorProfileModel} from './models/model-vendor_profile.js'
 
 export const ACTIONS = {
 
-  setView: function(viewName){
+  setView: function(viewName, routeParamsObj){
+
+    if (typeof routeParamsObj === 'object'){
+      STORE.setStore('routeParams', routeParamsObj)
+
+    }
 
     STORE.setStore('currentView', viewName)
   },
@@ -36,10 +43,26 @@ export const ACTIONS = {
 
   },
 
-  setAPIData: function(results){
+  fetchVendors: function(results){
     // console.log(results, 'action results')
-    STORE.setStore('allVendors', results)
+    $.getJSON('/api/vendors/').then(function(serverRes){
+      console.log("JSON data results:", serverRes);
+      STORE.setStore('allVendors', serverRes)
+
+    })
   },
+
+  fetchSingleVendor: function(vendorId){
+      let vendorMod = new VendorProfileModel()
+      vendorMod.set({id: vendorId})
+      vendorMod.fetch().then(function(serverRes){
+
+        console.log(serverRes);
+
+      })
+  },
+
+
 
   routeTo: function(path){
     window.location.hash = path

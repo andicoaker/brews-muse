@@ -471,7 +471,7 @@ namespace Application.Web
                 band.Genre = "Various";
                 band.Rating = 5;
                 band.CoverCharge = 30;
-                band.Showtime = "10:00 PM";
+                band.Showtime = "4/10/2017 8:00 PM - 12:00 AM";
                 context.Bands.Add(band);
 
                 band2.Name = "The Officials Band";
@@ -479,7 +479,7 @@ namespace Application.Web
                 band2.Genre = "Jazz";
                 band2.Rating = 5;
                 band2.CoverCharge = 10;
-                band2.Showtime = "10:00 PM";
+                band2.Showtime = "4/5/2017 10:00 PM - 12:00 AM";
                 context.Bands.Add(band2);
 
                 band3.Name = "Ocean Drive Party Band O.D.P.B.";
@@ -487,7 +487,7 @@ namespace Application.Web
                 band3.Genre = "Variety";
                 band3.Rating = 5;
                 band3.CoverCharge = 10;
-                band3.Showtime = "10:00 PM";
+                band3.Showtime = "4/7/2017 10:00 PM - 2:00 AM";
                 context.Bands.Add(band3);
 
                 band4.Name = "Palmetto Soul";
@@ -495,7 +495,7 @@ namespace Application.Web
                 band4.Genre = "Rock";
                 band4.Rating = 5;
                 band4.CoverCharge = 10;
-                band4.Showtime = "10:00 PM";
+                band4.Showtime = "4/4/2017 10:00 PM - 12:00 AM";
                 context.Bands.Add(band);
 
                 band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
@@ -503,7 +503,7 @@ namespace Application.Web
                 band5.Genre = "Variety";
                 band5.Rating = 5;
                 band5.CoverCharge = 10;
-                band5.Showtime = "10:00 PM";
+                band5.Showtime = "4/11/2017 9:00 PM - 12:00 AM";
                 context.Bands.Add(band5);
 
                 band6.Name = "Andrew Thielen 'Motown' Band";
@@ -511,7 +511,7 @@ namespace Application.Web
                 band6.Genre = "Oldies, disco, beach music";
                 band6.Rating = 5;
                 band6.CoverCharge = 10;
-                band6.Showtime = "10:00 PM";
+                band6.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
                 context.Bands.Add(band6);
 
                 band7.Name = "The SugarBees";
@@ -519,7 +519,7 @@ namespace Application.Web
                 band7.Genre = "Variety";
                 band7.Rating = 5;
                 band7.CoverCharge = 10;
-                band7.Showtime = "10:00 PM";
+                band7.Showtime = "4/3/2017 10:00 PM - 12:00 AM";
                 context.Bands.Add(band7);
 
                 band8.Name = "Emerald Empire Band";
@@ -527,7 +527,7 @@ namespace Application.Web
                 band8.Genre = "Variety";
                 band8.Rating = 5;
                 band8.CoverCharge = 10;
-                band8.Showtime = "10:00 PM";
+                band8.Showtime = "4/5/2017 10:30 PM - 12:00 AM";
                 context.Bands.Add(band8);
 
                 band9.Name = "Chewbacky Band";
@@ -535,7 +535,7 @@ namespace Application.Web
                 band9.Genre = "Country";
                 band9.Rating = 5;
                 band9.CoverCharge = 10;
-                band9.Showtime = "10:00 PM";
+                band9.Showtime = "4/5/2017 8:00 PM - 12:00 AM";
                 context.Bands.Add(band9);
 
                 band10.Name = "The Vistas";
@@ -543,7 +543,7 @@ namespace Application.Web
                 band10.Genre = "Rock";
                 band10.Rating = 5;
                 band10.CoverCharge = 20;
-                band10.Showtime = "10:00 PM";
+                band10.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
                 context.Bands.Add(band10);
             }
 

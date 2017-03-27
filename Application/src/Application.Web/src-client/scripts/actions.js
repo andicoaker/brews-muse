@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import $ from 'jquery'
 import React from 'react'
 import ReactDom from 'react-dom'
 import {STORE} from './store.js'
@@ -44,7 +45,7 @@ export const ACTIONS = {
 
   fetchVendors: function(results){
     // console.log(results, 'action results')
-    $.getJSON('http://localhost:5000/api/vendors/').then(function(serverRes){
+    $.getJSON('/api/vendors/').then(function(serverRes){
       console.log("JSON data results:", serverRes);
       STORE.setStore('allVendors', serverRes)
 

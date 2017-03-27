@@ -1,4 +1,4 @@
-import React from 'react'
+  import React from 'react'
 import {VendorDetailsComponent} from '../components/component-vendor_details.js'
 import {MapComponent} from '../components/component-map.js'
 import {BeersComponent} from '../components/component-list_beers.js'

@@ -62,8 +62,6 @@ export const ACTIONS = {
       })
   },
 
-
-
   routeTo: function(path){
     window.location.hash = path
   }

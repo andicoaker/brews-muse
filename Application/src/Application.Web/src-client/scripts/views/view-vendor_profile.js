@@ -1,6 +1,7 @@
-  import React from 'react'
+import React from 'react'
 import {VendorDetailsComponent} from '../components/component-vendor_details.js'
 import {MapComponent} from '../components/component-map.js'
+import {TabTogglerComponent} from '../components/component-vendor_tab_toggler'
 import {BeersComponent} from '../components/component-list_beers.js'
 import {BandsComponent} from '../components/component-list_bands.js'
 
@@ -14,7 +15,6 @@ export const VendorProfileView = React.createClass({
     console.log(this.props.routeParams.vendorId);
     let theVendorId = this.props.routeParams.vendorId
     ACTIONS.fetchSingleVendor(theVendorId)
-
 
   },
 
@@ -30,12 +30,12 @@ export const VendorProfileView = React.createClass({
       )
     }
 		return (
-			<div className="container">
+			<div className="container-fluid">
           <VendorDetailsComponent {...this.props}/>
-
-          {/* create TabToggler component (that updates store's currentVendorToggleTab thru firing an action... onClick() ) */}
+          <TabTogglerComponent/>
 
 			</div>
 		)
 	}
 })
+        /* create TabToggler component (that updates store's currentVendorToggleTab thru firing an action... onClick() ) */

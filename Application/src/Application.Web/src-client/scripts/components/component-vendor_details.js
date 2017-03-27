@@ -12,13 +12,13 @@ export const VendorDetailsComponent = React.createClass({
           </a>
         </div>
         <div className="media-body">
-          <h4 className="media-heading">{this.props.currentVendor.name}</h4>
+          <h1 className="media-heading">{this.props.currentVendor.name}</h1>
           <p className="vendor-address">
-            {this.props.currentVendor.address}&nbsp; {this.props.currentVendor.city}, {this.props.currentVendor.state} {this.props.currentVendor.zipCode}&nbsp;
+            {this.props.currentVendor.address}&nbsp;   {this.props.currentVendor.city}, {this.props.currentVendor.state} {this.props.currentVendor.zipCode}
           </p>
-
+          <p>Phone: {this.props.currentVendor.vendorPhone}</p>
+          <p>Hours: {this.props.currentVendor.hours}</p>
           <p><a href="">{this.props.currentVendor.vendorURL}</a></p>
-          <p>{this.props.currentVendor.vendorPhone} {this.props.currentVendor.hours}</p>
 
           <p className="social-icons">
             <i className="fa fa-facebook" aria-hidden="true"></i>

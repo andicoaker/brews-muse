@@ -43,7 +43,7 @@ export const SingleVendor = React.createClass({
               <img className="media-object" src={this.props.vendorData.imageURL} alt="..."/>
           </div>
           <div className="media-body">
-            <h4 className="media-heading">{this.props.vendorData.name}</h4>
+            <h1 className="media-heading">{this.props.vendorData.name}</h1>
             {this.props.vendorData.address}&nbsp; {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}&nbsp;
 
             <p><a href="">{this.props.vendorData.vendorURL}</a></p>

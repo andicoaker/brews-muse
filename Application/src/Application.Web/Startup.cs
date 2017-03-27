@@ -382,7 +382,7 @@ namespace Application.Web
                 beer.AlcoholContent = 4.8m;
                 ////if you're wondering about the m, it's needed as a suffix for the decimal. Why? I don't know. Blame Bill Gates.
 
-                context.Beers.Add(beer);
+                vendor.Beers.Add(beer);
 
                 beer2.Name = "PB&J";
                 beer2.Owner = vendor.Owner;
@@ -391,7 +391,7 @@ namespace Application.Web
                 beer2.Brewery = "Edmund's Oast";
                 beer2.Type = "Stout";
                 beer.AlcoholContent = 5.0m;
-                context.Beers.Add(beer2);
+                vendor.Beers.Add(beer2);
 
                 beer3.Name = "Hoptart";
                 beer3.Owner = vendor.Owner;
@@ -400,7 +400,7 @@ namespace Application.Web
                 beer3.Brewery = "Freehouse Brewery";
                 beer3.Type = "Saison";
                 beer.AlcoholContent = 8.0m;
-                context.Beers.Add(beer3);
+                vendor.Beers.Add(beer3);
 
                 beer4.Name = "Blackbeerd";
                 beer4.Owner = vendor.Owner;
@@ -409,7 +409,7 @@ namespace Application.Web
                 beer4.Brewery = "COAST Brewing Company";
                 beer4.Type = "Stout";
                 beer.AlcoholContent = 9.3m;
-                context.Beers.Add(beer4);
+                vendor.Beers.Add(beer4);
 
                 beer5.Name = "Viridi Rex";
                 beer5.Owner = vendor.Owner;
@@ -418,7 +418,7 @@ namespace Application.Web
                 beer5.Brewery = "Edmund's Oast";
                 beer5.Type = "IPA";
                 beer.AlcoholContent = 9.5m;
-                context.Beers.Add(beer5);
+                vendor.Beers.Add(beer5);
 
                 beer6.Name = "Charleston Lager";
                 beer6.Owner = vendor.Owner;
@@ -427,7 +427,7 @@ namespace Application.Web
                 beer6.Brewery = "Palmetto Brewing Company";
                 beer6.Type = "Amber Ale";
                 beer.AlcoholContent = 5.4m;
-                context.Beers.Add(beer6);
+                vendor.Beers.Add(beer6);
 
                 beer7.Name = "Palmetto Pale Ale";
                 beer7.Owner = vendor.Owner;
@@ -436,7 +436,7 @@ namespace Application.Web
                 beer7.Brewery = "Palmetto Brewing Company";
                 beer7.Type = "American Pale Ale";
                 beer.AlcoholContent = 5.2m;
-                context.Beers.Add(beer7);
+                vendor.Beers.Add(beer7);
 
                 beer8.Name = "White Thai";
                 beer8.Owner = vendor.Owner;
@@ -445,7 +445,7 @@ namespace Application.Web
                 beer8.Brewery = "Westbrook Brewing Company";
                 beer8.Type = "Wheat beer";
                 beer.AlcoholContent = 5.0m;
-                context.Beers.Add(beer8);
+                vendor.Beers.Add(beer8);
 
                 beer9.Name = "Boy King Double IPA";
                 beer9.Owner = vendor.Owner;
@@ -454,7 +454,7 @@ namespace Application.Web
                 beer9.Brewery = "Coast Brewing Company";
                 beer9.Type = "IPA";
                 beer.AlcoholContent = 9.7m;
-                context.Beers.Add(beer9);
+                vendor.Beers.Add(beer9);
 
                 beer10.Name = "Dead Arm";
                 beer10.Owner = vendor.Owner;
@@ -463,7 +463,7 @@ namespace Application.Web
                 beer10.Brewery = "COAST Brewing Company";
                 beer10.Type = "American Pale Ale";
                 beer.AlcoholContent = 6.0m;
-                context.Beers.Add(beer10);
+                vendor.Beers.Add(beer10);
 
                 band.Name = "MoJo McGee";
                 band.Owner = user;
@@ -471,7 +471,7 @@ namespace Application.Web
                 band.Rating = 5;
                 band.CoverCharge = 30;
                 band.Showtime = "4/10/2017 8:00 PM - 12:00 AM";
-                context.Bands.Add(band);
+                vendor.Bands.Add(band);
 
                 band2.Name = "The Officials Band";
                 band2.Owner = user;
@@ -479,7 +479,7 @@ namespace Application.Web
                 band2.Rating = 5;
                 band2.CoverCharge = 10;
                 band2.Showtime = "4/5/2017 10:00 PM - 12:00 AM";
-                context.Bands.Add(band2);
+                vendor.Bands.Add(band2);
 
                 band3.Name = "Ocean Drive Party Band O.D.P.B.";
                 band3.Owner = user;
@@ -487,7 +487,7 @@ namespace Application.Web
                 band3.Rating = 5;
                 band3.CoverCharge = 10;
                 band3.Showtime = "4/7/2017 10:00 PM - 2:00 AM";
-                context.Bands.Add(band3);
+                vendor.Bands.Add(band3);
 
                 band4.Name = "Palmetto Soul";
                 band4.Owner = user;
@@ -495,7 +495,7 @@ namespace Application.Web
                 band4.Rating = 5;
                 band4.CoverCharge = 10;
                 band4.Showtime = "4/4/2017 10:00 PM - 12:00 AM";
-                context.Bands.Add(band);
+                vendor.Bands.Add(band);
 
                 band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
                 band5.Owner = user;
@@ -503,7 +503,7 @@ namespace Application.Web
                 band5.Rating = 5;
                 band5.CoverCharge = 10;
                 band5.Showtime = "4/11/2017 9:00 PM - 12:00 AM";
-                context.Bands.Add(band5);
+                vendor.Bands.Add(band5);
 
                 band6.Name = "Andrew Thielen 'Motown' Band";
                 band6.Owner = user;
@@ -511,7 +511,7 @@ namespace Application.Web
                 band6.Rating = 5;
                 band6.CoverCharge = 10;
                 band6.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
-                context.Bands.Add(band6);
+                vendor.Bands.Add(band6);
 
                 band7.Name = "The SugarBees";
                 band7.Owner = user;
@@ -519,7 +519,7 @@ namespace Application.Web
                 band7.Rating = 5;
                 band7.CoverCharge = 10;
                 band7.Showtime = "4/3/2017 10:00 PM - 12:00 AM";
-                context.Bands.Add(band7);
+                vendor.Bands.Add(band7);
 
                 band8.Name = "Emerald Empire Band";
                 band8.Owner = user;
@@ -527,7 +527,7 @@ namespace Application.Web
                 band8.Rating = 5;
                 band8.CoverCharge = 10;
                 band8.Showtime = "4/5/2017 10:30 PM - 12:00 AM";
-                context.Bands.Add(band8);
+                vendor.Bands.Add(band8);
 
                 band9.Name = "Chewbacky Band";
                 band9.Owner = user;
@@ -535,7 +535,7 @@ namespace Application.Web
                 band9.Rating = 5;
                 band9.CoverCharge = 10;
                 band9.Showtime = "4/5/2017 8:00 PM - 12:00 AM";
-                context.Bands.Add(band9);
+                vendor.Bands.Add(band9);
 
                 band10.Name = "The Vistas";
                 band10.Owner = user;
@@ -543,7 +543,7 @@ namespace Application.Web
                 band10.Rating = 5;
                 band10.CoverCharge = 20;
                 band10.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
-                context.Bands.Add(band10);
+                vendor.Bands.Add(band10);
             }
 
 

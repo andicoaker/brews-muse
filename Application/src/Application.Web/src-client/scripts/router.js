@@ -9,7 +9,7 @@ export const AppRouter = Backbone.Router.extend({
 	routes: {
 		'allvendors' : 'showAllVendorsView',
 		'vendoraccount' : 'showVendorAccountView',
-		'vendorprofile' : 'showVendorProfileView',
+		'vendorprofile/:id' : 'showVendorProfileView',
 		'login' : 'showLoginView',
 		'register' : 'showRegisterView',
 		'' : 'showHomeView',
@@ -18,7 +18,7 @@ export const AppRouter = Backbone.Router.extend({
 
   showAllVendorsView: function(){ ACTIONS.setView("ALL_VENDORS") },
   showVendorAccountView: function(){ ACTIONS.setView("VENDOR_ACCOUNT") },
-  showVendorProfileView: function(ID){ ACTIONS.setView("VENDOR_PROFILE") },
+  showVendorProfileView: function(id){ ACTIONS.setView("VENDOR_PROFILE", {vendorId: id}) },
   showLoginView: function(){ ACTIONS.setView("LOGIN") },
   showRegisterView: function(){ ACTIONS.setView("REGISTER") },
   showHomeView: function(){ ACTIONS.setView("HOME") },

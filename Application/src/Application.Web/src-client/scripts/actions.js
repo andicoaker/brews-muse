@@ -36,6 +36,14 @@ export const ACTIONS = {
 		})
 	},
 
+  updateVendor: function(vendorData){
+    console.log(vendorData)
+    $.getJSON('/api/vendors/').then(function(serverRes){
+    ACTIONS.fetchSingleVendor(serverRes)
+    STORE.setStore('allVendors', serverRes)
+   })
+  },
+
   logUserOut: function(){
     UserModel.logOut().then(function(){
       STORE.setStore('currentUser', {})
@@ -45,9 +53,10 @@ export const ACTIONS = {
 
   fetchVendors: function(results){
     // console.log(results, 'action results')
-    $.getJSON('/api/vendors/').then(function(serverRes){
+    $.getJSON('/api/vendors').then(function(serverRes){
       console.log("JSON data results:", serverRes);
       STORE.setStore('allVendors', serverRes)
+      console.log(JSON.stringify(serverRes[0]), 'asdlfa;sdl')
 
     })
   },
@@ -56,13 +65,18 @@ export const ACTIONS = {
       let vendorMod = new VendorProfileModel()
       vendorMod.set({id: vendorId})
       vendorMod.fetch().then(function(serverRes){
-
+        STORE.setStore('currentVendor', serverRes)
         console.log(serverRes);
 
       })
   },
-
-
+  // 
+  // toggleVendorTab: function(){
+  //
+  //   STORE.setStore(serverRes)
+  //   console.log(serverRes);
+  //
+  // },
 
   routeTo: function(path){
     window.location.hash = path

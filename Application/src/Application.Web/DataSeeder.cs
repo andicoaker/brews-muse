@@ -164,7 +164,7 @@ namespace Application.Web
                 vendor3.Rating = 4;
                 vendor3.Lng = -79.9287;
                 vendor3.Lat = 32.7768;
-                vendor3.ImageURL = "http://ichef.bbci.co.uk/news/624/cpsprodpb/D677/production/_85730945_monkey3.jpg";
+                vendor3.ImageURL = "http://res.cloudinary.com/seanryanhubbard/image/upload/d_logo-placeholder_pdnlzn.png,t_logo_transformation/v1459548809/charleston-beer-works.png";
                 context.Vendors.Add(vendor3);
 
                 vendor4.Name = "Lagunitas";

@@ -44,7 +44,7 @@ button {
   width: 25%; }
 
 .jumbotron {
-  background-image: url("http://www.thegoodshoppingguide.com/wp-content/uploads/2013/03/beer.jpg");
+  background-image: url("https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg");
   background-size: cover;
   height: 575px;
   margin-top: 30px;
@@ -98,8 +98,16 @@ button {
   background-color: #7a6c6c;
   color: lightgray; }
 
-.thumbnail {
-  width: 100%; }
+.fa-twitter {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+.tab-label {
+  height: 75px;
+  font-size: 30px;
+  background-color: #7a6c6c;
+  color: lightgray;
+  padding-top: 25px; }
 
 * {
   box-sizing: border-box; }

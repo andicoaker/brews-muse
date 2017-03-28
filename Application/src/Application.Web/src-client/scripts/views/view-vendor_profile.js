@@ -12,6 +12,12 @@ import {STORE} from '../store.js'
 
 export const VendorProfileView = React.createClass({
 
+  getInitialState: function(){
+    return{
+      viewToRender: 'beers'
+    }
+  },
+
   componentWillMount: function(){
     console.log(this.props.routeParams.vendorId);
     let theVendorId = this.props.routeParams.vendorId
@@ -19,10 +25,20 @@ export const VendorProfileView = React.createClass({
 
   },
 
-  _renderSelectedTabList: function(selectedTab){
-    // if statement - if selected tab === beers retrn beers list
-    // else - render bands list
 
+  _renderSelectedTab: function(selectedTab, theRoute){
+    // if statement - if selected tab === beers return beers list
+    // else - return bands list
+    if (this.state.viewToRender === "beers") {
+      return <BeersComponent allBeers={this.props.currentVendor.beers}/>
+    }else if(this.state.viewToRender === "bands") {
+      return <BandsComponent allBands={this.props.currentVendor.bands}/>
+    }
+
+  },
+
+  _changeDetails: function(payload){
+    this.setState({viewToRender: payload})
   },
 
   render: function(){
@@ -36,10 +52,10 @@ export const VendorProfileView = React.createClass({
 			<div className="container-fluid">
           <HeaderComponent/>
           <VendorDetailsComponent {...this.props}/>
-          <TabTogglerComponent/>
-          <BeersComponent/>
-          <BandsComponent/>
-
+          <TabTogglerComponent
+             selectedTab={this.state.viewToRender}
+             handleViewChange={this._changeDetails}/>
+          {this._renderSelectedTab()}
 			</div>
 		)
 	}

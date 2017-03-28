@@ -3,10 +3,10 @@ import {ACTIONS} from '../actions.js'
 
 export const BandsComponent = React.createClass({
 
-    _makeBandsList: function(beersList){
+    _makeBandsList: function(bandsList){
       let arrayOfBandsComponents = bandsList.map(function(band, i){
         return (
-          <SingleBand bandData={vmod} key={i}/>
+          <SingleBand bandData={band} key={i}/>
         )
       }).reverse()
 
@@ -37,9 +37,10 @@ export const BandsComponent = React.createClass({
               </a>
             </div>
             <div className="media-body">
-              <h4 className="media-heading">{this.props.bandData.name}</h4>
-              {this.props.bandData.genre}&nbsp;
-              {this.props.bandData.showTime}, {this.props.bandData.coverCharge}
+              <h1 className="media-heading">{this.props.bandData.name}</h1>
+              <p>Show Time: {this.props.bandData.showtime}</p>
+              <p>Genre: {this.props.bandData.genre}&nbsp;
+               Cover Charge: ${this.props.bandData.coverCharge}</p>
             </div>
           </div>
 

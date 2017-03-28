@@ -7,11 +7,11 @@ export const HeaderComponent = React.createClass({
     return (
 
         <div className="row">
-          <div className="col-xs-6">
-            <img src="../images/brewsmuse2.png" className="img-responsive logo"/>
+          <div className="col-xs-3">
+            <img src="../images/beer-icon.jpg" className="img-responsive logo"/>
           </div>
-          <div className="col-xs-6">
-            <h1 className="">Your Source for Great Beer & Live Music</h1>
+          <div className="col-xs-9">
+            <h2 className="">Your Source for Great Beer & Live Music</h2>
           </div>
         </div>
 

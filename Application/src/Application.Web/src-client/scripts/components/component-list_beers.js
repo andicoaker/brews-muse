@@ -6,7 +6,7 @@ export const BeersComponent = React.createClass({
   _makeBeersList: function(beersList){
     let arrayOfBeersComponents = beersList.map(function(beer, i){
       return (
-        <SingleBeer beerData={vmod} key={i}/>
+        <SingleBeer beerData={beer} key={i}/>
       )
     }).reverse()
 
@@ -37,9 +37,9 @@ export const SingleBeer = React.createClass({
             </a>
           </div>
           <div className="media-body">
-            <h4 className="media-heading">{this.props.beerData.name}</h4>
-            {this.props.beerData.brewery}&nbsp;
-            {this.props.beerData.type}, {this.props.beerData.alcoholContent}%
+            <h1 className="media-heading">{this.props.beerData.name}</h1>
+            <p>Brewery: {this.props.beerData.brewery}</p>
+            <p>Style: {this.props.beerData.type}&nbsp; ABV: {this.props.beerData.alcoholContent}%</p>
           </div>
         </div>
 

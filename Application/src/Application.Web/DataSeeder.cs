@@ -373,6 +373,7 @@ namespace Application.Web
                 beer3.AlcoholContent = 8.0m;
                 vendor3.Beers.Add(beer3);
 
+            ///
                 beer4.Name = "Blackbeerd";
                 beer4.Owner = vendor4.Owner;
                 beer4.Price = 1;
@@ -380,6 +381,7 @@ namespace Application.Web
                 beer4.Brewery = "COAST Brewing Company";
                 beer4.Type = "Stout";
                 beer4.AlcoholContent = 9.3m;
+            beer4.ImageURL = "https://coppertopbrews.files.wordpress.com/2010/07/coast-brewery-6-of-11.jpg";
                 vendor4.Beers.Add(beer4);
 
                 beer5.Name = "Viridi Rex";
@@ -391,6 +393,8 @@ namespace Application.Web
                 beer5.AlcoholContent = 9.5m;
                 vendor5.Beers.Add(beer5);
 
+
+
                 beer6.Name = "Charleston Lager";
                 beer6.Owner = vendor6.Owner;
                 beer6.Price = 1;
@@ -398,8 +402,11 @@ namespace Application.Web
                 beer6.Brewery = "Palmetto Brewing Company";
                 beer6.Type = "Amber Ale";
                 beer6.AlcoholContent = 5.4m;
+            beer6.ImageURL = "http://1.bp.blogspot.com/-DRDPFpFt2as/UFsk2bBUcWI/AAAAAAAAAhg/t_T0dDLXcTc/s1600/IMG_1120.jpg";
                 vendor6.Beers.Add(beer6);
 
+
+            ///
                 beer7.Name = "Palmetto Pale Ale";
                 beer7.Owner = vendor7.Owner;
                 beer7.Price = 1;
@@ -407,6 +414,7 @@ namespace Application.Web
                 beer7.Brewery = "Palmetto Brewing Company";
                 beer7.Type = "American Pale Ale";
                 beer7.AlcoholContent = 5.2m;
+            beer7.ImageURL = "https://s-media-cache-ak0.pinimg.com/736x/45/30/01/45300116731abd81f406b43ec6fbe82e.jpg";
                 vendor7.Beers.Add(beer7);
 
                 beer8.Name = "White Thai";

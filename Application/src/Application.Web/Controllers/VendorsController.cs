@@ -39,7 +39,7 @@ namespace BrewsMuse.Controllers
         {
             //var userId = _userManager.GetUserId(User);
             var userName = _userManager.GetUserName(User);
-            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).Where(m => m.UserName == userName).ToList();
+            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).ToList();//Where(m => m.UserName == userName).ToList();
         }
 
         //Where(q => q.OwnerId == userId).ToList();
@@ -52,8 +52,8 @@ namespace BrewsMuse.Controllers
         {
             //var userId = _userManager.GetUserId(User);
             var userName = _userManager.GetUserName(User);
-            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).Where(q => q.UserName == userName).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
-            
+            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).SingleOrDefaultAsync(m => m.Id == id);//.Where(q => q.UserName == userName).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
+
 
             if (vendor == null)
             {

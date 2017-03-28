@@ -150,6 +150,7 @@ namespace Application.Web
                 vendor2.Lng = -79.9384;
                 vendor2.Lat = 32.7886;
                 vendor2.ImageURL = "https://media1.fdncms.com/charleston/imager/u/blog/6018630/cfb_logo.jpg?cb=1478128577";
+            vendor2.UserName = user.UserName;
                 context.Vendors.Add(vendor2);
 
                 vendor3.Name = "Charleston Beer Works";
@@ -165,6 +166,7 @@ namespace Application.Web
                 vendor3.Rating = 4;
                 vendor3.Lng = -79.9287;
                 vendor3.Lat = 32.7768;
+            vendor3.UserName = user.UserName;
                 vendor3.ImageURL = "http://res.cloudinary.com/seanryanhubbard/image/upload/d_logo-placeholder_pdnlzn.png,t_logo_transformation/v1459548809/charleston-beer-works.png";
                 context.Vendors.Add(vendor3);
 
@@ -181,6 +183,7 @@ namespace Application.Web
                 vendor4.Rating = 5;
                 vendor4.Lng = -79.9274;
                 vendor4.Lat = 32.7785;
+            vendor4.UserName = user.UserName;
                 vendor4.ImageURL = "http://www.stevennoble.com/main.php?g2_view=core.DownloadItem&g2_itemId=19404&g2_serialNumber=2";
                 context.Vendors.Add(vendor4);
 
@@ -212,7 +215,8 @@ namespace Application.Web
                 vendor5.VendorURL = "http://tattooedmoose.com/";
                 vendor5.VendorPhone = "843-277-2990";
                 vendor5.Rating = 5;
-                vendor5.Lng = -79.9493;
+            vendor5.Lng = -79.9493;
+                vendor5.UserName = user.UserName;
                 vendor5.Lat = 32.8114;
                 vendor5.ImageURL = "http://tattooedmoose.com/images/moose_logo_400px.png?crc=4036922751";
                 context.Vendors.Add(vendor5);
@@ -230,6 +234,7 @@ namespace Application.Web
                 vendor6.Rating = 5;
                 vendor6.Lng = -79.9295;
                 vendor6.Lat = 32.7801;
+            vendor6.UserName = user.UserName;
                 vendor6.ImageURL = "http://www.explorecharleston.net/photos/TommyCondon.jpg";
                 context.Vendors.Add(vendor6);
 
@@ -262,6 +267,7 @@ namespace Application.Web
                 vendor7.Rating = 5;
                 vendor7.Lng = -79.9420;
                 vendor7.Lat = 32.8067;
+            vendor7.UserName = user.UserName;
                 vendor7.ImageURL = "https://media2.fdncms.com/charleston/imager/the-royal-american/u/zoom/4007753/royalam.jpg";
                 context.Vendors.Add(vendor7);
 
@@ -279,7 +285,8 @@ namespace Application.Web
                 vendor8.Rating = 3;
                 vendor8.Lng = -79.9262;
                 vendor8.Lat = 32.7790;
-                vendor8.ImageURL = "https://cdn0.vox-cdn.com/uploads/chorus_image/image/42527886/upload.0.jpg";
+            vendor8.UserName = user.UserName;
+            vendor8.ImageURL = "https://cdn0.vox-cdn.com/uploads/chorus_image/image/42527886/upload.0.jpg";
                 context.Vendors.Add(vendor8);
 
                 //    //vendor8.Name = "Midtown Bar & Grill";
@@ -311,7 +318,8 @@ namespace Application.Web
                 vendor9.Rating = 4;
                 vendor9.Lng = -79.9407;
                 vendor9.Lat = 32.7938;
-                vendor9.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
+            vendor9.UserName = user.UserName;
+            vendor9.ImageURL = "http://www.charlestoncvb.com/images/calendar/29191618911352901.jpg";
                 context.Vendors.Add(vendor9);
 
                 vendor10.Name = "Blind Tiger Pub";
@@ -327,7 +335,8 @@ namespace Application.Web
                 vendor10.Rating = 4;
                 vendor10.Lng = -79.9287;
                 vendor10.Lat = 32.7768;
-                vendor10.ImageURL = "http://blindtigerchs.com/wp-content/uploads/2016/08/logo-mobile.png";
+            vendor10.UserName = user.UserName;
+            vendor10.ImageURL = "http://blindtigerchs.com/wp-content/uploads/2016/08/logo-mobile.png";
                 context.Vendors.Add(vendor10);
 
                 vendor11.Name = "Salty Mike's";
@@ -343,7 +352,8 @@ namespace Application.Web
                 vendor11.Rating = 5;
                 vendor11.Lng = -79.9503;
                 vendor11.Lat = 32.7787;
-                vendor11.ImageURL = "https://static.wixstatic.com/media/ff43d5_2f7309ede9144011bb97d3ac93f04248.png/v1/fill/w_449,h_630,al_c,usm_0.66_1.00_0.01/ff43d5_2f7309ede9144011bb97d3ac93f04248.png";
+            vendor11.UserName = user.UserName;
+            vendor11.ImageURL = "https://static.wixstatic.com/media/ff43d5_2f7309ede9144011bb97d3ac93f04248.png/v1/fill/w_449,h_630,al_c,usm_0.66_1.00_0.01/ff43d5_2f7309ede9144011bb97d3ac93f04248.png";
                 context.Vendors.Add(vendor11);
 
                 beer1.Name = "Kolsch";

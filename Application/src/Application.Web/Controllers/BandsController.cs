@@ -56,10 +56,10 @@ namespace Application.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> PostBand(int vendorId, [FromBody]Band band)//[FromBody]Band band)
+        [Route("~/api/vendors/{vendorsId}/bands")]
+        public async Task<IActionResult> PostBand(int vendorsId, [FromBody]Band band)//[FromBody]Band band)
         {
-            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorId);
+            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorsId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -70,7 +70,7 @@ namespace Application.Web.Controllers
 
 
             //band.Owner = vendor.Owner;
-
+            
             vendor.Bands.Add(band);
             try
             {

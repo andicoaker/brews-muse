@@ -132,6 +132,7 @@ namespace Application.Web
                 vendor1.Lng = -79.9314;
                 vendor1.Lat = 32.7920;
                 vendor1.Owner = user;
+            vendor1.UserName = user.UserName;
                 context.Vendors.Add(vendor1);
 
 
@@ -352,7 +353,7 @@ namespace Application.Web
                 beer1.Brewery = "COAST Brewing Company";
                 beer1.Type = "Pilsner";
                 beer1.AlcoholContent = 4.8m;
-                
+            beer1.ImageURL = "https://static1.squarespace.com/static/550a07dee4b0fbec78ea4081/t/55b62405e4b0c854e25c297f/1438000147227/Kolsch+can+and+stange.jpg";
                 vendor1.Beers.Add(beer1);
 
                 beer2.Name = "PB&J";
@@ -362,6 +363,7 @@ namespace Application.Web
                 beer2.Brewery = "Edmund's Oast";
                 beer2.Type = "Stout";
                 beer2.AlcoholContent = 5.0m;
+            beer2.ImageURL = "https://cdn.pastemagazine.com/www/articles/edmunds%20beer%20interior.jpg";
                 vendor2.Beers.Add(beer2);
 
                 beer3.Name = "Hoptart";
@@ -371,6 +373,7 @@ namespace Application.Web
                 beer3.Brewery = "Freehouse Brewery";
                 beer3.Type = "Saison";
                 beer3.AlcoholContent = 8.0m;
+            beer3.ImageURL = "http://www.charminginns.com/blog/wp-content/uploads/2014/05/Freehouse-Brewery-Circa-Patio.jpg";
                 vendor3.Beers.Add(beer3);
 
             ///
@@ -391,6 +394,7 @@ namespace Application.Web
                 beer5.Brewery = "Edmund's Oast";
                 beer5.Type = "IPA";
                 beer5.AlcoholContent = 9.5m;
+            beer5.ImageURL = "https://untappd.akamaized.net/photo/2016_02_14/689c288fcc717f5a833337523c25c7cf_320x320.jpg";
                 vendor5.Beers.Add(beer5);
 
 
@@ -424,6 +428,7 @@ namespace Application.Web
                 beer8.Brewery = "Westbrook Brewing Company";
                 beer8.Type = "Wheat beer";
                 beer8.AlcoholContent = 5.0m;
+            beer8.ImageURL = "http://www.camrgb.org/wp-content/uploads/2013/09/White-Thai.jpg";
                 vendor8.Beers.Add(beer8);
 
                 beer9.Name = "Boy King Double IPA";
@@ -433,6 +438,7 @@ namespace Application.Web
                 beer9.Brewery = "Coast Brewing Company";
                 beer9.Type = "IPA";
                 beer9.AlcoholContent = 9.7m;
+            beer9.ImageURL = "https://dontdrinkbeer.files.wordpress.com/2012/07/boyking.jpg";
                 vendor9.Beers.Add(beer9);
 
                 beer10.Name = "Dead Arm";
@@ -452,6 +458,7 @@ namespace Application.Web
                 beer11.Brewery = "Bell's Brewery";
                 beer11.Type = "American IPA";
                 beer11.AlcoholContent = 7.0m;
+            beer11.ImageURL = "http://image.mlive.com/home/mlive-media/width620/img/grpress/entertainment_impact/photo/10755972-standard.jpg";
                 vendor11.Beers.Add(beer11);
 
                 beer12.Name = "Dead Arm";
@@ -461,6 +468,7 @@ namespace Application.Web
                 beer12.Brewery = "COAST Brewing Company";
                 beer12.Type = "American Pale Ale";
                 beer12.AlcoholContent = 6.0m;
+            beer12.ImageURL = "http://beerstreetjournal.com/wp-content/uploads/Coast-Brewing-Dead-Arm-Pale-Ale.jpg";
                 vendor1.Beers.Add(beer12);
 
                 beer13.Name = "ALTerior Motive";
@@ -470,6 +478,7 @@ namespace Application.Web
                 beer13.Brewery = "COAST Brewing Company";
                 beer13.Type = "Altbier";
                 beer13.AlcoholContent = 6.30m;
+            //beer13.
                 vendor2.Beers.Add(beer13);
 
                 beer14.Name = "Belafonte";

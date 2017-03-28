@@ -38,10 +38,7 @@ namespace BrewsMuse.Controllers
         public IEnumerable<Vendor> GetVendors()
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Vendors
-                .Include(n => n.Beers)
-                .Include(q => q.Bands)
-                .ToList();
+            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).ToList();
         }
 
         //Where(q => q.OwnerId == userId).ToList();

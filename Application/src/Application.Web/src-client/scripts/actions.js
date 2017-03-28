@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import {STORE} from './store.js'
 import {UserModel} from './models/model-user.js'
-import {VendorProfileModel} from './models/model-vendor_profile.js'
+import {VendorProfileModel, VendorsCollection} from './models/model-vendor_profile.js'
 
 export const ACTIONS = {
 
@@ -36,13 +36,19 @@ export const ACTIONS = {
 		})
 	},
 
-  updateVendor: function(vendorData){
-    console.log(vendorData)
-
+  setNewVendor: function(vendorData){
+    console.log("help me")
   //   $.getJSON('/api/vendors/').then(function(serverRes){
   //     ACTIONS.fetchSingleVendor(serverRes)
   //     STORE.setStore('allVendors', serverRes)
   //  })
+    let vendorInstance = new VendorsCollection()
+      vendorInstance.set(vendorData)
+      vendorInstance.save().then(function(s){
+        console.log(s)
+      })
+
+
   },
 
   logUserOut: function(){

@@ -19,11 +19,12 @@ export const UpdateVendorComponent = React.createClass({
          hours: formEl.inputHours.value,
          lat: formEl.inputLat.value,
          lng: formEl.inputLong.value,
-         beers: formEl.inputBeer.value,
-         bands: formEl.inputBand.value
+        //  beers: formEl.inputBeer.value,
+        //  bands: formEl.inputBand.value
      }
 
-     ACTIONS.updateVendor(objToSave)
+    //  ACTIONS.setNewVendor(objToSave)
+    console.log(objToSave)
    },
 
   render: function(){

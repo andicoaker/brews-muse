@@ -7,7 +7,21 @@ export const UpdateVendorComponent = React.createClass({
      evt.preventDefault()
      let formEl = evt.target
      let objToSave = {
-       name: formEl.inputName.value,
+        name: formEl.inputName.value,
+        ownerName: formEl.inputOwnerName.value,
+        address: formEl.inputAddress.value,
+        city: formEl.inputCity.value,
+        state: formEl.inputState.value,
+        zipCode: formEl.inputZip.value,
+        vendorURL: formEl.inputWebsite.value,
+        imageURL: formEl.inputImage.value,
+        vendorPhone: formEl.inputPhone.value,
+        hours: formEl.inputHours.value
+        // lat: 0,
+        // lng: 0,
+        // beers: [],
+        // bands: []
+      //  name: formEl.inputName.value,
       //  ownerName: formEl.inputOwner.value,
       //  address: formEl.inputAddress.value,
       //  city: formEl.inputCity.value,
@@ -21,6 +35,7 @@ export const UpdateVendorComponent = React.createClass({
 
      //console.log(objToSave)
      ACTIONS.setView('ALL_VENDORS', 'allvendors')
+     ACTIONS.fetchSingleVendor(objToSave)
      ACTIONS.updateVendor(objToSave)
    },
 
@@ -32,7 +47,7 @@ export const UpdateVendorComponent = React.createClass({
             <input type="text" className="form-control" name="inputName" placeholder="Name"/>
           </div>
           <div className="form-group">
-              <input type="text" className="form-control" name="inputOwner" placeholder="Company"/>
+              <input type="text" className="form-control" name="inputOwnerName" placeholder="Company"/>
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputHours" placeholder="Hours"/>
@@ -58,7 +73,7 @@ export const UpdateVendorComponent = React.createClass({
           <div className="form-group">
               <input type="text" className="form-control" name="inputWebsite" placeholder="Website http://"/>
           </div>
-          <h2>Beers on Tap</h2>
+          {/* <h2>Beers on Tap</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBeer" placeholder="Beer Name"/>
           </div>
@@ -70,11 +85,11 @@ export const UpdateVendorComponent = React.createClass({
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputABV" placeholder="ABV%"/>
-          </div>
+          </div> */}
           <div className="form-group">
               <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
           </div>
-          <h2>Upcoming Live Music</h2>
+          {/* <h2>Upcoming Live Music</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBand" placeholder="Band Name"/>
           </div>
@@ -92,7 +107,7 @@ export const UpdateVendorComponent = React.createClass({
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
-          </div>
+          </div> */}
         <hr/>
           <div className="form-group">
               <button type="submit" className="btn submit-button">Update Account</button>

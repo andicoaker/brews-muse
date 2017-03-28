@@ -2,10 +2,10 @@ import React from 'react'
 
 export const TabTogglerComponent = React.createClass({
 
-  _handleTabClick: function(evt){
-    ACTIONS.toggleVendorTab()
-
-  },
+  // _handleTabClick: function(evt){
+  //   ACTIONS.toggleVendorTab()
+  //
+  // },
 
   render: function(){
     console.log(this.props)

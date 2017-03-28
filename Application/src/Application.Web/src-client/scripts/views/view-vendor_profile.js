@@ -1,4 +1,5 @@
 import React from 'react'
+import {HeaderComponent} from '../components/component-header.js'
 import {VendorDetailsComponent} from '../components/component-vendor_details.js'
 import {MapComponent} from '../components/component-map.js'
 import {TabTogglerComponent} from '../components/component-vendor_tab_toggler'
@@ -33,6 +34,7 @@ export const VendorProfileView = React.createClass({
     }
 		return (
 			<div className="container-fluid">
+          <HeaderComponent/>
           <VendorDetailsComponent {...this.props}/>
           <TabTogglerComponent/>
           <BeersComponent/>

@@ -61,13 +61,13 @@ export const ACTIONS = {
 
       })
   },
-
-  toggleVendorTab: function(){
-
-    STORE.setStore(serverRes)
-    console.log(serverRes);
-
-  },
+  // 
+  // toggleVendorTab: function(){
+  //
+  //   STORE.setStore(serverRes)
+  //   console.log(serverRes);
+  //
+  // },
 
   routeTo: function(path){
     window.location.hash = path

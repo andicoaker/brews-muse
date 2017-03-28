@@ -1,7 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 
-
+import {HeaderComponent} from '../components/component-header.js'
 import {MapComponent} from '../components/component-map.js'
 import {AllVendorsComponent} from '../components/component-list_all_vendors.js'
 
@@ -26,6 +26,7 @@ export const AllVendorsView = React.createClass({
 
 		return (
 			<div className="container-fluid">
+        <HeaderComponent/>
         <MapComponent locationsData={this.props.allVendors}/>
         <AllVendorsComponent allVendors={this.props.allVendors}/>
 

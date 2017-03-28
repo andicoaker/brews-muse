@@ -44,9 +44,9 @@ export const ACTIONS = {
   //  })
     let vendorInstance = new VendorsCollection()
       vendorInstance.set(vendorData)
-      vendorInstance.save().then(function(s){
-        console.log(s)
-      })
+      //vendorInstance.save().then(function(s){
+        //console.log(s)
+      //})
 
 
   },

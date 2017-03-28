@@ -23,7 +23,7 @@ export const UpdateVendorComponent = React.createClass({
         //  bands: formEl.inputBand.value
      }
 
-    //  ACTIONS.setNewVendor(objToSave)
+    //ACTIONS.setNewVendor(objToSave)
     console.log(objToSave)
    },
 

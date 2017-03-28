@@ -70,6 +70,7 @@ namespace Application.Web.Controllers
 
 
             //band.Owner = vendor.Owner;
+
             vendor.Bands.Add(band);
             try
             {

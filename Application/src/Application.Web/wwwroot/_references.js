@@ -14,6 +14,7 @@
 /// <reference path="../src-client/scripts/components/component-map.js" />
 /// <reference path="../src-client/scripts/components/component-navbar.js" />
 /// <reference path="../src-client/scripts/components/component-vendor_details.js" />
+/// <reference path="../src-client/scripts/components/component-vendor_tab_toggler.js" />
 /// <reference path="../src-client/scripts/models/model-user.js" />
 /// <reference path="../src-client/scripts/models/model-vendor_profile.js" />
 /// <reference path="../src-client/scripts/router.js" />

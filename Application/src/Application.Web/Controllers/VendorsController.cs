@@ -38,7 +38,8 @@ namespace BrewsMuse.Controllers
         public IEnumerable<Vendor> GetVendors()
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).ToList();
+            var userName = _userManager.GetUserName(User);
+            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).Where(m => m.UserName == userName).ToList();
         }
 
         //Where(q => q.OwnerId == userId).ToList();
@@ -50,8 +51,9 @@ namespace BrewsMuse.Controllers
         public async Task<IActionResult> GetVendor(int id)
         {
             //var userId = _userManager.GetUserId(User);
-            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
-          
+            var userName = _userManager.GetUserName(User);
+            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).Where(q => q.UserName == userName).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
+            
 
             if (vendor == null)
             {
@@ -76,8 +78,11 @@ namespace BrewsMuse.Controllers
             var user = await _userManager.GetUserAsync(User);
 
             //Vendor vendor = await _context.Vendors.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
-
+            var userName = _userManager.GetUserName(User);
             vendor.Owner = user;
+            vendor.UserName = user.UserName;
+
+
             _context.Vendors.Add(vendor);
             await _context.SaveChangesAsync();
 

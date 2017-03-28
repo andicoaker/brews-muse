@@ -70,7 +70,11 @@ namespace Application.Web.Controllers
 
 
             //band.Owner = vendor.Owner;
-            
+
+            var userName = _userManager.GetUserName(User);
+
+            band.UserName = vendor.UserName;
+
             vendor.Bands.Add(band);
             try
             {

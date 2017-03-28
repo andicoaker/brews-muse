@@ -36,8 +36,8 @@ namespace Application.Web.Controllers
         {
 
 
-
-            var vendors = _context.Vendors.Include(q => q.Beers).FirstOrDefault(m => m.Id == beerId);
+            var userName = _userManager.GetUserName(User);
+            var vendors = _context.Vendors.Include(q => q.Beers).Where(m => m.UserName == userName).FirstOrDefault(m => m.Id == beerId);
             //return View();
             return Ok(vendors);
         }
@@ -48,7 +48,8 @@ namespace Application.Web.Controllers
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.SingleOrDefault(m => m.Id == vendorsId);
+            var userName = _userManager.GetUserName(User);
+            var vendor = _context.Vendors.Where(q => q.UserName == userName).SingleOrDefault(m => m.Id == vendorsId);
             return vendor.Beers.ToList(); //_context.Beers.Where(q => q.Vendor.Id == vendorsId).ToList();
         }
         [HttpGet]
@@ -58,7 +59,8 @@ namespace Application.Web.Controllers
         {
             //var userId = _userManager.GetUserId(User);
 
-            var vendor = _context.Vendors.Include(q => q.Beers).FirstOrDefault(q => q.Id == vendorsId);
+            var userName = _userManager.GetUserName(User);
+            var vendor = _context.Vendors.Include(q => q.Beers).Where(m => m.UserName == userName).FirstOrDefault(q => q.Id == vendorsId);
             var beer = vendor.Beers.FirstOrDefault(q => q.Id == id);//vendorsId); 
             if (beer == null)
             {
@@ -82,8 +84,10 @@ namespace Application.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             //beer = await _context.Beers.Where(q => q.Owner == user).SingleOrDefaultAsync(m => m.Id == id);
 
-           
-            //_context.Beers.Add(beer);
+            var userName = _userManager.GetUserName(User);
+
+            beer.UserName = vendor.UserName;
+            
             vendor.Beers.Add(beer);
             try
             {

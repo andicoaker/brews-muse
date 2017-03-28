@@ -6,6 +6,13 @@ export const HomeComponent = React.createClass({
   render: function(){
 
     return (
+      <div className="container-fluid">
+        <div className="jumbotron text-center">
+          <div className="splash_text">
+            <h1>BrewsMuse</h1>
+            <p>Your Source for Great Beer and Live Music</p>
+          </div>
+        </div>
 
         <div className="container-fluid main-features">
           <div className="row browse_locations">
@@ -43,12 +50,12 @@ export const HomeComponent = React.createClass({
               </div>
               <div className="media-body">
                 <h1 className="media-heading"><strong>Browse Live Music</strong></h1>
-                Want to listen to some great live music? Check out bands playing in your area.
+                <p className='media-text'>Want to listen to some great live music? Check out bands playing in your area.</p>
               </div>
             </div>
           </div>
         </div>
-
+      </div>
     )
   }
 })

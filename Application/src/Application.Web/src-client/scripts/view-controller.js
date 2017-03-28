@@ -79,7 +79,6 @@ componentWillMount: function(){
 
     return (
 			<div className="container-fluid">
-        <HeaderComponent/>
 				{componentToRender}
         {this._getNavbar(this.state.currentUser)}
 			</div>

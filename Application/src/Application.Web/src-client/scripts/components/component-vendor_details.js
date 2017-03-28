@@ -2,38 +2,33 @@ import React from 'react'
 
 export const VendorDetailsComponent = React.createClass({
   render: function(){
+    console.log(this.props)
     return (
 
-      <div>
-        <h3>Some Vendor</h3>
-      </div>
+      <div className="media">
+        <div className="media-left">
+          <a href="">
+            <img className="media-object" src={this.props.currentVendor.imageURL} alt="..."/>
+          </a>
+        </div>
+        <div className="media-body">
+          <h1 className="media-heading">{this.props.currentVendor.name}</h1>
+          <p className="vendor-address">
+            {this.props.currentVendor.address}&nbsp;   {this.props.currentVendor.city}, {this.props.currentVendor.state} {this.props.currentVendor.zipCode}
+          </p>
+          <p>Phone: {this.props.currentVendor.vendorPhone}</p>
+          <p>Hours: {this.props.currentVendor.hours}</p>
+          <p><a href="">{this.props.currentVendor.vendorURL}</a></p>
 
+          <p className="social-icons">
+            <i className="fa fa-facebook" aria-hidden="true"></i>
+            <i className="fa fa-twitter" aria-hidden="true"></i>
+            <i className="fa fa-instagram" aria-hidden="true"></i>
+          </p>
+
+        </div>
+      </div>
 
     )
   }
 })
-
-/*
-<div className="media">
-  <div className="media-left">
-    <a href="">
-      <img className="media-object" src={this.props.vendorData.imageURL} alt="..."/>
-    </a>
-  </div>
-  <div className="media-body">
-    <h4 className="media-heading">{this.props.vendorData.name}</h4>
-    <p className="vendor-address">
-      {this.props.vendorData.address}&nbsp; {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}&nbsp;
-    </p>
-
-    <p><a href="">{this.props.vendorData.vendorURL}</a></p>
-    <p>{this.props.vendorData.phone} {this.props.vendorData.hours}</p>
-
-    <p className="social-icons">
-      <i className="fa fa-facebook" aria-hidden="true"></i>
-      <i className="fa fa-twitter" aria-hidden="true"></i>
-      <i className="fa fa-instagram" aria-hidden="true"></i>
-    </p>
-
-  </div>
-</div>*/

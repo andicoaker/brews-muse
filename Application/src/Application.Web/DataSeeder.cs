@@ -352,6 +352,7 @@ namespace Application.Web
                 beer1.Brewery = "COAST Brewing Company";
                 beer1.Type = "Pilsner";
                 beer1.AlcoholContent = 4.8m;
+                
                 vendor1.Beers.Add(beer1);
 
                 beer2.Name = "PB&J";
@@ -433,6 +434,7 @@ namespace Application.Web
                 beer10.Brewery = "COAST Brewing Company";
                 beer10.Type = "American Pale Ale";
                 beer10.AlcoholContent = 6.0m;
+            beer10.ImageURL = "http://beerstreetjournal.com/wp-content/uploads/Coast-Brewing-Dead-Arm-Pale-Ale.jpg";
                 vendor10.Beers.Add(beer10);
 
                 beer11.Name = "Bells Two Hearted Ale";
@@ -533,6 +535,7 @@ namespace Application.Web
                 beer21.Brewery = "COAST Brewing Company";
                 beer21.Type = "Export Stout";
                 beer21.AlcoholContent = 5.80m;
+            beer21.ImageURL = "https://cdn.beeradvocate.com/im/beers/65420.jpg";
                 vendor10.Beers.Add(beer21);
 
                 beer22.Name = "Harold";
@@ -632,6 +635,7 @@ namespace Application.Web
                 beer32.Brewery = "Holy City Brewing";
                 beer32.Type = "Hefeweizen";
                 beer32.AlcoholContent = 5.3m;
+            beer32.ImageURL = "http://68.media.tumblr.com/4148b40ecde756f2b146d7bfde10f316/tumblr_inline_mvvcebCcOl1rlvsal.jpg";
                 vendor10.Beers.Add(beer32);
 
                 beer33.Name = "Smells Like Rick";
@@ -731,6 +735,7 @@ namespace Application.Web
                 beer43.Brewery = "Brasserie Piedboeuf ";
                 beer43.Type = "Euro Pale Lager";
                 beer43.AlcoholContent = 5.20m;
+            beer43.ImageURL = "https://www.beermerchants.com/media/catalog/product/cache/1/image/x400/17f82f742ffe127f42dca9de82fb58b1/j/u/jupiler_2.png";
                 vendor10.Beers.Add(beer43);
 
                 beer44.Name = "Blue Moon Belgian White";
@@ -766,6 +771,7 @@ namespace Application.Web
                 band1.Rating = 5;
                 band1.CoverCharge = 30;
                 band1.Showtime = "4/5/2017 10:00 PM - 12:00 AM";
+            band1.ImageURL = "http://metronomecharleston.com/wp-content/uploads/2012/10/Mojo-McGee-July-2012-Tattooed-Moose.jpg";
                 vendor1.Bands.Add(band1);
                 vendor10.Bands.Add(band1);
 
@@ -776,6 +782,7 @@ namespace Application.Web
                 band2.Rating = 5;
                 band2.CoverCharge = 10;
                 band2.Showtime = "4/10/2017 8:00 PM - 12:00 AM";
+            band2.ImageURL = "http://www.gogetwed.com/server/php/rental/thumbnail/1476204254The%20Officials%20Band.JPG";
                 vendor1.Bands.Add(band2);
                 vendor10.Bands.Add(band2);
 
@@ -785,6 +792,7 @@ namespace Application.Web
                 band3.Rating = 5;
                 band3.CoverCharge = 10;
                 band3.Showtime = "4/4/2017 10:00 PM - 12:00 AM";
+            band3.ImageURL = "https://bandphotoschool.com/wp-content/gallery/ocean-drive-party-band-with-lights-smoke/Ocean-Drive-Party-Band-with-Lights-Smoke-Promo-Composite-2.jpg"; 
                 vendor2.Bands.Add(band3);
                 vendor10.Bands.Add(band3);
 
@@ -794,6 +802,7 @@ namespace Application.Web
                 band4.Rating = 5;
                 band4.CoverCharge = 10;
                 band4.Showtime = "4/7/2017 10:00 PM - 2:00 AM";
+            band4.ImageURL = "https://i.ytimg.com/vi/y-D6f8Ni7Qw/maxresdefault.jpg";
                 vendor2.Bands.Add(band4);
                 vendor10.Bands.Add(band4);
 
@@ -803,6 +812,7 @@ namespace Application.Web
                 band5.Rating = 5;
                 band5.CoverCharge = 10;
                 band5.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
+            band5.ImageURL = "https://borrowed-and-blue-photos.s3.amazonaws.com/resized/1920/000/790/449/790449.jpg";
                 vendor3.Bands.Add(band5);
                 vendor10.Bands.Add(band5);
 
@@ -812,6 +822,7 @@ namespace Application.Web
                 band6.Rating = 5;
                 band6.CoverCharge = 10;
                 band6.Showtime = "4/11/2017 9:00 PM - 12:00 AM";
+            band6.ImageURL = "http://otherbrotherent.com/wp-content/uploads/2016/09/unnamed.jpg";
                 vendor3.Bands.Add(band6);
                 vendor10.Bands.Add(band6);
 
@@ -821,6 +832,7 @@ namespace Application.Web
                 band7.Rating = 5;
                 band7.CoverCharge = 10;
                 band7.Showtime = "4/3/2017 10:00 PM - 12:00 AM";
+            band7.ImageURL = "https://static.pexels.com/photos/164693/pexels-photo-164693.jpeg";
                 vendor4.Bands.Add(band7);
                 vendor10.Bands.Add(band7);
 
@@ -830,6 +842,7 @@ namespace Application.Web
                 band8.Rating = 5;
                 band8.CoverCharge = 10;
                 band8.Showtime = "4/5/2017 10:30 PM - 12:00 AM";
+            band8.ImageURL = "http://www.enchantedbrides.com/wp-content/uploads/2015/05/Band5.jpg";
                 vendor4.Bands.Add(band8);
                 vendor10.Bands.Add(band8);
 

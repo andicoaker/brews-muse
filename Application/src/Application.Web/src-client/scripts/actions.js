@@ -38,10 +38,11 @@ export const ACTIONS = {
 
   updateVendor: function(vendorData){
     console.log(vendorData)
-    $.getJSON('/api/vendors/').then(function(serverRes){
-    ACTIONS.fetchSingleVendor(serverRes)
-    STORE.setStore('allVendors', serverRes)
-   })
+
+  //   $.getJSON('/api/vendors/').then(function(serverRes){
+  //     ACTIONS.fetchSingleVendor(serverRes)
+  //     STORE.setStore('allVendors', serverRes)
+  //  })
   },
 
   logUserOut: function(){
@@ -70,7 +71,7 @@ export const ACTIONS = {
 
       })
   },
-  // 
+  //
   // toggleVendorTab: function(){
   //
   //   STORE.setStore(serverRes)

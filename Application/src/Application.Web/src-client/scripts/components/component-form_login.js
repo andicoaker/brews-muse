@@ -28,7 +28,7 @@ export const LoginComponent = React.createClass({
             </div>
         </div>
         <div className="form-group">
-            <button type="submit" className="btn btn-default">Login</button>
+            <button type="submit" className="btn submit-button">Login</button>
         </div>
     </form>
     )

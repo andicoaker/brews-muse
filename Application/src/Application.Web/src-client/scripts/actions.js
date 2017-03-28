@@ -36,6 +36,14 @@ export const ACTIONS = {
 		})
 	},
 
+  updateVendor: function(vendorData){
+    console.log(vendorData)
+    $.getJSON('/api/vendors/').then(function(serverRes){
+    ACTIONS.fetchSingleVendor(serverRes)
+    STORE.setStore('allVendors', serverRes)
+   })
+  },
+
   logUserOut: function(){
     UserModel.logOut().then(function(){
       STORE.setStore('currentUser', {})
@@ -48,6 +56,7 @@ export const ACTIONS = {
     $.getJSON('/api/vendors').then(function(serverRes){
       console.log("JSON data results:", serverRes);
       STORE.setStore('allVendors', serverRes)
+      console.log(JSON.stringify(serverRes[0]), 'asdlfa;sdl')
 
     })
   },

@@ -34,26 +34,56 @@
 h1 {
   font-size: 50px; }
 
+button {
+  background-color: #e5d80e; }
+
+.form-inline {
+  padding: 2px; }
+
 .logo {
   width: 25%; }
 
+.jumbotron {
+  background-image: url("https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg");
+  background-size: cover;
+  height: 575px;
+  margin-top: 30px;
+  padding-top: 200px;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #fff;
+  font-size: 100px; }
+
+.jumbotron h1 {
+  font-size: 75px;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; }
+
+.jumbotron p {
+  font-size: 35px;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; }
+
+.splash-text {
+  background-color: rgba(128, 139, 150, 0.5);
+  width: 100%;
+  font-size: 100px; }
+
 .main-features {
-  margin-top: 150px; }
+  margin-top: 0px; }
 
 .media {
-  background-color: white;
+  background-color: #fff;
   font-size: 35px; }
 
 .browse_brews {
-  margin-top: 100px;
-  margin-bottom: 100px; }
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 .media-left {
   padding: 20px;
   width: 130px; }
 
 .fa {
-  color: black; }
+  color: #7a6c6c; }
 
 .media-body {
   padding: 20px;
@@ -64,10 +94,20 @@ h1 {
 
 .nav-btn {
   height: 100px;
-  font-size: 30px; }
+  font-size: 30px;
+  background-color: #7a6c6c;
+  color: lightgray; }
 
-.thumbnail {
-  width: 100%; }
+.fa-twitter {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+.tab-label {
+  height: 75px;
+  font-size: 30px;
+  background-color: #7a6c6c;
+  color: lightgray;
+  padding-top: 25px; }
 
 * {
   box-sizing: border-box; }
@@ -78,6 +118,7 @@ img {
 
 body {
   background: linear-gradient(to right, #e78200 0%, #e5d80e 100%);
-  font-family: 'Amarante', cursive; }
+  font-family: 'Amarante', cursive;
+  color: #7a6c6c; }
 
 /*# sourceMappingURL=styles.css.map*/

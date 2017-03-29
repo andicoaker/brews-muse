@@ -11,5 +11,7 @@ namespace BrewsMuse.Models
         
         public Guid Signature { get; set; }
         public List<Vendor> Vendors { get; set; }
+
+
     }
 }

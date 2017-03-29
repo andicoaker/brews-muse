@@ -38,7 +38,8 @@ namespace BrewsMuse.Controllers
         public IEnumerable<Vendor> GetVendors()
         {
             //var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).ToList();
+            var userName = _userManager.GetUserName(User);
+            return _context.Vendors.Include(n => n.Beers).Include(q => q.Bands).ToList();//Where(m => m.UserName == userName).ToList();
         }
 
         //Where(q => q.OwnerId == userId).ToList();
@@ -50,8 +51,9 @@ namespace BrewsMuse.Controllers
         public async Task<IActionResult> GetVendor(int id)
         {
             //var userId = _userManager.GetUserId(User);
-            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
-          
+            var userName = _userManager.GetUserName(User);
+            Vendor vendor = await _context.Vendors.Include(q => q.Beers).Include(n => n.Bands).SingleOrDefaultAsync(m => m.Id == id);//.Where(q => q.UserName == userName).SingleOrDefaultAsync(m => m.Id == id); // m.OwnerId == userId && m.Id == id);
+
 
             if (vendor == null)
             {
@@ -76,8 +78,11 @@ namespace BrewsMuse.Controllers
             var user = await _userManager.GetUserAsync(User);
 
             //Vendor vendor = await _context.Vendors.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
+            var userName = _userManager.GetUserName(User);
+            //vendor.Owner = user;
+            vendor.UserName = userName;
 
-            vendor.Owner = user;
+            //need to fix async thing for braden according to travis. The reason he's not getting a server response
             _context.Vendors.Add(vendor);
             await _context.SaveChangesAsync();
 
@@ -111,27 +116,27 @@ namespace BrewsMuse.Controllers
             }
         }
 
-        // PUT api/bars/5
-        [HttpPut("~/api/vendors/{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutVendor(int id, [FromBody] Vendor vendor)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/bars/5
+        //[HttpPut("~/api/vendors/{id}/name/{name}")]
+        //[Authorize]
+        //public async Task<IActionResult> PutVendor(int id, string name)///, [FromBody] Vendor vendor)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != vendor.Id)
-            {
-                return BadRequest(Response);
-            }
+        //    if (id != vendor.Id)
+        //    {
+        //        return BadRequest(Response);
+        //    }
 
-            vendor.Owner = await _userManager.GetUserAsync(User);
-            _context.Entry(vendor).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+        //    vendor.Owner = await _userManager.GetUserAsync(User);
+        //    _context.Entry(vendor).State = EntityState.Modified;
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
 
         // DELETE api/bars/5
@@ -167,11 +172,11 @@ namespace BrewsMuse.Controllers
             return Ok();
         }
 
-        private bool VendorExists(int id)
-        {
-            var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Any(e => e.Owner.Id == userId && e.Id == id);
-        }
+        //private bool VendorExists(int id)
+        //{
+        //    var userId = _userManager.GetUserId(User);
+        //    return _context.Vendors.Any(e => e.Id == userId && e.Id == id);
+        //}
 
     }
 }

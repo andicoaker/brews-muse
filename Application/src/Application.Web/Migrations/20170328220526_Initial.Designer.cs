@@ -8,9 +8,10 @@ using BrewsMuse.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20170328220526_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -94,8 +95,6 @@ namespace Application.Web.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<int>("CheckIn");
 
                     b.Property<string>("City");
@@ -111,6 +110,8 @@ namespace Application.Web.Migrations
                     b.Property<double>("Lng");
 
                     b.Property<string>("Name");
+
+                    b.Property<string>("OwnerId");
 
                     b.Property<string>("OwnerName");
 
@@ -130,7 +131,7 @@ namespace Application.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Vendor");
                 });
@@ -332,9 +333,9 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("BrewsMuse.Models.Vendor", b =>
                 {
-                    b.HasOne("BrewsMuse.Models.ApplicationUser")
+                    b.HasOne("BrewsMuse.Models.ApplicationUser", "Owner")
                         .WithMany("Vendors")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("OwnerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

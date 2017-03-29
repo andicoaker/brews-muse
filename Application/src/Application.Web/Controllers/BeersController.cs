@@ -87,24 +87,36 @@ namespace Application.Web.Controllers
             var userName = _userManager.GetUserName(User);
 
             beer.UserName = vendor.UserName;
-            
-            vendor.Beers.Add(beer);
-            try
+
+            if (user.UserName == vendor.UserName)
             {
-                await _context.SaveChangesAsync();
+                vendor.Beers.Add(beer);
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch
+                {
+                    if (BeerExists(beer.Id))
+                    {
+                        return new StatusCodeResult(StatusCodes.Status409Conflict);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return CreatedAtAction("GetBeer", new { id = beer.Id }, beer);
             }
-            catch
+
+            else
             {
-                if (BeerExists(beer.Id))
-                {
-                    return new StatusCodeResult(StatusCodes.Status409Conflict);
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("You do not have permission to add beers.");
+
             }
-            return CreatedAtAction("GetBeer", new { id = beer.Id }, beer);
+            //vendor.Beers.Add(beer);
+           
         }
 
         [HttpPut]
@@ -122,7 +134,7 @@ namespace Application.Web.Controllers
                 return BadRequest();
             }
 
-            beer.Owner = await _userManager.GetUserAsync(User);
+            //beer.Owner = await _userManager.GetUserAsync(User);
             _context.Entry(beer).State = EntityState.Modified;
 
             try
@@ -147,8 +159,10 @@ namespace Application.Web.Controllers
         [HttpDelete]
         [Authorize]
         [Route("~/api/vendors/{vendorsId}/beers/{id}")]
-        public async Task<IActionResult> DeleteBeer(int id, [FromBody] Beer beer)
+        public async Task<IActionResult> DeleteBeer(int id, int vendorsId, [FromBody] Beer beer)
         {
+
+            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorsId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -161,10 +175,23 @@ namespace Application.Web.Controllers
             {
                 return NotFound();
             }
-            _context.Beers.Remove(beer);
-            await _context.SaveChangesAsync();
 
-            return Ok(beer);
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user.UserName == vendor.UserName)
+            {
+                _context.Beers.Remove(beer);
+                await _context.SaveChangesAsync();
+                //return Ok(beer);
+                return Ok("Beer Deleted");
+            }
+            else
+            {
+                return BadRequest("You do not have permission to delete beers");
+            }
+           
+
+            
         }
 
         private bool BeerExists(int id)

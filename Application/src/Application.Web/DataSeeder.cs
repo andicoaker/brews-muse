@@ -821,7 +821,7 @@ namespace Application.Web
 
 
             band1.Name = "MoJo McGee";
-            band1.Owner = user;
+            //band1.Owner = user;
             band1.Genre = "Various";
             band1.Rating = 5;
             band1.CoverCharge = 30;
@@ -832,7 +832,7 @@ namespace Application.Web
 
 
             band2.Name = "The Officials Band";
-            band2.Owner = user;
+            //band2.Owner = user;
             band2.Genre = "Jazz";
             band2.Rating = 5;
             band2.CoverCharge = 10;
@@ -842,7 +842,7 @@ namespace Application.Web
             vendor10.Bands.Add(band2);
 
             band3.Name = "Ocean Drive Party Band O.D.P.B.";
-            band3.Owner = user;
+            //band3.Owner = user;
             band3.Genre = "Variety";
             band3.Rating = 5;
             band3.CoverCharge = 10;
@@ -852,7 +852,7 @@ namespace Application.Web
             vendor10.Bands.Add(band3);
 
             band4.Name = "Palmetto Soul";
-            band4.Owner = user;
+            //band4.Owner = user;
             band4.Genre = "Rock";
             band4.Rating = 5;
             band4.CoverCharge = 10;
@@ -862,7 +862,7 @@ namespace Application.Web
             vendor10.Bands.Add(band4);
 
             band5.Name = "Melonbelly Acoustic Guitarists";
-            band5.Owner = user;
+            //band5.Owner = user;
             band5.Genre = "Variety";
             band5.Rating = 5;
             band5.CoverCharge = 10;
@@ -872,7 +872,7 @@ namespace Application.Web
             vendor10.Bands.Add(band5);
 
             band6.Name = "Andrew Thielen 'Motown' Band";
-            band6.Owner = user;
+            //band6.Owner = user;
             band6.Genre = "Oldies, disco, beach music";
             band6.Rating = 5;
             band6.CoverCharge = 10;
@@ -882,7 +882,7 @@ namespace Application.Web
             vendor10.Bands.Add(band6);
 
             band7.Name = "The SugarBees";
-            band7.Owner = user;
+            //band7.Owner = user;
             band7.Genre = "Variety";
             band7.Rating = 5;
             band7.CoverCharge = 10;
@@ -892,7 +892,7 @@ namespace Application.Web
             vendor10.Bands.Add(band7);
 
             band8.Name = "Emerald Empire Band";
-            band8.Owner = user;
+            //band8.Owner = user;
             band8.Genre = "Variety";
             band8.Rating = 5;
             band8.CoverCharge = 10;
@@ -902,7 +902,7 @@ namespace Application.Web
             vendor10.Bands.Add(band8);
 
             band9.Name = "Chewbacky Band";
-            band9.Owner = user;
+            //band9.Owner = user;
             band9.Genre = "Country";
             band9.Rating = 5;
             band9.CoverCharge = 10;
@@ -910,7 +910,7 @@ namespace Application.Web
             vendor5.Bands.Add(band9);
 
             band10.Name = "The Vistas";
-            band10.Owner = user;
+            //band10.Owner = user;
             band10.Genre = "Rock";
             band10.Rating = 5;
             band10.CoverCharge = 20;
@@ -918,7 +918,7 @@ namespace Application.Web
             vendor5.Bands.Add(band10);
 
             band11.Name = "Bringers of the Dawn";
-            band11.Owner = user;
+           // band11.Owner = user;
             band11.Genre = "Country, Rock";
             band11.Rating = 4;
             band11.CoverCharge = 7;
@@ -926,7 +926,7 @@ namespace Application.Web
             vendor6.Bands.Add(band11);
 
             band12.Name = "Marsh Green Mamas";
-            band12.Owner = user;
+           // band12.Owner = user;
             band12.Genre = "Bluegrass";
             band12.Rating = 5;
             band12.CoverCharge = 10;
@@ -934,7 +934,7 @@ namespace Application.Web
             vendor6.Bands.Add(band12);
 
             band13.Name = "Deadontime";
-            band13.Owner = user;
+           // band13.Owner = user;
             band13.Genre = "Punk, Metal";
             band13.Rating = 3;
             band13.CoverCharge = 7;
@@ -942,7 +942,7 @@ namespace Application.Web
             vendor7.Bands.Add(band13);
 
             band14.Name = "Tidal Jive";
-            band14.Owner = user;
+            //band14.Owner = user;
             band14.Genre = "Funk";
             band14.Rating = 5;
             band14.CoverCharge = 6;
@@ -950,7 +950,7 @@ namespace Application.Web
             vendor7.Bands.Add(band14);
 
             band15.Name = "Lumberjack Time Traveller";
-            band15.Owner = user;
+            //band15.Owner = user;
             band15.Genre = "Funk";
             band15.Rating = 5;
             band15.CoverCharge = 11;
@@ -959,7 +959,7 @@ namespace Application.Web
             vendor8.Bands.Add(band15);
 
             band16.Name = "Guilt Ridden Troubadour";
-            band16.Owner = user;
+            //band16.Owner = user;
             band16.Genre = "Rock";
             band16.Rating = 4;
             band16.CoverCharge = 7;
@@ -968,7 +968,7 @@ namespace Application.Web
             vendor8.Bands.Add(band16);
 
             band17.Name = "James Slater Trio";
-            band17.Owner = user;
+            //band17.Owner = user;
             band17.Genre = "Jazz";
             band17.Rating = 4;
             band17.CoverCharge = 0;
@@ -977,7 +977,7 @@ namespace Application.Web
             vendor9.Bands.Add(band17);
 
             band18.Name = "Whiskey Diablo";
-            band18.Owner = user;
+           // band18.Owner = user;
             band18.Genre = "Country";
             band18.Rating = 3;
             band18.CoverCharge = 5;
@@ -986,7 +986,7 @@ namespace Application.Web
             vendor9.Bands.Add(band18);
 
             band19.Name = "Whit's End";
-            band19.Owner = user;
+            //band19.Owner = user;
             band19.Genre = "Accoustic Duo";
             band19.Rating = 4;
             band19.CoverCharge = 5;
@@ -995,7 +995,7 @@ namespace Application.Web
             vendor11.Bands.Add(band19);
 
             band20.Name = "Michael Martin Band";
-            band20.Owner = user;
+          //  band20.Owner = user;
             band20.Genre = "Country";
             band20.Rating = 4;
             band20.CoverCharge = 10;

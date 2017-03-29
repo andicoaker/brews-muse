@@ -38,7 +38,6 @@ export const MapComponent = React.createClass({
         vendorClicked : vendorId
       })
 
-
   },
 
   _showInfo: function(){
@@ -110,9 +109,9 @@ const MapPin = React.createClass({
         className={this.state.classStyles}
         onMouseEnter={this._togglePinHover}
         onClick={this._togglePinHover}>
-        {this._renderVendor()}
 
-        <i className="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+
+        <i className="fa fa-map-marker fa-2x" aria-hidden="true"> {this._renderVendor()}</i>
 			</div>
 		)
 	}

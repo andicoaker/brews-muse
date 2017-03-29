@@ -19,8 +19,8 @@ export const CreateVendorComponent = React.createClass({
          hours: formEl.inputHours.value,
          lat: formEl.inputLat.value,
          lng: formEl.inputLong.value,
-         beers: formEl.inputBeer.value,
-         bands: formEl.inputBand.value
+        //  beers: formEl.inputBeer.value,
+        //  bands: formEl.inputBand.value
      }
 
     ACTIONS.setNewVendor(objToSave)
@@ -69,7 +69,7 @@ export const CreateVendorComponent = React.createClass({
           </div>
           <h2>Beers on Tap</h2>
           <div className="form-group">
-              <input type="array" className="form-control" name="inputBeer" placeholder="Beer Name"/>
+              <input type="text" className="form-control" name="inputBeer" placeholder="Beer Name"/>
           </div>
           {/* <div className="form-group">
               <input type="text" className="form-control" name="inputBrewery" placeholder="Brewery"/>
@@ -85,7 +85,7 @@ export const CreateVendorComponent = React.createClass({
           </div>
            <h2>Upcoming Live Music</h2>
           <div className="form-group">
-              <input type="array" className="form-control" name="inputBand" placeholder="Band Name"/>
+              <input type="text" className="form-control" name="inputBand" placeholder="Band Name"/>
           </div>
           {/*<div className="form-group">
               <input type="text" className="form-control" name="inputGenre" placeholder="Genre"/>

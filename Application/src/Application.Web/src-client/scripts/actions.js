@@ -37,17 +37,11 @@ export const ACTIONS = {
 	},
 
   setNewVendor: function(vendorData){
-    console.log("help me")
-  //   $.getJSON('/api/vendors/').then(function(serverRes){
-  //     ACTIONS.fetchSingleVendor(serverRes)
-  //     STORE.setStore('allVendors', serverRes)
-  //  })
     let vendorInstance = new VendorsCollection()
       //vendorInstance.set(vendorData)
       vendorInstance.create(vendorData).then(function(s){
-        console.log(s)
+        ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
       })
-
 
   },
 

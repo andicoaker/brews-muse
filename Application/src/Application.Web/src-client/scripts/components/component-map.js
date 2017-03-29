@@ -58,7 +58,7 @@ export const MapComponent = React.createClass({
       <div className="map-container">
         <GoogleMapReact
           defaultZoom={15}
-          defaultCenter={{lat: 33.784618, lng: -79.940918}}>
+          defaultCenter={{lat: 32.782618, lng: -79.935918}}>
           {this._createMapPins(this.props.locationsData)}
         </GoogleMapReact>
         {this._showInfo()}

@@ -10,7 +10,7 @@ export const MapComponent = React.createClass({
     }
   },
 
-  _createMapPins: function(locationsArray){
+  _createMapPins: function(locationsArray = []){
     let component = this
     let mapPinComponents = locationsArray.map(function(locationObj, i){
       let clicked = false
@@ -52,12 +52,24 @@ export const MapComponent = React.createClass({
   },
 
   render: function(){
+    let zoomVal = 15
+    let centerCoords = {lat: 32.782618, lng: -79.935918}
+    let mapClassName = "map-container"
+
+    if (typeof this.props.customZoomVal !== 'undefined'){
+      zoomVal = this.props.customZoomVal
+    }
+
+    if (typeof this.props.customCenterCoords !== 'undefined'){
+      centerCoords = this.props.customCenterCoords
+    }
+
     return (
 
-      <div className="map-container">
+      <div className={mapClassName}>
         <GoogleMapReact
-          defaultZoom={15}
-          defaultCenter={{lat: 32.782618, lng: -79.935918}}>
+          defaultZoom={zoomVal}
+          defaultCenter={centerCoords}>
           {this._createMapPins(this.props.locationsData)}
         </GoogleMapReact>
         {this._showInfo()}

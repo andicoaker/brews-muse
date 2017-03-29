@@ -42,16 +42,29 @@ export const VendorProfileView = React.createClass({
   },
 
   render: function(){
-    // console.log(this.props)
+    console.log(this.props)
     if(this.props.currentVendor.name === undefined){
       return(
         <div></div>
       )
     }
+
+    let currentVendor = this.props.currentVendor
+    let vendorLatLng = {
+      lat : currentVendor.lat,
+      lng : currentVendor.lng
+    }
+
 		return (
 			<div className="container-fluid">
           <HeaderComponent/>
           <VendorDetailsComponent {...this.props}/>
+          <MapComponent
+            customZoomVal={19}
+            customCenterCoords={vendorLatLng}
+            locationsData={[currentVendor]}
+
+           />
           <TabTogglerComponent
              selectedTab={this.state.viewToRender}
              handleViewChange={this._changeDetails}/>

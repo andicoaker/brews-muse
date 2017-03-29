@@ -14,7 +14,7 @@ export const BeersComponent = React.createClass({
   },
 
   render: function(){
-    console.log("beers list component props: ", this.props)
+    // console.log("beers list component props: ", this.props)
 
     return(
       <div>

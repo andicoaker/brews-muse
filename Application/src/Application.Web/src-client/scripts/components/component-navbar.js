@@ -45,6 +45,16 @@ export const AuthNavbarComponent = React.createClass({
 		ACTIONS.logUserOut()
 	},
 
+  _handleNavClick: function(evt){
+    let clickedRoute = evt.target.dataset.route
+    let routeMapping = {
+      "ALL_VENDORS" : 'allvendors',
+      "VENDOR_PROFILE" : 'vendorprofile',
+      "HOME" : ''
+    }
+    ACTIONS.routeTo(routeMapping[clickedRoute])
+	},
+
   render: function(){
 
     return (

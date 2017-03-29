@@ -38,8 +38,8 @@ export const SingleBeer = React.createClass({
           </div>
           <div className="media-body">
             <h2 className="media-heading">{this.props.beerData.name}</h2>
-            <p>Brewery: {this.props.beerData.brewery}</p>
-            <p>Style: {this.props.beerData.type}&nbsp; ABV: {this.props.beerData.alcoholContent}%</p>
+            <p className="font2">Brewery: {this.props.beerData.brewery}</p>
+            <p className="font2">Style: {this.props.beerData.type}&nbsp; ABV: {this.props.beerData.alcoholContent}%</p>
           </div>
         </div>
 

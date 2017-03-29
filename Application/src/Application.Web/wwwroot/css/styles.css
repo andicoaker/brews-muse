@@ -1,17 +1,15 @@
+.media-object {
+  width: 150px;
+  height: 150px; }
+
+.media-body {
+  font-size: 30px;
+  font-weight: lighter; }
+
 .filter-menu {
   height: 100px;
   font-size: 35px;
   border: solid black 3px; }
-
-.listing-item {
-  border-top: solid, black, 2px;
-  border-bottom: solid, black, 2px; }
-
-.media-body_vendor-listing {
-  font-size: 30px; }
-
-.media-object {
-  width: 150px; }
 
 .map-container {
   height: 500px;
@@ -40,11 +38,19 @@ button {
 .form-inline {
   padding: 2px; }
 
-.logo {
-  width: 25%; }
+.header-container {
+  padding-top: 10px; }
+
+.BrewsMuse {
+  padding-top: 20px;
+  letter-spacing: 8px; }
+
+.fa-bars {
+  text-align: right;
+  float: right; }
 
 .jumbotron {
-  background-image: url("https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg");
+  background-image: url("http://www.thegoodshoppingguide.com/wp-content/uploads/2013/03/beer.jpg");
   background-size: cover;
   height: 575px;
   margin-top: 30px;
@@ -56,11 +62,13 @@ button {
 
 .jumbotron h1 {
   font-size: 75px;
-  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; }
+  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+  letter-spacing: 8px; }
 
 .jumbotron p {
   font-size: 35px;
-  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; }
+  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+  letter-spacing: 2px; }
 
 .splash-text {
   background-color: rgba(128, 139, 150, 0.5);
@@ -81,9 +89,6 @@ button {
 .media-left {
   padding: 20px;
   width: 130px; }
-
-.fa {
-  color: #7a6c6c; }
 
 .media-body {
   padding: 20px;
@@ -110,7 +115,11 @@ button {
   padding-top: 25px; }
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Amarante', cursive,'Roboto', sans-serif; }
+
+.font2 {
+  font-family: 'Roboto', sans-serif; }
 
 img {
   width: 100%;
@@ -118,7 +127,13 @@ img {
 
 body {
   background: linear-gradient(to right, #e78200 0%, #e5d80e 100%);
+  color: #7a6c6c; }
+
+h2 {
   font-family: 'Amarante', cursive;
+  font-size: 40px; }
+
+.fa {
   color: #7a6c6c; }
 
 /*# sourceMappingURL=styles.css.map*/

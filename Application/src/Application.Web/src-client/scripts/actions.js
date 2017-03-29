@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import {STORE} from './store.js'
 import {UserModel} from './models/model-user.js'
-import {VendorProfileModel} from './models/model-vendor_profile.js'
+import {VendorProfileModel, VendorsCollection} from './models/model-vendor_profile.js'
 
 export const ACTIONS = {
 
@@ -36,12 +36,13 @@ export const ACTIONS = {
 		})
 	},
 
-  updateVendor: function(vendorData){
-    console.log(vendorData)
-    $.getJSON('/api/vendors/').then(function(serverRes){
-    ACTIONS.fetchSingleVendor(serverRes)
-    STORE.setStore('allVendors', serverRes)
-   })
+  setNewVendor: function(vendorData){
+    let vendorInstance = new VendorsCollection()
+      //vendorInstance.set(vendorData)
+      vendorInstance.create(vendorData).then(function(s){
+        ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+      })
+
   },
 
   logUserOut: function(){
@@ -70,7 +71,7 @@ export const ACTIONS = {
 
       })
   },
-  // 
+  //
   // toggleVendorTab: function(){
   //
   //   STORE.setStore(serverRes)

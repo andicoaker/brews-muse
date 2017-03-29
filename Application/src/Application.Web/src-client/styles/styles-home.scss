@@ -1,5 +1,5 @@
 .jumbotron{
-	background-image: url('https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg');
+	background-image: url('http://www.thegoodshoppingguide.com/wp-content/uploads/2013/03/beer.jpg');
 	background-size: cover;
 	height: 575px;
 	margin-top: 30px;
@@ -13,12 +13,14 @@
 
 .jumbotron h1{
 	font-size: 75px;
-	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+	letter-spacing: 8px;
 }
 
 .jumbotron p{
 	font-size: 35px;
-	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+	letter-spacing: 2px;
 }
 
 .splash-text{
@@ -49,9 +51,7 @@
 	width: 130px;
 }
 
-.fa{
-	color: #7a6c6c;
-}
+
 
 .media-body{
 	padding: 20px;

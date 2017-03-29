@@ -43,10 +43,11 @@ export const SingleVendor = React.createClass({
               <img className="media-object" src={this.props.vendorData.imageURL} alt="..."/>
           </div>
           <div className="media-body">
-            <h1 className="media-heading">{this.props.vendorData.name}</h1>
-            {this.props.vendorData.address}&nbsp; {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}&nbsp;
-
-            <p><a href="">{this.props.vendorData.vendorURL}</a></p>
+            <h2 className="media-heading">{this.props.vendorData.name}</h2>
+            <p className="font2">
+              {this.props.vendorData.address}&nbsp; {this.props.vendorData.city}, {this.props.vendorData.state} {this.props.vendorData.zipCode}
+            </p>
+            <p><a className="font2" href="">{this.props.vendorData.vendorURL}</a></p>
           </div>
         </div>
 

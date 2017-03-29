@@ -6,15 +6,21 @@ export const HeaderComponent = React.createClass({
 
     return (
 
-        <div className="row">
-          <div className="col-xs-3">
-            <img src="../images/beer-icon.jpg" className="img-responsive logo"/>
+        <div className="row header-container">
+          <div className="col-xs-2">
+            <img src="https://image.flaticon.com/icons/svg/121/121901.svg" className="img-responsive logo"/>
           </div>
-          <div className="col-xs-9">
-            <h2 className="">Your Source for Great Beer & Live Music</h2>
+          <div className="col-xs-8">
+            <h1 className="BrewsMuse">BrewsMuse</h1>
+
+          </div>
+          <div className='col-xs-2'>
+            <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
           </div>
         </div>
 
     )
   }
 })
+
+      // <h3 className="">Your Source for Great Beer & Live Music</h3>

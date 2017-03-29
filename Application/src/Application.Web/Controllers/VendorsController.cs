@@ -79,10 +79,10 @@ namespace BrewsMuse.Controllers
 
             //Vendor vendor = await _context.Vendors.Where(q => q.OwnerId == userId).SingleOrDefaultAsync(m => m.Id == id);
             var userName = _userManager.GetUserName(User);
-            vendor.Owner = user;
-            vendor.UserName = user.UserName;
+            //vendor.Owner = user;
+            vendor.UserName = userName;
 
-
+            //need to fix async thing for braden according to travis. The reason he's not getting a server response
             _context.Vendors.Add(vendor);
             await _context.SaveChangesAsync();
 
@@ -116,27 +116,27 @@ namespace BrewsMuse.Controllers
             }
         }
 
-        // PUT api/bars/5
-        [HttpPut("~/api/vendors/{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutVendor(int id, [FromBody] Vendor vendor)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/bars/5
+        //[HttpPut("~/api/vendors/{id}/name/{name}")]
+        //[Authorize]
+        //public async Task<IActionResult> PutVendor(int id, string name)///, [FromBody] Vendor vendor)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != vendor.Id)
-            {
-                return BadRequest(Response);
-            }
+        //    if (id != vendor.Id)
+        //    {
+        //        return BadRequest(Response);
+        //    }
 
-            vendor.Owner = await _userManager.GetUserAsync(User);
-            _context.Entry(vendor).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+        //    vendor.Owner = await _userManager.GetUserAsync(User);
+        //    _context.Entry(vendor).State = EntityState.Modified;
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
 
         // DELETE api/bars/5
@@ -172,11 +172,11 @@ namespace BrewsMuse.Controllers
             return Ok();
         }
 
-        private bool VendorExists(int id)
-        {
-            var userId = _userManager.GetUserId(User);
-            return _context.Vendors.Any(e => e.Owner.Id == userId && e.Id == id);
-        }
+        //private bool VendorExists(int id)
+        //{
+        //    var userId = _userManager.GetUserId(User);
+        //    return _context.Vendors.Any(e => e.Id == userId && e.Id == id);
+        //}
 
     }
 }

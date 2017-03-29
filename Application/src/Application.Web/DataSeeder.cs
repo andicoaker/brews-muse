@@ -488,7 +488,7 @@ namespace Application.Web
             beer13.Brewery = "COAST Brewing Company";
             beer13.Type = "Altbier";
             beer13.AlcoholContent = 6.30m;
-            //beer13.
+            beer13.ImageURL = "https://cdn.beeradvocate.com/im/beers/44410.jpg";
             vendor2.Beers.Add(beer13);
 
             beer14.Name = "Belafonte";
@@ -498,6 +498,7 @@ namespace Application.Web
             beer14.Brewery = "COAST Brewing Company";
             beer14.Type = "Belgian Pale Ale";
             beer14.AlcoholContent = 5.7m;
+            beer14.ImageURL = "https://s3-media3.fl.yelpcdn.com/bphoto/9DzfWSM0u-PwBwT2NgkYAA/o.jpg";
             vendor3.Beers.Add(beer14);
 
             beer15.Name = "Oktoberfest";
@@ -507,6 +508,7 @@ namespace Application.Web
             beer15.Brewery = "COAST Brewing Company";
             beer15.Type = "Oktoberfest";
             beer15.AlcoholContent = 6.0m;
+            beer15.ImageURL = "https://static1.squarespace.com/static/550a07dee4b0fbec78ea4081/55a03784e4b007dc1bdec44f/55cdbfc6e4b0a1e3b9c0558d/1439583241165/Oktoberfest+Website.jpg";
             vendor4.Beers.Add(beer15);
 
             beer16.Name = "Pinata Pirate";
@@ -516,6 +518,7 @@ namespace Application.Web
             beer16.Brewery = "COAST Brewing Company";
             beer16.Type = "American Brown Ale";
             beer16.AlcoholContent = 4.20m;
+            beer16.ImageURL = "https://static1.squarespace.com/static/550a07dee4b0fbec78ea4081/55a03784e4b007dc1bdec44f/55ce49a4e4b0f1c896899d7f/1439583323345/Pinata+Pirate+Wesbite.jpg";
             vendor5.Beers.Add(beer16);
 
             beer17.Name = "Session IPA";
@@ -525,6 +528,7 @@ namespace Application.Web
             beer17.Brewery = "COAST Brewing Company";
             beer17.Type = "American IPA";
             beer17.AlcoholContent = 4.70m;
+            beer17.ImageURL = "http://www.holycitysinner.com/wp-content/uploads/2017/02/paradisegl.jpg";
             vendor6.Beers.Add(beer17);
 
             beer18.Name = "ToeTally Pale";
@@ -534,6 +538,7 @@ namespace Application.Web
             beer18.Brewery = "COAST Brewing Company";
             beer18.Type = "American Pale Ale";
             beer18.AlcoholContent = 5.4m;
+            beer18.ImageURL = "https://s3-media4.fl.yelpcdn.com/bphoto/aeNQZYs1X-dhs2ScpqbgfA/348s.jpg";
             vendor7.Beers.Add(beer18);
 
             beer19.Name = "Saison Du Fus";
@@ -543,6 +548,7 @@ namespace Application.Web
             beer19.Brewery = "COAST Brewing Company";
             beer19.Type = "Saison";
             beer19.AlcoholContent = 7.3m;
+            beer19.ImageURL = "https://cdn.beeradvocate.com/im/beers/96120.jpg";
             vendor8.Beers.Add(beer19);
 
             beer20.Name = "Same Old, Same Old";
@@ -552,6 +558,7 @@ namespace Application.Web
             beer20.Brewery = "COAST Brewing Company";
             beer20.Type = "American Amber";
             beer20.AlcoholContent = 5.50m;
+            beer20.ImageURL = "https://cdn.beeradvocate.com/im/beers/91808.jpg";
             vendor9.Beers.Add(beer20);
 
 
@@ -645,6 +652,7 @@ namespace Application.Web
             beer30.Brewery = "Holy City Brewing";
             beer30.Type = "American Porter";
             beer30.AlcoholContent = 5.50m;
+            beer30.ImageURL = "http://www.holycitybrewing.com/sites/default/files/imagecache/custom_1000px/photos/093b1692.jpg";
             vendor8.Beers.Add(beer30);
 
             beer31.Name = "Holy City Pilsner";
@@ -654,6 +662,7 @@ namespace Application.Web
             beer31.Brewery = "Holy City Brewing";
             beer31.Type = "German Pilsner";
             beer31.AlcoholContent = 5.0m;
+            beer31.ImageURL = "http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit/beer_139963.jpg";
             vendor9.Beers.Add(beer31);
 
             beer32.Name = "Washout Wheat";
@@ -755,6 +764,7 @@ namespace Application.Web
             beer42.Brewery = "Foster's Group Limited";
             beer42.Type = "American Adjunct Lager";
             beer42.AlcoholContent = 5.0m;
+            beer42.ImageURL = "https://www.owliquors.com/image/cache/data/beer/fosters/fosters-lager-can-500x500.jpg";
             vendor9.Beers.Add(beer42);
 
             beer43.Name = "Jupiler";
@@ -946,6 +956,7 @@ namespace Application.Web
             band17.Rating = 4;
             band17.CoverCharge = 0;
             band17.Showtime = "4/5/2017 7:00 PM";
+            band17.ImageURL = "https://i.ytimg.com/vi/DKySbxmLveo/maxresdefault.jpg";
             vendor9.Bands.Add(band17);
 
             band18.Name = "Whiskey Diablo";
@@ -954,6 +965,7 @@ namespace Application.Web
             band18.Rating = 3;
             band18.CoverCharge = 5;
             band18.Showtime = "4/15/2017 11:00 PM";
+            band18.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t31.0-8/472722_294547127302189_1147589592_o.jpg?oh=708e34f13761c4e9a1383c5c14c6347c&oe=594DC495";
             vendor9.Bands.Add(band18);
 
             band19.Name = "Whit's End";
@@ -962,6 +974,7 @@ namespace Application.Web
             band19.Rating = 4;
             band19.CoverCharge = 5;
             band19.Showtime = "4/9/2017 7:00 PM";
+            band19.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/15822710_1524559334224164_5506603032917984727_n.jpg?oh=3f94a4590fc6cc488f676309a3d1b815&oe=594FE56B";
             vendor11.Bands.Add(band19);
 
             band20.Name = "Michael Martin Band";
@@ -970,6 +983,7 @@ namespace Application.Web
             band20.Rating = 4;
             band20.CoverCharge = 10;
             band20.Showtime = "4/9/2017 9:00 PM";
+            band20.ImageURL = "http://michaelmartinband.com/wp-content/uploads/2015/10/11228024_10153631258691912_7916167733158990162_n-1.jpg";
             vendor11.Bands.Add(band20);
 
 

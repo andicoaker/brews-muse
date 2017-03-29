@@ -6,6 +6,22 @@ export const CreateVendorComponent = React.createClass({
    _vendorUpdateSubmit: function(evt){
      evt.preventDefault()
      let formEl = evt.target
+     let beerToSave = {
+       name: formEl.inputBeer.value,
+       type: formEl.inputType.value,
+       brewery: formEl.inputBrewery.value,
+       alcoholContent: formEl.inputABV.value,
+       imageURL: formEl.inputBottle.value
+
+     }
+     let bandToSave = {
+       name: formEl.inputBand.value,
+       genre: formEl.inputGenre.value,
+       coverCharge: formEl.inputCover.value,
+       showtime: formEl.inputShowTime.value,
+       imageURL: formEl.inputBandPic.value
+     }
+
      let objToSave = {
          name: formEl.inputName.value,
          ownerName: formEl.inputOwnerName.value,
@@ -17,13 +33,12 @@ export const CreateVendorComponent = React.createClass({
          imageURL: formEl.inputImage.value,
          vendorPhone: formEl.inputPhone.value,
          hours: formEl.inputHours.value,
-         lat: formEl.inputLat.value,
-         lng: formEl.inputLong.value,
-        //  beers: formEl.inputBeer.value,
-        //  bands: formEl.inputBand.value
+         beers: [beerToSave],
+         bands: [bandToSave]
      }
 
     ACTIONS.setNewVendor(objToSave)
+    ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
     console.log(objToSave)
    },
 
@@ -62,16 +77,13 @@ export const CreateVendorComponent = React.createClass({
               <input type="text" className="form-control" name="inputWebsite" placeholder="Website http://"/>
           </div>
           <div className="form-group">
-              <input type="number" className="form-control" name="inputLat" placeholder="Lat"/>
-          </div>
-          <div className="form-group">
-              <input type="number" className="form-control" name="inputLong" placeholder="Long"/>
+              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
           </div>
           <h2>Beers on Tap</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBeer" placeholder="Beer Name"/>
           </div>
-          {/* <div className="form-group">
+          <div className="form-group">
               <input type="text" className="form-control" name="inputBrewery" placeholder="Brewery"/>
           </div>
           <div className="form-group">
@@ -79,32 +91,30 @@ export const CreateVendorComponent = React.createClass({
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputABV" placeholder="ABV%"/>
-          </div> */}
-          <div className="form-group">
-              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
           </div>
-           <h2>Upcoming Live Music</h2>
+          <div className="form-group">
+              <input type="text" className="form-control" name="inputBottle" placeholder="Beer Image URL"/>
+          </div>
+
+          <h2>Upcoming Live Music</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBand" placeholder="Band Name"/>
           </div>
-          {/*<div className="form-group">
+          <div className="form-group">
               <input type="text" className="form-control" name="inputGenre" placeholder="Genre"/>
           </div>
           <div className="form-group">
-              <input type="text" className="form-control" name="inputCover" placeholder="Cover Charge"/>
+              <input type="number" className="form-control" name="inputCover" placeholder="Cover Charge"/>
           </div>
           <div className="form-group">
-            <input type="text" className="form-control" name="inputDate" placeholder="Date"/>
+            <input type="text" className="form-control" name="inputShowTime" placeholder="Showtime"/>
           </div>
           <div className="form-group">
-              <input type="text" className="form-control" name="inputTime" placeholder="Time"/>
+              <input type="text" className="form-control" name="inputBandPic" placeholder="Band Image URL"/>
           </div>
-          <div className="form-group">
-              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
-          </div> */}
         <hr/>
           <div className="form-group">
-              <button type="submit" className="btn submit-button">Update Account</button>
+              <button type="submit" className="btn submit-button">Create Profile</button>
           </div>
       </form>
     )

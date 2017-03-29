@@ -32,7 +32,7 @@ export const ACTIONS = {
   loginUser: function(user, password){
 		UserModel.logIn(user, password).then(function(serverRes){
 			STORE.setStore('currentUser', serverRes)
-			ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
+      ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
 		})
 	},
 
@@ -40,9 +40,8 @@ export const ACTIONS = {
     let vendorInstance = new VendorsCollection()
       //vendorInstance.set(vendorData)
       vendorInstance.create(vendorData).then(function(s){
-        ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
       })
-
+      ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
   },
 
   logUserOut: function(){
@@ -55,9 +54,9 @@ export const ACTIONS = {
   fetchVendors: function(results){
     // console.log(results, 'action results')
     $.getJSON('/api/vendors').then(function(serverRes){
-      console.log("JSON data results:", serverRes);
+      // console.log("JSON data results:", serverRes);
       STORE.setStore('allVendors', serverRes)
-      console.log(JSON.stringify(serverRes[0]), 'asdlfa;sdl')
+      // console.log(JSON.stringify(serverRes[0]), 'asdlfa;sdl')
 
     })
   },
@@ -67,7 +66,7 @@ export const ACTIONS = {
       vendorMod.set({id: vendorId})
       vendorMod.fetch().then(function(serverRes){
         STORE.setStore('currentVendor', serverRes)
-        console.log(serverRes);
+        // console.log(serverRes);
 
       })
   },

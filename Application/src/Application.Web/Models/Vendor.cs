@@ -12,7 +12,7 @@ namespace BrewsMuse.Models
         public string Name { get; set; }
         //public string OwnerId { get; set; }
 
-        public ApplicationUser Owner { get; set; }
+        //public ApplicationUser Owner { get; set; }
         public string UserName { get; set; }
         public string OwnerName { get; set; }
         public string Address { get; set; }

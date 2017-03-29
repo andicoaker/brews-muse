@@ -43,10 +43,10 @@ export const ACTIONS = {
   //     STORE.setStore('allVendors', serverRes)
   //  })
     let vendorInstance = new VendorsCollection()
-      vendorInstance.set(vendorData)
-      //vendorInstance.save().then(function(s){
-        //console.log(s)
-      //})
+      //vendorInstance.set(vendorData)
+      vendorInstance.create(vendorData).then(function(s){
+        console.log(s)
+      })
 
 
   },

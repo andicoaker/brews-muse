@@ -1,7 +1,7 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
 
-export const UpdateVendorComponent = React.createClass({
+export const CreateVendorComponent = React.createClass({
 
    _vendorUpdateSubmit: function(evt){
      evt.preventDefault()
@@ -19,18 +19,18 @@ export const UpdateVendorComponent = React.createClass({
          hours: formEl.inputHours.value,
          lat: formEl.inputLat.value,
          lng: formEl.inputLong.value,
-        //  beers: formEl.inputBeer.value,
-        //  bands: formEl.inputBand.value
+         beers: formEl.inputBeer.value,
+         bands: formEl.inputBand.value
      }
 
-    //ACTIONS.setNewVendor(objToSave)
+    ACTIONS.setNewVendor(objToSave)
     console.log(objToSave)
    },
 
   render: function(){
     return (
       <form className="form-inline" onSubmit={this._vendorUpdateSubmit}>
-         <h1>Update Account</h1>
+         <h1>Create Vendor Profile</h1>
           <div className="form-group">
             <input type="text" className="form-control" name="inputName" placeholder="Name"/>
           </div>
@@ -67,7 +67,7 @@ export const UpdateVendorComponent = React.createClass({
           <div className="form-group">
               <input type="number" className="form-control" name="inputLong" placeholder="Long"/>
           </div>
-          {/* <h2>Beers on Tap</h2>*/}
+          <h2>Beers on Tap</h2>
           <div className="form-group">
               <input type="array" className="form-control" name="inputBeer" placeholder="Beer Name"/>
           </div>
@@ -83,7 +83,7 @@ export const UpdateVendorComponent = React.createClass({
           <div className="form-group">
               <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
           </div>
-          {/* <h2>Upcoming Live Music</h2> */}
+           <h2>Upcoming Live Music</h2>
           <div className="form-group">
               <input type="array" className="form-control" name="inputBand" placeholder="Band Name"/>
           </div>

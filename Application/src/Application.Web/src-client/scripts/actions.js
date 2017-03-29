@@ -40,9 +40,8 @@ export const ACTIONS = {
     let vendorInstance = new VendorsCollection()
       //vendorInstance.set(vendorData)
       vendorInstance.create(vendorData).then(function(s){
-        ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
       })
-
+      ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
   },
 
   logUserOut: function(){

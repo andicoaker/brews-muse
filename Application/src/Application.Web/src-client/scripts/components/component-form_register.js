@@ -31,11 +31,11 @@ export const RegisterComponent = React.createClass({
         </div>
         <div className="form-group">
           <label htmlFor="InputPassWord">Password:</label>
-          <input type="text" className="form-control" name="passwordField" placeholder="Enter password"/>
+          <input type="password" className="form-control" name="passwordField" placeholder="Enter password"/>
         </div>
         <div className="form-group">
             <label htmlFor="InputConfirmPass">Confirm password:</label>
-            <input type="text" className="form-control" name="passwordConfirmField" placeholder="Confirm password"/>
+            <input type="password" className="form-control" name="passwordConfirmField" placeholder="Confirm password"/>
         </div>
         <div className="form-group">
             <div className="checkbox">

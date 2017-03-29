@@ -9,7 +9,7 @@ namespace BrewsMuse.Models
     {
         public int Id { get; set; }
         public string Name { get; set; } 
-        public ApplicationUser Owner { get; set; }
+        //public ApplicationUser Owner { get; set; }
         public string UserName { get; set; }
         public string Type { get; set; }
         public string Brewery { get; set; }

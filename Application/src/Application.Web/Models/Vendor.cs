@@ -31,8 +31,8 @@ namespace BrewsMuse.Models
         public string Hours { get; set; }        
         public double Lat { get; set; }
         public double Lng { get; set; }
-        public List<Beer> Beers { get; set; }
-        public List<Band> Bands { get; set; }
+        public virtual List<Beer> Beers { get; set; }
+        public virtual  List<Band> Bands { get; set; }
         public Vendor()
         {
             Beers = new List<Beer>();

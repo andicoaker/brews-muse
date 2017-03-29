@@ -116,27 +116,29 @@ namespace BrewsMuse.Controllers
             }
         }
 
-        //// PUT api/bars/5
-        //[HttpPut("~/api/vendors/{id}/name/{name}")]
-        //[Authorize]
-        //public async Task<IActionResult> PutVendor(int id, string name)///, [FromBody] Vendor vendor)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // PUT api/bars/5
+        [HttpPut("~/api/vendors/{id}/name/{name}")]
+        [Authorize]
+        public async Task<IActionResult> PutVendor(int id, string name, [FromBody] Vendor vendor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    if (id != vendor.Id)
-        //    {
-        //        return BadRequest(Response);
-        //    }
+            if (id != vendor.Id)
+            {
+                return BadRequest(Response);
+            }
 
-        //    vendor.Owner = await _userManager.GetUserAsync(User);
-        //    _context.Entry(vendor).State = EntityState.Modified;
-        //    await _context.SaveChangesAsync();
+            var userName = _userManager.GetUserName(User);
 
-        //    return NoContent();
-        //}
+            vendor.UserName = userName; //await _userManager.GetUserAsync(User);
+            _context.Entry(vendor).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 
 
         // DELETE api/bars/5
@@ -144,32 +146,36 @@ namespace BrewsMuse.Controllers
         [Route("~/api/vendors/{id}")]
         [AllowAnonymous]
         //[Authorize]
-        public async Task<IActionResult> DeleteVendor(int id, [FromBody] Vendor vendor)
+        public async Task<IActionResult> DeleteVendor(int id)//, [FromBody] Vendor vendor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            vendor = _context.Vendors.SingleOrDefault(q => q.Id == id);
+            var vendor = _context.Vendors.Include(q => q.Beers).Include(m => m.Bands).SingleOrDefault(q => q.Id == id);
             if (vendor == null)
             {
                 return NotFound();
             }
 
-            //var beers = _context.Beers.Where(p => p.Vendor == vendor).ToList();
-            //var bands = _context.Bands.Where(n => n.Vendor == vendor).ToList();
-            //foreach (var beer in beers)
-            //{
-            //    _context.Beers.Remove(beer);
-            //}
+            //vendor.Bands.Clear();
+            //vendor.Beers.Clear();
 
-            //foreach (var band in bands)
-            //{
-            //    _context.Bands.Remove(band);
-            //}
+            var beers = _context.Beers.Where(p => p.Id == vendor.Id).ToList();
+            var bands = _context.Bands.Where(n => n.Id == vendor.Id).ToList();
+            foreach (var beer in beers)
+            {
+                _context.Beers.Remove(beer);
+            }
+
+            foreach (var band in bands)
+            {
+                _context.Bands.Remove(band);
+            }
+
             _context.Vendors.Remove(vendor);
             await _context.SaveChangesAsync();
-            return Ok();
+            return Ok("Vendor Deleted");
         }
 
         //private bool VendorExists(int id)

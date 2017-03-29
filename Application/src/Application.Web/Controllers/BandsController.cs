@@ -75,23 +75,36 @@ namespace Application.Web.Controllers
 
             band.UserName = vendor.UserName;
 
-            vendor.Bands.Add(band);
-            try
+            if (user.UserName == vendor.UserName)
             {
-                await _context.SaveChangesAsync();
+                vendor.Bands.Add(band);
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch
+                {
+                    if (BandExists(band.Id))
+                    {
+                        return new StatusCodeResult(StatusCodes.Status409Conflict);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return CreatedAtAction("GetBand", new { id = band.Id }, band);
+
             }
-            catch
+
+            else
             {
-                if (BandExists(band.Id))
-                {
-                    return new StatusCodeResult(StatusCodes.Status409Conflict);
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("You do not have permission to add bands");
             }
-            return CreatedAtAction("GetBand", new { id = band.Id }, band);
+            //vendor.Bands.Add(band);
+                
+            
         }
 
         [HttpPut]
@@ -109,7 +122,7 @@ namespace Application.Web.Controllers
                 return BadRequest();
             }
 
-            band.Owner = await _userManager.GetUserAsync(User);
+            //band.Owner = await _userManager.GetUserAsync(User);
             _context.Entry(band).State = EntityState.Modified;
 
             try
@@ -134,8 +147,9 @@ namespace Application.Web.Controllers
         [HttpDelete]
         [Authorize]
         [Route("~/api/vendors/{vendorsId}/bands/{id}")]
-        public async Task<IActionResult> DeleteBand(int id, [FromBody] Band band)
+        public async Task<IActionResult> DeleteBand(int id, int vendorsId, [FromBody] Band band)
         {
+            var vendor = _context.Vendors.FirstOrDefault(q => q.Id == vendorsId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -146,10 +160,20 @@ namespace Application.Web.Controllers
             {
                 return NotFound();
             }
-            _context.Bands.Remove(band);
-            await _context.SaveChangesAsync();
+            var user = await _userManager.GetUserAsync(User);
 
-            return Ok(band);
+            if (user.UserName == vendor.UserName)
+            {
+                _context.Bands.Remove(band);
+                await _context.SaveChangesAsync();
+
+                //return Ok(band);
+                return Ok("Band Deleted");
+            }
+            else
+            {
+                return BadRequest("You do not have permission too delete bands");
+            }
         }
 
         [HttpPost]

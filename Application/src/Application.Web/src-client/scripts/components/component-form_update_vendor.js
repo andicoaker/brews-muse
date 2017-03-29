@@ -17,8 +17,6 @@ export const CreateVendorComponent = React.createClass({
          imageURL: formEl.inputImage.value,
          vendorPhone: formEl.inputPhone.value,
          hours: formEl.inputHours.value,
-         lat: formEl.inputLat.value,
-         lng: formEl.inputLong.value,
         //  beers: formEl.inputBeer.value,
         //  bands: formEl.inputBand.value
      }
@@ -62,17 +60,12 @@ export const CreateVendorComponent = React.createClass({
           <div className="form-group">
               <input type="text" className="form-control" name="inputWebsite" placeholder="Website http://"/>
           </div>
-          <div className="form-group">
-              <input type="number" className="form-control" name="inputLat" placeholder="Lat"/>
-          </div>
-          <div className="form-group">
-              <input type="number" className="form-control" name="inputLong" placeholder="Long"/>
-          </div>
+
           <h2>Beers on Tap</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBeer" placeholder="Beer Name"/>
           </div>
-          {/* <div className="form-group">
+          <div className="form-group">
               <input type="text" className="form-control" name="inputBrewery" placeholder="Brewery"/>
           </div>
           <div className="form-group">
@@ -80,15 +73,16 @@ export const CreateVendorComponent = React.createClass({
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputABV" placeholder="ABV%"/>
-          </div> */}
-          <div className="form-group">
-              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
           </div>
-           <h2>Upcoming Live Music</h2>
+          <div className="form-group">
+              <input type="text" className="form-control" name="inputImage" placeholder="Beer Image URL"/>
+          </div>
+
+          <h2>Upcoming Live Music</h2>
           <div className="form-group">
               <input type="text" className="form-control" name="inputBand" placeholder="Band Name"/>
           </div>
-          {/*<div className="form-group">
+          <div className="form-group">
               <input type="text" className="form-control" name="inputGenre" placeholder="Genre"/>
           </div>
           <div className="form-group">
@@ -101,8 +95,8 @@ export const CreateVendorComponent = React.createClass({
               <input type="text" className="form-control" name="inputTime" placeholder="Time"/>
           </div>
           <div className="form-group">
-              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
-          </div> */}
+              <input type="text" className="form-control" name="inputImage" placeholder="Band Image URL"/>
+          </div>
         <hr/>
           <div className="form-group">
               <button type="submit" className="btn submit-button">Update Account</button>

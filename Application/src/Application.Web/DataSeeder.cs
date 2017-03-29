@@ -572,6 +572,7 @@ namespace Application.Web
             beer22.Brewery = "COAST Brewing Company";
             beer22.Type = "American Stout";
             beer22.AlcoholContent = 6.0m;
+            beer22.ImageURL = "https://media1.fdncms.com/charleston/imager/coast-brewings-beers-will-on-hand-at-brewvial/u/zoom/4023085/coastaltbier129_resized.jpg";
             vendor11.Beers.Add(beer22);
 
             beer23.Name = "Wadamalaw Sunset";
@@ -672,6 +673,7 @@ namespace Application.Web
             beer33.Brewery = "Holy City Brewing";
             beer33.Type = "Germna Pilsner";
             beer33.AlcoholContent = 5.0m;
+            beer33.ImageURL = "https://res.cloudinary.com/ratebeer/image/upload/w_120,c_limit/beer_217870.jpg";
             vendor11.Beers.Add(beer33);
 
             beer34.Name = "Fancy Stout";
@@ -772,6 +774,7 @@ namespace Application.Web
             beer44.Brewery = "Coors Brewing Company";
             beer44.Type = "Whitbier";
             beer44.AlcoholContent = 5.40m;
+            beer44.ImageURL = "https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/our-beers/bottle-image/BM_SB_BottlePour_AC.png";
             vendor11.Beers.Add(beer44);
 
             beer45.Name = "Vodka and Sprite";
@@ -833,7 +836,7 @@ namespace Application.Web
             vendor2.Bands.Add(band4);
             vendor10.Bands.Add(band4);
 
-            band5.Name = "Melonbelly Acoustic Guitarists Charleston SC";
+            band5.Name = "Melonbelly Acoustic Guitarists";
             band5.Owner = user;
             band5.Genre = "Variety";
             band5.Rating = 5;

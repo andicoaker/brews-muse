@@ -24,6 +24,7 @@ export const CreateVendorComponent = React.createClass({
      }
 
     ACTIONS.setNewVendor(objToSave)
+    ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
     console.log(objToSave)
    },
 

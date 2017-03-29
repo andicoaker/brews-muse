@@ -32,7 +32,7 @@ export const ACTIONS = {
   loginUser: function(user, password){
 		UserModel.logIn(user, password).then(function(serverRes){
 			STORE.setStore('currentUser', serverRes)
-			ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
+      ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
 		})
 	},
 

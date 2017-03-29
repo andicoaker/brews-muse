@@ -44,10 +44,10 @@ export const UpdateVendorComponent = React.createClass({
       <form className="form-inline" onSubmit={this._vendorUpdateSubmit}>
          <h1>Update Account</h1>
           <div className="form-group">
-            <input type="text" className="form-control" name="inputName" placeholder="Name"/>
+            <input type="text" className="form-control" name="inputName" placeholder="Establishment Name"/>
           </div>
           <div className="form-group">
-              <input type="text" className="form-control" name="inputOwnerName" placeholder="Company"/>
+              <input type="text" className="form-control" name="inputOwnerName" placeholder="Owner First and Last Names"/>
           </div>
           <div className="form-group">
               <input type="text" className="form-control" name="inputHours" placeholder="Hours"/>

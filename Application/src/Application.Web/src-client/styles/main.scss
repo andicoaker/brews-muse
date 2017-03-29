@@ -1,3 +1,4 @@
+@import "./styles-lists.scss";
 @import "./styles-all_vendors.scss";
 @import "./styles-forms.scss";
 @import "./styles-header.scss";
@@ -10,6 +11,11 @@
 
 * {
 	box-sizing: border-box;
+	font-family: 'Amarante', cursive,'Roboto', sans-serif;
+}
+
+.font2{
+  font-family: 'Roboto', sans-serif;
 }
 
 img {
@@ -20,10 +26,14 @@ img {
 
 body{
 	background: linear-gradient(to right, #e78200 0%,#e5d80e 100%);
-
-	font-family: 'Amarante', cursive;
-
 	color: #7a6c6c;
+}
 
+h2{
+	font-family: 'Amarante', cursive;
+	font-size: 40px;
+}
 
+.fa{
+	color: #7a6c6c;
 }

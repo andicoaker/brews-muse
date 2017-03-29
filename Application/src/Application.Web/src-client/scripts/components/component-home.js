@@ -23,8 +23,8 @@ export const HomeComponent = React.createClass({
                 </a>
               </div>
               <div className="media-body">
-                <h1 className="media-heading"><strong>Browse Locations</strong></h1>
-                Check out our map feature to see what nearby bars offer your fav draft beers and live music.
+                <h1 className="media-heading">Browse Locations</h1>
+                <p className="font2">Check out our map feature to see what nearby bars offer your fav draft beers and live music.</p>
               </div>
             </div>
           </div>
@@ -36,8 +36,8 @@ export const HomeComponent = React.createClass({
                 </a>
               </div>
               <div className="media-body">
-                <h1 className="media-heading"><strong>Browse Brews</strong></h1>
-                Craving a hoppy IPA or a nutty brown ale? Check out beers on tap in your area.
+                <h1 className="media-heading">Browse Brews</h1>
+                <p className="font2">Craving a hoppy IPA or a nutty brown ale? Check out beers on tap in your area.</p>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ export const HomeComponent = React.createClass({
               </div>
               <div className="media-body">
                 <h1 className="media-heading"><strong>Browse Live Music</strong></h1>
-                <p className='media-text'>Want to listen to some great live music? Check out bands playing in your area.</p>
+                <p className="font2">Want to listen to some great live music? Check out bands playing in your area.</p>
               </div>
             </div>
           </div>

@@ -37,7 +37,7 @@ export const BandsComponent = React.createClass({
               </a>
             </div>
             <div className="media-body">
-              <h1 className="media-heading">{this.props.bandData.name}</h1>
+              <h2 className="media-heading">{this.props.bandData.name}</h2>
               <p>Show Time: {this.props.bandData.showtime}</p>
               <p>Genre: {this.props.bandData.genre}&nbsp;
                Cover Charge: ${this.props.bandData.coverCharge}</p>

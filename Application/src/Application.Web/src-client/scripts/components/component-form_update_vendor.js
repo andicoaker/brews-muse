@@ -44,79 +44,91 @@ export const CreateVendorComponent = React.createClass({
 
   render: function(){
     return (
-      <form className="form-inline" onSubmit={this._vendorUpdateSubmit}>
-         <h1>Create Vendor Profile</h1>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputName" placeholder="Establishment Name"/>
+    <div>
+      <h1 className="account-header">Create Vendor Profile</h1>
+        <form className="form-inline" onSubmit={this._vendorUpdateSubmit}>
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_large font2" name="inputName" placeholder="Establishment Name"/>
           </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputOwnerName" placeholder="Owner First and Last Names"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputHours" placeholder="Hours"/>
-          </div>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputEmail" placeholder="Email"/>
-          </div>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputPhone" placeholder="Phone"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputAddress" placeholder="Address"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputCity" placeholder="City"/>
-          </div>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputState" placeholder="ST"/>
-          </div>
-          <div className="account-form">
-              <input type="number" className="form-control" name="inputZip" placeholder="ZIP"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputWebsite" placeholder="Website http://"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputImage" placeholder="image URL"/>
-          </div>
-          <h2>Beers on Tap</h2>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputBeer" placeholder="Beer Name"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputBrewery" placeholder="Brewery"/>
-          </div>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputType" placeholder="Type"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputABV" placeholder="ABV%"/>
-          </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputBottle" placeholder="Beer Image URL"/>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputOwnerName" placeholder="Owner First and Last Names"/>
           </div>
 
-          <h2>Upcoming Live Music</h2>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputBand" placeholder="Band Name"/>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputAddress" placeholder="Address"/>
           </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputGenre" placeholder="Genre"/>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputCity" placeholder="City"/>
           </div>
-          <div className="account-form">
-              <input type="number" className="form-control" name="inputCover" placeholder="Cover Charge"/>
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_small font2" name="inputState" placeholder="ST"/>
           </div>
-          <div className="account-form">
-            <input type="text" className="form-control" name="inputShowTime" placeholder="Showtime"/>
+          <div className="form-group account-form_inputs">
+              <input type="number" className="form-control_small font2" name="inputZip" placeholder="ZIP"/>
           </div>
-          <div className="account-form">
-              <input type="text" className="form-control" name="inputBandPic" placeholder="Band Image URL"/>
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_large font2" name="inputPhone" placeholder="Phone"/>
           </div>
-        <hr/>
-          <div className="account-form">
+
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_large font2" name="inputEmail" placeholder="Email"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputHours" placeholder="Hours"/>
+          </div>
+
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputWebsite" placeholder="Website - http://"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputImage" placeholder="Vendor Logo URL"/>
+          </div>
+        </form>
+
+        <h1 className="account-header">Beers on Tap</h1>
+        <form className="form-inline">
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputBeer" placeholder="Beer Name"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputBrewery" placeholder="Brewery"/>
+          </div>
+
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_small font2" name="inputType" placeholder="Type"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_small font2" name="inputABV" placeholder="ABV%"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputBottle" placeholder="Beer Image URL"/>
+          </div>
+        </form>
+
+        <h1 className="account-header">Upcoming Live Music</h1>
+        <form className="form-inline">
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputBand" placeholder="Band Name"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_small font2" name="inputGenre" placeholder="Genre"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="number" className="form-control_small font2" name="inputCover" placeholder="Cover Charge"/>
+          </div>
+
+          <div className="form-group account-form_inputs">
+            <input type="text" className="form-control_large font2" name="inputShowTime" placeholder="Showtime"/>
+          </div>
+          <div className="form-group account-form_inputs">
+              <input type="text" className="form-control_large font2" name="inputBandPic" placeholder="Band Image URL"/>
+          </div>
+          
+          <div className="form-group account-form_inputs">
               <button type="submit" className="btn submit-button">Create Profile</button>
           </div>
-      </form>
+        </form>
+      </div>
     )
   }
 })

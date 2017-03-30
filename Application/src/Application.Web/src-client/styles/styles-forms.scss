@@ -1,32 +1,60 @@
-// .login-container {
-//     font-size: 80px;
-// }
-//
-// .register-container{
-// 	font-size: 80px;
-// }
+// ****All Forms****
+.form-header{
+  font-size: 45px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
 
-.form-control {
-  height: 48px;
+.form-group{
+  padding-bottom: 15px;
+}
+
+.form-control{
+  height: 75px;
+  font-size: 25px;
+  // width: 300px;
+}
+
+label{
   font-size: 30px;
+  padding-bottom: 10px;
 }
-
-button{
-	background-color: #7a6c6c;
-	color: lightgray;
-}
-
-.form-inline{
-	padding: 2px;
-	text-align: center;
-}
-
 
 .submit-button{
-	width: 300px;
-	height: 100px;
+	width: 250px;
+	height: 75px;
+  float: right;
 }
 
-.btn{
-	font-size: 35px;
+// ****Vendor Account Form****
+
+.account-header{
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
+
+.account-form_inputs{
+  padding-right: 15px;
+  // width: 350px;
+}
+
+.form-control_large{
+  width: 450px;
+  height: 75px;
+  font-size: 25px;
+  padding: 6px 12px 6px 12px;
+
+}
+
+.form-control_small{
+  width: 218px;
+  height: 75px;
+  font-size: 25px;
+  padding: 6px 12px 6px 12px;
+}
+
+// .form-inline{
+// 	padding: 2px;
+// 	text-align: center;
+// }

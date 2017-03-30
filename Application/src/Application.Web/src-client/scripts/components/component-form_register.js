@@ -23,31 +23,32 @@ export const RegisterComponent = React.createClass({
 
   render: function(){
     return (
-    <form className="form-register" onSubmit={this._handleSubmit}>
-       <h1>Register</h1>
+      <form className="form-register" onSubmit={this._handleSubmit}>
+        <h1 className="form-header">Register a Vendor Account</h1>
         <div className="form-group">
           <label htmlFor="InputEmail">Email:</label>
-          <input type="text" className="form-control" name="emailField" placeholder="Enter email"/>
+          <input type="text" className="form-control font2" name="emailField" placeholder="Enter Email"/>
         </div>
         <div className="form-group">
           <label htmlFor="InputPassWord">Password:</label>
-          <input type="password" className="form-control" name="passwordField" placeholder="Enter password"/>
+          <input type="password" className="form-control font2" name="passwordField" placeholder="Enter Password"/>
         </div>
         <div className="form-group">
-            <label htmlFor="InputConfirmPass">Confirm password:</label>
-            <input type="password" className="form-control" name="passwordConfirmField" placeholder="Confirm password"/>
+          <label htmlFor="InputConfirmPass">Confirm Password:</label>
+          <input type="password" className="form-control font2" name="passwordConfirmField" placeholder="Confirm Password"/>
         </div>
         <div className="form-group">
-          <select>
-              <option value="" selected disabled>Are you a Vendor?</option>
-              <option value="">Yes</option>
-              <option value="">No</option>
-          </select>
+          <button type="submit" className="btn submit-button">Sign-Up</button>
         </div>
-        <div className="form-group">
-            <button type="submit" className="btn submit-button">Sign Up</button>
-        </div>
-    </form>
+      </form>
     )
   }
 })
+//
+// <div className="form-group">
+//   <select>
+//     <option value="" selected disabled>Are you a Vendor?</option>
+//     <option value="">Yes</option>
+//     <option value="">No</option>
+//   </select>
+// </div>

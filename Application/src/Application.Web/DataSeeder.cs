@@ -907,6 +907,7 @@ namespace Application.Web
             band9.Rating = 5;
             band9.CoverCharge = 10;
             band9.Showtime = "4/5/2017 8:00 PM - 12:00 AM";
+            band9.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/13619818_548372268698930_1955597742789786052_n.jpg?oh=b548f1640d6723515965b641370bab8a&oe=594D2828";
             vendor5.Bands.Add(band9);
 
             band10.Name = "The Vistas";
@@ -915,6 +916,7 @@ namespace Application.Web
             band10.Rating = 5;
             band10.CoverCharge = 20;
             band10.Showtime = "4/6/2017 10:00 PM - 12:00 AM";
+            band10.ImageURL = "https://d3ew4rh7xxgmkq.cloudfront.net/performer/42038/photos/42038-e6a0c158bd444cf1a7cf8f7cdb2a22be-1.jpg";
             vendor5.Bands.Add(band10);
 
             band11.Name = "Bringers of the Dawn";
@@ -923,6 +925,7 @@ namespace Application.Web
             band11.Rating = 4;
             band11.CoverCharge = 7;
             band11.Showtime = "4/7/2017 9:00 PM";
+            band11.ImageURL = "http://www.myfathersmustache.com/wp-content/uploads/2016/03/bod-1.jpg";
             vendor6.Bands.Add(band11);
 
             band12.Name = "Marsh Green Mamas";
@@ -931,6 +934,7 @@ namespace Application.Web
             band12.Rating = 5;
             band12.CoverCharge = 10;
             band12.Showtime = "4/8/2017 10:00 PM";
+            band12.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t31.0-8/469650_417315354979930_1812448824_o.jpg?oh=9ab81b8c0da726c3fa7fb52c34e8ae24&oe=5951C0CC";
             vendor6.Bands.Add(band12);
 
             band13.Name = "Deadontime";
@@ -939,6 +943,7 @@ namespace Application.Web
             band13.Rating = 3;
             band13.CoverCharge = 7;
             band13.Showtime = "4/14/2017 11:00 PM";
+            band13.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/15219367_1299290473428092_1880116306183743992_n.jpg?oh=fb1ad3cd34a2744d2d22f1b01a1dc2f7&oe=59526644";
             vendor7.Bands.Add(band13);
 
             band14.Name = "Tidal Jive";
@@ -947,6 +952,7 @@ namespace Application.Web
             band14.Rating = 5;
             band14.CoverCharge = 6;
             band14.Showtime = "4/15/2017 9:00 PM";
+            band14.ImageURL = "https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/14705743_10153833991561945_3301461508607850334_n.jpg?oh=0ad73e169c957703e730e9b1d570f8c6&oe=59695E05";
             vendor7.Bands.Add(band14);
 
             band15.Name = "Lumberjack Time Traveller";

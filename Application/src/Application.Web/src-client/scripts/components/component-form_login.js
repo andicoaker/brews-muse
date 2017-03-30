@@ -16,6 +16,7 @@ export const LoginComponent = React.createClass({
       <h1 className="form-header">Vendor Login</h1>
       <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email:</label>
+{/* <<<<<<< HEAD */}
         <input type="text" className="form-control input-lg font2" name="emailField" placeholder="Enter Email"/>
       </div>
       <div className="form-group">
@@ -25,6 +26,19 @@ export const LoginComponent = React.createClass({
       <div className="form-group">
         <button type="submit" className="btn submit-button">Login</button>
       </div>
+{/* ======= */}
+      {/* <div>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" className="form-control input-lg" name="emailField" placeholder="Enter email"/>
+      </div>
+      <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password:</label>
+          <input type="password" className="form-control input-lg" name="passwordField" placeholder="Enter password"/>
+        </div>
+
+        <div className="form-group">
+            <button type="submit" className="btn submit-button">Login</button>
+        </div> */}
     </form>
     )
   }

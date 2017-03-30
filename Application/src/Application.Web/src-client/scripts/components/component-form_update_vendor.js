@@ -44,9 +44,8 @@ export const CreateVendorComponent = React.createClass({
 
   render: function(){
     return (
-    <div>
-      <h1 className="account-header">Create Vendor Profile</h1>
         <form className="form-inline" onSubmit={this._vendorUpdateSubmit}>
+          <h1 className="account-header">Create Vendor Profile</h1>
           <div className="form-group account-form_inputs">
             <input type="text" className="form-control_large font2" name="inputName" placeholder="Establishment Name"/>
           </div>
@@ -83,10 +82,8 @@ export const CreateVendorComponent = React.createClass({
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputImage" placeholder="Vendor Logo URL"/>
           </div>
-        </form>
 
-        <h1 className="account-header">Beers on Tap</h1>
-        <form className="form-inline">
+          <h1 className="account-header">Beers on Tap</h1>
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputBeer" placeholder="Beer Name"/>
           </div>
@@ -103,10 +100,8 @@ export const CreateVendorComponent = React.createClass({
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputBottle" placeholder="Beer Image URL"/>
           </div>
-        </form>
 
-        <h1 className="account-header">Upcoming Live Music</h1>
-        <form className="form-inline">
+          <h1 className="account-header">Upcoming Live Music</h1>
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputBand" placeholder="Band Name"/>
           </div>
@@ -123,12 +118,11 @@ export const CreateVendorComponent = React.createClass({
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputBandPic" placeholder="Band Image URL"/>
           </div>
-          
+
           <div className="form-group account-form_inputs">
               <button type="submit" className="btn submit-button">Create Profile</button>
           </div>
         </form>
-      </div>
     )
   }
 })

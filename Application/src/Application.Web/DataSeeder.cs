@@ -471,6 +471,15 @@ namespace Application.Web
             beer11.ImageURL = "http://image.mlive.com/home/mlive-media/width620/img/grpress/entertainment_impact/photo/10755972-standard.jpg";
             vendor11.Beers.Add(beer11);
             vendor9.Beers.Add(beer11);
+            vendor1.Beers.Add(beer11);
+            vendor2.Beers.Add(beer11);
+            vendor3.Beers.Add(beer11);
+            vendor4.Beers.Add(beer11);
+            vendor5.Beers.Add(beer11);
+            vendor6.Beers.Add(beer11);
+            vendor7.Beers.Add(beer11);
+            vendor8.Beers.Add(beer11);
+            vendor10.Beers.Add(beer11);
 
 
             beer12.Name = "Dead Arm";

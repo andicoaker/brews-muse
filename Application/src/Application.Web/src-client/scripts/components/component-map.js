@@ -32,12 +32,10 @@ export const MapComponent = React.createClass({
 		return mapPinComponents
 	},
 
-
   _handlePinHoverCB: function(vendorId){
       this.setState({
         vendorClicked : vendorId
       })
-
   },
 
   _showInfo: function(){
@@ -45,7 +43,6 @@ export const MapComponent = React.createClass({
       return (
         <h1>{this.state.vendorName}</h1>
       )
-
     }else{
       return
     }
@@ -65,7 +62,6 @@ export const MapComponent = React.createClass({
     }
 
     return (
-
       <div className={mapClassName}>
         <GoogleMapReact
           defaultZoom={zoomVal}
@@ -78,7 +74,6 @@ export const MapComponent = React.createClass({
   },
 })
 
-
 const MapPin = React.createClass({
 
   getInitialState: function(){
@@ -88,29 +83,25 @@ const MapPin = React.createClass({
   _togglePinHover: function (evt){
     this.props.showInfoCB(this.props.index)
     console.log('hello? is it me you are listening for?', evt.type);
-    //
+
     let toggleInfo
     if(this.state.isHovered){
       this.setState({
         classStyles: "selected map-pin"
-
       })
     }else{
       this.setState({
         classStyles: "map-pin"
-
       })
     }
-
   },
+
   _renderVendor: function(){
     if(this.state.isHovered){
       return (
         <span>{this.props.vendorName}</span>
       )
-
-    }
-    else{
+    } else{
       return
     }
   },
@@ -121,8 +112,6 @@ const MapPin = React.createClass({
         className={this.state.classStyles}
         onMouseEnter={this._togglePinHover}
         onClick={this._togglePinHover}>
-
-
         <i className="fa fa-map-marker fa-2x" aria-hidden="true"> {this._renderVendor()}</i>
 			</div>
 		)

@@ -33,11 +33,9 @@ export const SingleVendor = React.createClass({
     ACTIONS.routeTo(`vendorprofile/${clickedVendorId}`)
   },
 
-
   render: function(){
 
     return (
-
         <div className="media" onClick={this._handleVendorClick} data-vendor_id={this.props.vendorData.id}>
           <div className="media-left">
               <img className="media-object" src={this.props.vendorData.imageURL} alt="..."/>
@@ -50,7 +48,6 @@ export const SingleVendor = React.createClass({
             <p><a className="font2" href="">{this.props.vendorData.vendorURL}</a></p>
           </div>
         </div>
-
     )
   }
 })

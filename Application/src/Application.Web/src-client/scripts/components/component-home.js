@@ -19,7 +19,7 @@ export const HomeComponent = React.createClass({
             <div className="media">
               <div className="media-left">
                 <a href="#allvendors">
-                  <i className="fa fa-map-marker fa-4x" aria-hidden="true"></i>
+                  <i className="fa fa-map-marker fa-4x map-pin-home" aria-hidden="true"></i>
                 </a>
               </div>
               <div className="media-body">

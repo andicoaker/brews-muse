@@ -29,10 +29,11 @@ export const AllVendorsView = React.createClass({
 			<div className="container-fluid">
         <HeaderComponent/>
         <MapComponent locationsData={this.props.allVendors}/>
-        <VendorsFilterComponent/>
         <AllVendorsComponent allVendors={this.props.allVendors}/>
 
 			</div>
 		)
 	}
 })
+
+{/* <VendorsFilterComponent/> */}

@@ -12,15 +12,18 @@ export const HeaderComponent = React.createClass({
           </div>
           <div className="col-xs-8">
             <h1 className="BrewsMuse">BrewsMuse</h1>
+          </div>
+          <div className="col-xs-2">
+            <i className="fa fa-cog fa-3x float-right" aria-hidden="true"></i>
+          </div>
 
-          </div>
-          <div className='col-xs-2'>
-            <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
-          </div>
         </div>
-
     )
   }
 })
 
-      // <h3 className="">Your Source for Great Beer & Live Music</h3>
+{/* <div className='col-xs-2'>
+  <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+</div> */}
+
+      {/* // <h3 className="">Your Source for Great Beer & Live Music</h3> */}

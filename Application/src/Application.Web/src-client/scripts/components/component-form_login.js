@@ -17,17 +17,12 @@ export const LoginComponent = React.createClass({
       <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email:</label>
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" className="form-control" name="emailField" placeholder="Enter email"/>
+        <input type="text" className="form-control input-lg" name="emailField" placeholder="Enter email"/>
       </div>
       <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password:</label>
-          <input type="password" className="form-control" name="passwordField" placeholder="Enter password"/>
+          <input type="password" className="form-control input-lg" name="passwordField" placeholder="Enter password"/>
         </div>
-        {/* <div className="form-group">
-            <div className="big-checkbox">
-              <label><input type="checkbox"/> Are you a vendor?</label>
-            </div>
-        </div> */}
         <select>
             <option value="" selected disabled>Are you a Vendor?</option>
             <option value="">Yes</option>

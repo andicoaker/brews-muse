@@ -9,7 +9,7 @@ export const RegisterView = React.createClass({
 
   render: function(){
     return (
-      <div className="register-container">
+      <div className="container-fluid">
         <HeaderComponent/>
         <RegisterComponent/>
       </div>

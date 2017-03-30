@@ -8,7 +8,7 @@ import {STORE} from '../store.js'
 export const LoginView = React.createClass({
   render: function(){
     return (
-      <div className="">
+      <div className="container-fluid">
         <HeaderComponent/>
         <LoginComponent/>
       </div>

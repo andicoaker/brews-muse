@@ -17,7 +17,7 @@ export const LoginComponent = React.createClass({
       <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email:</label>
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" className="form-control" name="emailField" placeholder="Enter email"/>
+        <input type="text" className="form-control input-lg" name="emailField" placeholder="Enter email"/>
       </div>
       <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password:</label>

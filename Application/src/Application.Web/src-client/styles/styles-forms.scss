@@ -1,24 +1,36 @@
-.login-container{
-	font-size: 50px;
+.login-container {
+    font-size: 80px;
 }
 
 .register-container{
-	font-size: 50px;
+	font-size: 80px;
 }
 
-.form-control{
-	height: 60px;
-	font-size: 30px;
+.form-control {
+  height: 48px;
+  font-size: 30px;
 }
 
 h1{
-	font-size: 50px;
+	font-size: 70px;
 }
 
 button{
 	background-color: #e5d80e;
 }
 
+
 .form-inline{
 	padding: 2px;
+	text-align: center;
+}
+
+
+.submit-button{
+	width: 300px;
+	height: 100px;
+}
+
+.btn{
+	font-size: 35px;
 }

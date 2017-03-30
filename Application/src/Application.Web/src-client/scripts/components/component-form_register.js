@@ -23,7 +23,7 @@ export const RegisterComponent = React.createClass({
 
   render: function(){
     return (
-    <form onSubmit={this._handleSubmit}>
+    <form className="form-register" onSubmit={this._handleSubmit}>
        <h1>Register</h1>
         <div className="form-group">
           <label htmlFor="InputEmail">Email:</label>
@@ -38,9 +38,11 @@ export const RegisterComponent = React.createClass({
             <input type="password" className="form-control" name="passwordConfirmField" placeholder="Confirm password"/>
         </div>
         <div className="form-group">
-            <div className="checkbox">
-              <label><input type="checkbox"/> Are you a vendor?</label>
-            </div>
+          <select>
+              <option value="" selected disabled>Are you a Vendor?</option>
+              <option value="">Yes</option>
+              <option value="">No</option>
+          </select>
         </div>
         <div className="form-group">
             <button type="submit" className="btn submit-button">Sign Up</button>

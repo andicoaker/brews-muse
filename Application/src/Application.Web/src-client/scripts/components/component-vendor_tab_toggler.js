@@ -8,9 +8,8 @@ export const TabTogglerComponent = React.createClass({
   },
 
   render: function(){
-    console.log(this.props)
+    // console.log(this.props)
     return (
-
       <ul className="nav nav-tabs nav-justified">
         <li role="presentation" name="beers" className="tab active" onClick={this._handleTabClick}>
           <a  name="beers" className="tab-label" >Beers on Tap</a>
@@ -19,7 +18,6 @@ export const TabTogglerComponent = React.createClass({
           <a  name="bands" className="tab-label" >Upcoming Live Music</a>
         </li>
       </ul>
-
     )
   }
 })

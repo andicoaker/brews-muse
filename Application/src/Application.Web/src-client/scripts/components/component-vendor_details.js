@@ -2,9 +2,8 @@ import React from 'react'
 
 export const VendorDetailsComponent = React.createClass({
   render: function(){
-    console.log(this.props)
+    // console.log(this.props)
     return (
-
       <div className="media">
         <div className="media-left">
           <a href="">
@@ -25,10 +24,8 @@ export const VendorDetailsComponent = React.createClass({
             <i className="fa fa-twitter" aria-hidden="true"></i>
             <i className="fa fa-instagram" aria-hidden="true"></i>
           </p>
-
         </div>
       </div>
-
     )
   }
 })

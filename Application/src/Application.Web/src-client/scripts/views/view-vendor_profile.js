@@ -22,9 +22,7 @@ export const VendorProfileView = React.createClass({
     console.log(this.props.routeParams.vendorId);
     let theVendorId = this.props.routeParams.vendorId
     ACTIONS.fetchSingleVendor(theVendorId)
-
   },
-
 
   _renderSelectedTab: function(selectedTab, theRoute){
     // if statement - if selected tab === beers return beers list
@@ -34,7 +32,6 @@ export const VendorProfileView = React.createClass({
     }else if(this.state.viewToRender === "bands") {
       return <BandsComponent allBands={this.props.currentVendor.bands}/>
     }
-
   },
 
   _changeDetails: function(payload){
@@ -60,11 +57,9 @@ export const VendorProfileView = React.createClass({
           <HeaderComponent/>
           <VendorDetailsComponent {...this.props}/>
           <MapComponent
-            customZoomVal={19}
+            customZoomVal={18}
             customCenterCoords={vendorLatLng}
-            locationsData={[currentVendor]}
-
-           />
+            locationsData={[currentVendor]}/>
           <TabTogglerComponent
              selectedTab={this.state.viewToRender}
              handleViewChange={this._changeDetails}/>

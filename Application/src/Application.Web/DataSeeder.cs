@@ -470,7 +470,7 @@ namespace Application.Web
             beer11.AlcoholContent = 7.0m;
             beer11.ImageURL = "http://image.mlive.com/home/mlive-media/width620/img/grpress/entertainment_impact/photo/10755972-standard.jpg";
             vendor11.Beers.Add(beer11);
-            vendor10.Beers.Add(beer11);
+            vendor9.Beers.Add(beer11);
 
 
             beer12.Name = "Dead Arm";

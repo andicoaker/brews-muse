@@ -146,12 +146,17 @@ label {
 .profile-map {
   height: 200px; }
 
-.tab .active {
+.tab {
   height: 75px;
   font-size: 30px;
   background-color: #7a6c6c;
-  color: lightgray;
-  padding-top: 25px; }
+  color: #ddd;
+  text-align: center;
+  padding: 14px; }
+
+.tab-active {
+  background: #ddd;
+  color: #7a6c6c; }
 
 * {
   box-sizing: border-box;

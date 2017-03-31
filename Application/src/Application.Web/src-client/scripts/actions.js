@@ -25,14 +25,14 @@ export const ACTIONS = {
 
   registerNewUser: function(newUserInfoObj){
 		UserModel.register(newUserInfoObj).then(function(serverRes){
-			ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+        ACTIONS.routeTo('allvendors')
 		})
 	},
 
   loginUser: function(user, password){
 		UserModel.logIn(user, password).then(function(serverRes){
 			STORE.setStore('currentUser', serverRes)
-      ACTIONS.changeCurrentNav('VENDOR_ACCOUNT', 'vendoraccount')
+              ACTIONS.routeTo('vendoraccount')
 		})
 	},
 
@@ -40,7 +40,7 @@ export const ACTIONS = {
     let vendorInstance = new VendorProfileModel()
       vendorInstance.set(vendorData)
       vendorInstance.save().then(function(s){
-        ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+        ACTIONS.routeTo('allvendors')
       })
   },
 

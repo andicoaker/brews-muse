@@ -6,7 +6,8 @@ export const MapComponent = React.createClass({
 
   getInitialState: function(){
     return {
-      vendorClicked: ""
+      vendorClicked: "",
+		locationsData: this.props.locationsData
     }
   },
 
@@ -48,6 +49,43 @@ export const MapComponent = React.createClass({
     }
   },
 
+  componentWillReceiveProps: function(nextProps){
+	//   this.setState({
+	// 		locationsData: nextProps.locationsData
+	//   })
+  }, 
+
+  _handleAddClick: function(evt){
+	  if (this.props.fromComponent !== 'form-update') return
+
+	  if(evt.type === 'mousedown'){
+			console.log(evt.type)
+         this.setState({
+				mouseDownTimestamp: Date.now()
+			})
+	  }
+
+	  if(evt.type === 'mouseup'){
+		  console.log(evt.type)
+        this.setState({
+				mouseDownTimestamp: null,
+			   userWillDropPin: Date.now() - this.state.mouseDownTimestamp > 700 
+		  })
+	  }
+	
+	  if(evt.type === 'click' && this.state.userWillDropPin){
+		 console.log(evt)
+		 this.props.addUserPinToMap(evt)
+		  
+        this.setState({
+  			   userWillDropPin: false,
+				locationsData: [{lng: evt.lng, lat: evt.lat, vendorName: '', index: 0 }]
+  		  })
+  	  }
+		
+     
+  },
+
   render: function(){
     let zoomVal = 15
     let centerCoords = {lat: 32.782618, lng: -79.935918}
@@ -62,11 +100,13 @@ export const MapComponent = React.createClass({
     }
 
     return (
-      <div className={mapClassName}>
+      <div className={mapClassName} onMouseDown={this._handleAddClick} onMouseUp={this._handleAddClick}>
         <GoogleMapReact
           defaultZoom={zoomVal}
-          defaultCenter={centerCoords}>
-          {this._createMapPins(this.props.locationsData)}
+          defaultCenter={centerCoords}
+		    onClick={(coords)=>{ this._handleAddClick( Object.assign(coords, {type: 'click'}) )  }}
+			 >
+          {this._createMapPins(this.state.locationsData)}
         </GoogleMapReact>
         {this._showInfo()}
       </div>

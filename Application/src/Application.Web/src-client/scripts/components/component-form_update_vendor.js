@@ -1,5 +1,6 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
+import {MapComponent} from './component-map'
 
 export const CreateVendorComponent = React.createClass({
 
@@ -28,6 +29,8 @@ export const CreateVendorComponent = React.createClass({
          address: formEl.inputAddress.value,
          city: formEl.inputCity.value,
          state: formEl.inputState.value,
+			lat: this.state.userLat,
+			lng: this.state.userLng,
          zipCode: formEl.inputZip.value,
          vendorURL: formEl.inputWebsite.value,
          imageURL: formEl.inputImage.value,
@@ -36,9 +39,10 @@ export const CreateVendorComponent = React.createClass({
          beers: [beerToSave],
          bands: [bandToSave]
      }
+	
+	console.log('saving.....', objToSave)
 
-    ACTIONS.setNewVendor(objToSave)
-    ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
+    ACTIONS.setNewVendor(objToSave) //  ACTIONS.changeCurrentNav('ALL_VENDORS', 'allvendors')
     console.log(objToSave)
    },
 
@@ -82,6 +86,14 @@ export const CreateVendorComponent = React.createClass({
           <div className="form-group account-form_inputs">
               <input type="text" className="form-control_large font2" name="inputImage" placeholder="Vendor Logo URL"/>
           </div>
+
+          <h1>Where are You?</h1>
+          <MapComponent fromComponent="form-update" addUserPinToMap={(data)=>{
+					this.setState({
+						userLat: data.lat,
+						userLng: data.lng
+					})
+			  }}/>
 
           <h1 className="account-header">Beers on Tap</h1>
           <div className="form-group account-form_inputs">
